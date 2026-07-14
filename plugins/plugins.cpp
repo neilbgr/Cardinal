@@ -49,6 +49,9 @@ extern Model* modelDivisions;
 // AmalgamatedHarmonics
 #include "AmalgamatedHarmonics/src/AH.hpp"
 
+// AmbientModules
+#include "AmbientModules/src/plugin.hpp"
+
 // AnimatedCircuits
 #include "AnimatedCircuits/src/plugin.hpp"
 
@@ -964,6 +967,7 @@ Plugin* pluginInstance__admiral;
 Plugin* pluginInstance__alefsbits;
 Plugin* pluginInstance__Algoritmarte;
 Plugin* pluginInstance__AmalgamatedHarmonics;
+Plugin* pluginInstance__AmbientModules;
 Plugin* pluginInstance__ArableInstruments;
 Plugin* pluginInstance__AnimatedCircuits;
 Plugin* pluginInstance__Aria;
@@ -1396,6 +1400,18 @@ static void initStatic__AmalgamatedHarmonics()
         p->addModel(modelScaleQuantizer);
         p->addModel(modelArpeggiator2);
         p->addModel(modelProgress);
+    }
+}
+
+static void initStatic__AmbientModules()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__AmbientModules = p;
+
+    const StaticPluginLoader spl(p, "AmbientModules");
+    if (spl.ok())
+    {
+        p->addModel(modelBlank);
     }
 }
 
@@ -3738,6 +3754,7 @@ void initStaticPlugins()
     initStatic__alefsbits();
     initStatic__Algoritmarte();
     initStatic__AmalgamatedHarmonics();
+    initStatic__AmbientModules();
     initStatic__AnimatedCircuits();
     initStatic__ArableInstruments();
     initStatic__Aria();

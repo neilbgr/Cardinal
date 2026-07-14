@@ -355,6 +355,11 @@ AMALGAMATEDHARMONICS_CUSTOM = BasePinkNoiseGenerator EvenVCO LowFrequencyOscilla
 AMALGAMATEDHARMONICS_CUSTOM += bogaudio
 
 # --------------------------------------------------------------
+# AmbientModules
+
+PLUGIN_FILES += $(wildcard AmbientModules/src/*.cpp)
+
+# --------------------------------------------------------------
 # AnimatedCircuits
 
 PLUGIN_FILES += $(wildcard AnimatedCircuits/src/Folding/*.cpp)
@@ -2197,6 +2202,12 @@ $(BUILD_DIR)/AmalgamatedHarmonics/%.cpp.o: AmalgamatedHarmonics/%.cpp
 	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
 		$(foreach m,$(AMALGAMATEDHARMONICS_CUSTOM),$(call custom_module_names,$(m),AmalgamatedHarmonics)) \
 		-DpluginInstance=pluginInstance__AmalgamatedHarmonics
+
+$(BUILD_DIR)/AmbientModules/%.cpp.o: AmbientModules/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__AmbientModules
 
 $(BUILD_DIR)/AnimatedCircuits/%.cpp.o: AnimatedCircuits/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
