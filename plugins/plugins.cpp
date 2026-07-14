@@ -840,6 +840,10 @@ extern Model* modelBlankPanel;
 #include "Prism/src/plugin.hpp"
 
 // rackwindows
+// `near`/`far` are legacy MinGW/Windows memory-model macros (defined empty)
+// that clash with rwlib.h's local variables of the same name
+#undef near
+#undef far
 #include "rackwindows/src/plugin.hpp"
 
 // RCM
