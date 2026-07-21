@@ -1419,6 +1419,7 @@ static void initStatic__AmbientModules()
         p->addModel(modelSolar50Drone);
         p->addModel(modelSolarLFO);
         p->addModel(modelSolarVCO);
+        p->addModel(modelSolarPapaSrapa);
     }
 }
 
