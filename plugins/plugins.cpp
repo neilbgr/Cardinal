@@ -1416,10 +1416,10 @@ static void initStatic__AmbientModules()
     if (spl.ok())
     {
         p->addModel(modelBlank);
-        p->addModel(modelSolar50Drone);
-        p->addModel(modelSolarLFO);
-        p->addModel(modelSolarVCO);
-        p->addModel(modelSolarPapaSrapa);
+        p->addModel(modelLunar50Drone);
+        p->addModel(modelLunarLFO);
+        p->addModel(modelLunarVCO);
+        p->addModel(modelLunarPapaSrapa);
     }
 }
 
