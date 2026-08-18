@@ -269,3 +269,6 @@
 [submodule "plugins/AmbientModules"]
 	path = plugins/AmbientModules
 	url = https://github.com/neilbgr/AmbientModules.git
+[submodule "plugins/Aluminium"]
+	path = plugins/Aluminium
+	url = https://github.com/neilbgr/Aluminium.git

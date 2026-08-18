@@ -46,6 +46,9 @@ extern Model* modelDivisions;
 // Algoritmarte
 #include "Algoritmarte/src/plugin.hpp"
 
+// Aluminium
+#include "Aluminium/src/plugin.hpp"
+
 // AmalgamatedHarmonics
 #include "AmalgamatedHarmonics/src/AH.hpp"
 
@@ -970,6 +973,7 @@ extern Plugin* pluginInstance__AaronStatic;
 Plugin* pluginInstance__admiral;
 Plugin* pluginInstance__alefsbits;
 Plugin* pluginInstance__Algoritmarte;
+Plugin* pluginInstance__Aluminium;
 Plugin* pluginInstance__AmalgamatedHarmonics;
 Plugin* pluginInstance__AmbientModules;
 Plugin* pluginInstance__ArableInstruments;
@@ -1372,6 +1376,18 @@ static void initStatic__Algoritmarte()
         p->addModel(modelHoldMeTight);
         p->addModel(modelCyclicCA);
         p->addModel(modelMusiMath);
+    }
+}
+
+static void initStatic__Aluminium()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__Aluminium = p;
+
+    const StaticPluginLoader spl(p, "Aluminium");
+    if (spl.ok())
+    {
+        p->addModel(modelAlSplitter);
     }
 }
 
@@ -3761,6 +3777,7 @@ void initStaticPlugins()
     initStatic__admiral();
     initStatic__alefsbits();
     initStatic__Algoritmarte();
+    initStatic__Aluminium();
     initStatic__AmalgamatedHarmonics();
     initStatic__AmbientModules();
     initStatic__AnimatedCircuits();

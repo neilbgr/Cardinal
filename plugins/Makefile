@@ -333,6 +333,11 @@ ALEFSBITS_CUSTOM = Steps Logic
 PLUGIN_FILES += $(filter-out Algoritmarte/src/plugin.cpp,$(wildcard Algoritmarte/src/*.cpp))
 
 # --------------------------------------------------------------
+# Aluminium
+
+PLUGIN_FILES += $(wildcard Aluminium/src/*.cpp)
+
+# --------------------------------------------------------------
 # Aaron Static
 
 PLUGIN_FILES += $(wildcard AaronStatic/src/*.cpp)
@@ -2195,6 +2200,12 @@ $(BUILD_DIR)/Algoritmarte/%.cpp.o: Algoritmarte/%.cpp
 	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
 		$(foreach m,$(ALGORITMARTE_CUSTOM),$(call custom_module_names,$(m),Algoritmarte)) \
 		-DpluginInstance=pluginInstance__Algoritmarte
+
+$(BUILD_DIR)/Aluminium/%.cpp.o: Aluminium/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__Aluminium
 
 $(BUILD_DIR)/AmalgamatedHarmonics/%.cpp.o: AmalgamatedHarmonics/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
