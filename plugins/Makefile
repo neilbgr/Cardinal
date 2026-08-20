@@ -1491,6 +1491,7 @@ RESOURCE_FILES = \
 
 RESOURCE_FILES += $(wildcard */presets)
 RESOURCE_FILES += $(wildcard Orbits/res/*.json)
+RESOURCE_FILES += Aluminium/res/Brushed.png
 RESOURCE_FILES += ArableInstruments/res/Joni.png
 RESOURCE_FILES += BaconPlugs/res/Keypunch029.json
 RESOURCE_FILES += BaconPlugs/res/midi/chopin
