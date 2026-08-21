@@ -298,15 +298,39 @@ void WindowSetPluginRemote(Window* const window, NanoTopLevelWidget* const tlw)
 		{
 			font.second->vg = window->vg;
 			font.second->ohandle = font.second->handle;
-			font.second->handle = nvgCreateFont(window->vg,
-			                                    font.second->ofilename.c_str(), font.second->ofilename.c_str());
+			// Reload via readFile+CreateMem (like Font::loadFile) instead of nvgCreateFont,
+			// which reads the file itself and doesn't properly handle UTF-8 filenames on Windows.
+			try {
+				size_t size = 0;
+				uint8_t* data = system::readFile(font.second->ofilename, &size);
+				font.second->handle = nvgCreateFontMem(window->vg, font.second->ofilename.c_str(), data, size, 1);
+			}
+			catch (Exception& e) {
+				WARN("%s", e.what());
+				font.second->handle = -1;
+			}
+			if (font.second->handle < 0)
+				WARN("Failed to reload font %s after context switch", font.second->ofilename.c_str());
 		}
 		for (auto& image : window->internal->imageCache)
 		{
 			image.second->vg = window->vg;
 			image.second->ohandle = image.second->handle;
-			image.second->handle = nvgCreateImage(window->vg, image.second->ofilename.c_str(),
-			                                      NVG_IMAGE_REPEATX | NVG_IMAGE_REPEATY);
+			// Reload via readFile+CreateImageMem (like Image::loadFile) instead of nvgCreateImage,
+			// which reads the file itself and doesn't properly handle UTF-8 filenames on Windows.
+			// Also, unlike the original code here, actually check for failure instead of silently
+			// keeping whatever handle nvgCreateImage happened to return.
+			try {
+				const std::vector<uint8_t> data = system::readFile(image.second->ofilename);
+				image.second->handle = nvgCreateImageMem(window->vg, NVG_IMAGE_REPEATX | NVG_IMAGE_REPEATY,
+				                                         data.data(), data.size());
+			}
+			catch (Exception& e) {
+				WARN("%s", e.what());
+				image.second->handle = -1;
+			}
+			if (image.second->handle <= 0)
+				WARN("Failed to reload image %s after context switch", image.second->ofilename.c_str());
 		}
 #endif
 
@@ -411,15 +435,39 @@ void WindowSetPluginUI(Window* const window, CardinalBaseUI* const ui)
 		{
 			font.second->vg = window->vg;
 			font.second->ohandle = font.second->handle;
-			font.second->handle = nvgCreateFont(window->vg,
-			                                    font.second->ofilename.c_str(), font.second->ofilename.c_str());
+			// Reload via readFile+CreateMem (like Font::loadFile) instead of nvgCreateFont,
+			// which reads the file itself and doesn't properly handle UTF-8 filenames on Windows.
+			try {
+				size_t size = 0;
+				uint8_t* data = system::readFile(font.second->ofilename, &size);
+				font.second->handle = nvgCreateFontMem(window->vg, font.second->ofilename.c_str(), data, size, 1);
+			}
+			catch (Exception& e) {
+				WARN("%s", e.what());
+				font.second->handle = -1;
+			}
+			if (font.second->handle < 0)
+				WARN("Failed to reload font %s after context switch", font.second->ofilename.c_str());
 		}
 		for (auto& image : window->internal->imageCache)
 		{
 			image.second->vg = window->vg;
 			image.second->ohandle = image.second->handle;
-			image.second->handle = nvgCreateImage(window->vg, image.second->ofilename.c_str(),
-			                                      NVG_IMAGE_REPEATX | NVG_IMAGE_REPEATY);
+			// Reload via readFile+CreateImageMem (like Image::loadFile) instead of nvgCreateImage,
+			// which reads the file itself and doesn't properly handle UTF-8 filenames on Windows.
+			// Also, unlike the original code here, actually check for failure instead of silently
+			// keeping whatever handle nvgCreateImage happened to return.
+			try {
+				const std::vector<uint8_t> data = system::readFile(image.second->ofilename);
+				image.second->handle = nvgCreateImageMem(window->vg, NVG_IMAGE_REPEATX | NVG_IMAGE_REPEATY,
+				                                         data.data(), data.size());
+			}
+			catch (Exception& e) {
+				WARN("%s", e.what());
+				image.second->handle = -1;
+			}
+			if (image.second->handle <= 0)
+				WARN("Failed to reload image %s after context switch", image.second->ofilename.c_str());
 		}
 #endif
 
