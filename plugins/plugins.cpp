@@ -1388,6 +1388,10 @@ static void initStatic__Aluminium()
     if (spl.ok())
     {
         p->addModel(modelAlSplitter);
+        p->addModel(modelAlGate);
+        p->addModel(modelAlVelocityExpander);
+        p->addModel(modelAlAftertouchExpander);
+        p->addModel(modelAlRetriggerExpander);
     }
 }
 
@@ -1436,6 +1440,7 @@ static void initStatic__AmbientModules()
         p->addModel(modelLunarLFO);
         p->addModel(modelLunarVCO);
         p->addModel(modelLunarPapaSrapa);
+        p->addModel(modelLunarSequencer);
     }
 }
 
