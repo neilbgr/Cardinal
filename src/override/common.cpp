@@ -48,7 +48,7 @@ FILE* fopen_wasm(const char* filename, const char* mode) {
 
 namespace rack {
 
-const std::string APP_NAME = "Cardinal";
+const std::string APP_NAME = "Cardinal (neilbgr edition)";
 const std::string APP_EDITION = getPluginFormatName();
 const std::string APP_EDITION_NAME = "Audio Plugin";
 const std::string APP_VERSION_MAJOR = "2";

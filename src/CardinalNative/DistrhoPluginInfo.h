@@ -36,7 +36,7 @@
 # define DISTRHO_PLUGIN_NAME  "Mini Cardinal"
 # define DISTRHO_PLUGIN_LABEL "MiniCardinal"
 #else
-# define DISTRHO_PLUGIN_NAME  "Cardinal"
+# define DISTRHO_PLUGIN_NAME  "Cardinal (neilbgr edition)"
 # define DISTRHO_PLUGIN_LABEL "Cardinal"
 #endif
 
