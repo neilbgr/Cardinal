@@ -1387,9 +1387,9 @@ static void initStatic__Aluminium()
     const StaticPluginLoader spl(p, "Aluminium");
     if (spl.ok())
     {
-        p->addModel(modelAlSplitter);
-        p->addModel(modelAlGate);
-        p->addModel(modelAlGateExpander);
+        p->addModel(modelZones);
+        p->addModel(modelPads);
+        p->addModel(modelPadX);
     }
 }
 
