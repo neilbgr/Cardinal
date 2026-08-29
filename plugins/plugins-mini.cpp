@@ -84,6 +84,7 @@ extern Model* modelDGate;
 extern Model* modelVCAmp;
 extern Model* modelMix8x;
 extern Model* modelReftone;
+extern Model* modelMatrix81;
 // MockbaModular
 #include "MockbaModular/src/plugin.hpp"
 #include "MockbaModular/src/MockbaModular.hpp"
@@ -206,6 +207,29 @@ extern Model* modelBisetBlank;
 // alefsbits
 extern Model* modelLights;
 
+// HetrickCV (HETRICKCV_CUSTOM in plugins/Makefile renames these at compile
+// time -- see plugins.cpp's own initStatic__HetrickCV for the same pattern)
+#define modelMinMax modelHetrickCVMinMax
+#define modelMidSide modelHetrickCVMidSide
+extern Model* modelMinMax;
+extern Model* modelMidSide;
+#undef modelMinMax
+#undef modelMidSide
+
+// CellaVCV
+extern Model* modelLoud;
+extern Model* modelLoudnessMeter;
+
+// Kilpatrick-Toolbox
+extern Model* modelStereo_Meter;
+extern Model* modelMulti_Meter;
+
+// mschack-VCV-Rack-Plugins
+extern Model* modelPingPong;
+
+// kathode
+extern Model* modelKathode;
+
 // known terminal modules
 std::vector<Model*> hostTerminalModels;
 
@@ -238,6 +262,11 @@ Plugin* pluginInstance__submit_vcv_modules;
 Plugin* pluginInstance__Venom;
 Plugin* pluginInstance__Autinn;
 Plugin* pluginInstance__Biset;
+Plugin* pluginInstance__HetrickCV;
+Plugin* pluginInstance__CellaVCV;
+extern Plugin* pluginInstance__Kilpatrick_Toolbox;
+extern Plugin* pluginInstance__mschack_VCV_Rack_Plugins;
+extern Plugin* pluginInstance__kathode;
 extern Plugin* pluginInstance__alefsbits;
 namespace rack {
 
@@ -545,6 +574,7 @@ static void initStatic__BogaudioModules()
         p->addModel(modelVCAmp);
         p->addModel(modelMix8x);
         p->addModel(modelReftone);
+        p->addModel(modelMatrix81);
         // cat plugins/BogaudioModules/plugin.json  | jq -r .modules[].slug - | sort
         spl.removeModule("Bogaudio-Additator");
         spl.removeModule("Bogaudio-AMRM");
@@ -579,7 +609,6 @@ static void initStatic__BogaudioModules()
         spl.removeModule("Bogaudio-Matrix18");
         spl.removeModule("Bogaudio-Matrix44");
         spl.removeModule("Bogaudio-Matrix44Cvm");
-        spl.removeModule("Bogaudio-Matrix81");
         spl.removeModule("Bogaudio-Matrix88");
         spl.removeModule("Bogaudio-Matrix88Cv");
         spl.removeModule("Bogaudio-Matrix88M");
@@ -1639,6 +1668,195 @@ static void initStatic__alefsbits()
     }
 }
 
+static void initStatic__HetrickCV()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__HetrickCV = p;
+
+    const StaticPluginLoader spl(p, "HetrickCV");
+    if (spl.ok())
+    {
+#define modelMinMax modelHetrickCVMinMax
+#define modelMidSide modelHetrickCVMidSide
+        p->addModel(modelMinMax);
+        p->addModel(modelMidSide);
+#undef modelMinMax
+#undef modelMidSide
+        spl.removeModule("2To4");
+        spl.removeModule("ASR");
+        spl.removeModule("AmplitudeShaper");
+        spl.removeModule("AnalogToDigital");
+        spl.removeModule("BinaryCounter");
+        spl.removeModule("BinaryGate");
+        spl.removeModule("BinaryNoise");
+        spl.removeModule("Bitshift");
+        spl.removeModule("BlankPanel");
+        spl.removeModule("Boolean3");
+        spl.removeModule("Chaos1Op");
+        spl.removeModule("Chaos2Op");
+        spl.removeModule("Chaos3Op");
+        spl.removeModule("ChaoticAttractors");
+        spl.removeModule("ClockToPhasor");
+        spl.removeModule("ClockedNoise");
+        spl.removeModule("Comparator");
+        spl.removeModule("Contrast");
+        spl.removeModule("Crackle");
+        spl.removeModule("DataCompander");
+        spl.removeModule("Delta");
+        spl.removeModule("DigitalToAnalog");
+        spl.removeModule("Dust");
+        spl.removeModule("Exponent");
+        spl.removeModule("FBSineChaos");
+        spl.removeModule("FlipFlop");
+        spl.removeModule("FlipPan");
+        spl.removeModule("GateDelay");
+        spl.removeModule("GateJunction");
+        spl.removeModule("GateJunctionExp");
+        spl.removeModule("Gingerbread");
+        spl.removeModule("LogicCombine");
+        spl.removeModule("Normals");
+        spl.removeModule("PhaseDrivenSequencer");
+        spl.removeModule("PhaseDrivenSequencer32");
+        spl.removeModule("PhasorAnalyzer");
+        spl.removeModule("PhasorBurstGen");
+        spl.removeModule("PhasorDivMult");
+        spl.removeModule("PhasorEuclidean");
+        spl.removeModule("PhasorFreezer");
+        spl.removeModule("PhasorGates");
+        spl.removeModule("PhasorGates32");
+        spl.removeModule("PhasorGates64");
+        spl.removeModule("PhasorGen");
+        spl.removeModule("PhasorGeometry");
+        spl.removeModule("PhasorHumanizer");
+        spl.removeModule("PhasorMixer");
+        spl.removeModule("PhasorOctature");
+        spl.removeModule("PhasorProbability");
+        spl.removeModule("PhasorQuadrature");
+        spl.removeModule("PhasorRandom");
+        spl.removeModule("PhasorRanger");
+        spl.removeModule("PhasorReset");
+        spl.removeModule("PhasorRhythmGroup");
+        spl.removeModule("PhasorShape");
+        spl.removeModule("PhasorShift");
+        spl.removeModule("PhasorSplitter");
+        spl.removeModule("PhasorStutter");
+        spl.removeModule("PhasorSubstepShape");
+        spl.removeModule("PhasorSwing");
+        spl.removeModule("PhasorTimetable");
+        spl.removeModule("PhasorToClock");
+        spl.removeModule("PhasorToLFO");
+        spl.removeModule("PhasorToRandom");
+        spl.removeModule("PhasorToWaveforms");
+        spl.removeModule("PolymetricPhasors");
+        spl.removeModule("Probability");
+        spl.removeModule("RandomGates");
+        spl.removeModule("Rotator");
+        spl.removeModule("Rungler");
+        spl.removeModule("Scanner");
+        spl.removeModule("TrigShaper");
+        spl.removeModule("VectorMix");
+        spl.removeModule("Waveshaper");
+        spl.removeModule("XYToPolar");
+    }
+}
+
+static void initStatic__CellaVCV()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__CellaVCV = p;
+
+    const StaticPluginLoader spl(p, "CellaVCV");
+    if (spl.ok())
+    {
+        p->addModel(modelLoud);
+        p->addModel(modelLoudnessMeter);
+        spl.removeModule("2State");
+        spl.removeModule("Bezier");
+        spl.removeModule("Bytebeat");
+        spl.removeModule("CognitiveShift");
+        spl.removeModule("Euler");
+        spl.removeModule("FrequencyAnalyzer");
+        spl.removeModule("Integral");
+        spl.removeModule("LoudnessCV");
+        spl.removeModule("Resonators");
+        spl.removeModule("Rich");
+        spl.removeModule("Spectrum");
+        spl.removeModule("TwinPeaks");
+    }
+}
+
+static void initStatic__Kilpatrick_Toolbox()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__Kilpatrick_Toolbox = p;
+
+    const StaticPluginLoader spl(p, "Kilpatrick-Toolbox");
+    if (spl.ok())
+    {
+        p->addModel(modelStereo_Meter);
+        p->addModel(modelMulti_Meter);
+        spl.removeModule("MIDI_CC_Note");
+        spl.removeModule("MIDI_CV");
+        spl.removeModule("MIDI_Channel");
+        spl.removeModule("MIDI_Clock");
+        spl.removeModule("MIDI_Input");
+        spl.removeModule("MIDI_Mapper");
+        spl.removeModule("MIDI_Merger");
+        spl.removeModule("MIDI_Monitor");
+        spl.removeModule("MIDI_Output");
+        spl.removeModule("MIDI_Repeater");
+        spl.removeModule("Quad_Decoder");
+        spl.removeModule("Quad_Encoder");
+        spl.removeModule("Quad_Panner");
+        spl.removeModule("Test_Osc");
+    }
+}
+
+static void initStatic__mschack_VCV_Rack_Plugins()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__mschack_VCV_Rack_Plugins = p;
+
+    const StaticPluginLoader spl(p, "mschack-VCV-Rack-Plugins");
+    if (spl.ok())
+    {
+        p->addModel(modelPingPong);
+        spl.removeModule("ARP700");
+        spl.removeModule("ASAF8");
+        spl.removeModule("Alienz");
+        spl.removeModule("Compressor1");
+        spl.removeModule("Dronez");
+        spl.removeModule("Lorenz");
+        spl.removeModule("MasterClockx4");
+        spl.removeModule("Maude221");
+        spl.removeModule("Mix_16_4_4");
+        spl.removeModule("Mix_24_4_4");
+        spl.removeModule("Mix_4_0_4");
+        spl.removeModule("Mix_9_3_4");
+        spl.removeModule("Morze");
+        spl.removeModule("OSC_WaveMorph_3");
+        spl.removeModule("Osc_3Ch_Widget");
+        spl.removeModule("SEQ_Envelope_8");
+        spl.removeModule("Seq_6ch_32step");
+        spl.removeModule("StepDelay");
+        spl.removeModule("SynthDrums");
+        spl.removeModule("TriadSeq2");
+        spl.removeModule("Windz");
+    }
+}
+
+static void initStatic__kathode()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__kathode = p;
+
+    const StaticPluginLoader spl(p, "kathode");
+    if (spl.ok())
+    {
+        p->addModel(modelKathode);
+    }
+}
+
 void initStaticPlugins()
 {
     initStatic__Cardinal();
@@ -1688,6 +1906,16 @@ void initStaticPlugins()
     initStatic__Biset();
 
     initStatic__alefsbits();
+
+    initStatic__HetrickCV();
+
+    initStatic__CellaVCV();
+
+    initStatic__Kilpatrick_Toolbox();
+
+    initStatic__mschack_VCV_Rack_Plugins();
+
+    initStatic__kathode();
 }
 
 void destroyStaticPlugins()

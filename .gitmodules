@@ -284,3 +284,15 @@
 [submodule "plugins/submit-vcv-modules"]
 	path = plugins/submit-vcv-modules
 	url = https://github.com/submitaudio/submit-vcv-modules.git
+[submodule "plugins/CellaVCV"]
+	path = plugins/CellaVCV
+	url = https://github.com/victorkashirin/CellaVCV.git
+[submodule "plugins/Kilpatrick-Toolbox"]
+	path = plugins/Kilpatrick-Toolbox
+	url = https://github.com/kilpatrickaudio/Kilpatrick-Toolbox.git
+[submodule "plugins/mschack-VCV-Rack-Plugins"]
+	path = plugins/mschack-VCV-Rack-Plugins
+	url = https://github.com/baconpaul/mschack-VCV-Rack-Plugins.git
+[submodule "plugins/kathode"]
+	path = plugins/kathode
+	url = https://github.com/ketodin/kathode.git

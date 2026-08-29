@@ -691,6 +691,7 @@ MINIPLUGIN_FILES += BogaudioModules/src/slew_common.cpp
 MINIPLUGIN_FILES += BogaudioModules/src/mixer_expander.cpp
 MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/equalizer.cpp
 MINIPLUGIN_FILES += BogaudioModules/src/output_range.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Matrix81.cpp
 MINIPLUGIN_FILES += BogaudioModules-helper/BogaudioModules-helper.cpp
 
 # modules/types which are present in other plugins
@@ -1332,6 +1333,30 @@ MINIPLUGIN_FILES += Biset/src/Blank/BlankCables.cpp
 MINIPLUGIN_FILES += alefsbits/src/lights.cpp
 MINIPLUGIN_FILES += alefsbits/src/widgets/PanelBackground.cpp
 MINIPLUGIN_FILES += alefsbits-mini-shim.cpp
+MINIPLUGIN_FILES += HetrickCV/src/MinMax.cpp
+MINIPLUGIN_FILES += HetrickCV/src/MidSide.cpp
+MINIPLUGIN_FILES += HetrickCV/src/HetrickUtilities.cpp
+MINIPLUGIN_FILES += HetrickCV/Gamma/src/arr.cpp
+MINIPLUGIN_FILES += HetrickCV/Gamma/src/Domain.cpp
+MINIPLUGIN_FILES += HetrickCV/Gamma/src/scl.cpp
+MINIPLUGIN_FILES += CellaVCV/src/Loud.cpp
+MINIPLUGIN_FILES += CellaVCV/src/LoudnessMeter.cpp
+MINIPLUGIN_FILES += CellaVCV/deps/ebur128/ebur128.c
+# LoudnessCV is not itself favorited (spl.removeModule()'d below), but Loud's
+# and LoudnessMeter's own context-menu code unconditionally references its
+# modelLoudnessCV/addLoudnessCVExpander -- must still compile+link it.
+MINIPLUGIN_FILES += CellaVCV/src/LoudnessCV.cpp
+MINIPLUGIN_FILES += Kilpatrick-Toolbox/src/Stereo_Meter.cpp
+MINIPLUGIN_FILES += Kilpatrick-Toolbox/src/Multi_Meter.cpp
+MINIPLUGIN_FILES += Kilpatrick-Toolbox/src/utils/DspUtils2.cpp
+MINIPLUGIN_FILES += Kilpatrick-Toolbox-mini-shim.cpp
+MINIPLUGIN_FILES += mschack-VCV-Rack-Plugins/src/PingPong.cpp
+MINIPLUGIN_FILES += mschack-VCV-Rack-Plugins-mini-shim.cpp
+MINIPLUGIN_FILES += kathode/src/Kathode.cpp
+MINIPLUGIN_FILES += kathode/src/KathodeModule.cpp
+MINIPLUGIN_FILES += kathode/src/KathodeModuleWidget.cpp
+MINIPLUGIN_FILES += kathode/src/KathodeDisplay.cpp
+MINIPLUGIN_FILES += kathode/src/plugin.cpp
 
 # --------------------------------------------------------------
 # unless_modules
@@ -2897,6 +2922,71 @@ MINIRESOURCE_FILES += alefsbits/res/slips.svg
 MINIRESOURCE_FILES += alefsbits/res/slipspander.svg
 MINIRESOURCE_FILES += alefsbits/res/steps.svg
 MINIRESOURCE_FILES += alefsbits/res/turnt.svg
+MINIRESOURCE_FILES += HetrickCV/res/Blanks/BlankPanel1.svg
+MINIRESOURCE_FILES += HetrickCV/res/Blanks/BlankPanel2.svg
+MINIRESOURCE_FILES += HetrickCV/res/Blanks/BlankPanel3.svg
+MINIRESOURCE_FILES += HetrickCV/res/Blanks/BlankPanel7.svg
+MINIRESOURCE_FILES += HetrickCV/res/Blanks/BlankPanel8.svg
+MINIRESOURCE_FILES += HetrickCV/res/CKSS_rot_0.svg
+MINIRESOURCE_FILES += HetrickCV/res/CKSS_rot_1.svg
+MINIRESOURCE_FILES += HetrickCV/res/MidSide.svg
+MINIRESOURCE_FILES += CellaVCV/res/2State-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/2State.svg
+MINIRESOURCE_FILES += CellaVCV/res/Bezier-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Bezier.svg
+MINIRESOURCE_FILES += CellaVCV/res/Byte-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Byte.svg
+MINIRESOURCE_FILES += CellaVCV/res/CognitiveShift-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/CognitiveShift.svg
+MINIRESOURCE_FILES += CellaVCV/res/Euler-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Euler.svg
+MINIRESOURCE_FILES += CellaVCV/res/FrequencyAnalyzer-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/FrequencyAnalyzer.svg
+MINIRESOURCE_FILES += CellaVCV/res/Integral-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Integral.svg
+MINIRESOURCE_FILES += CellaVCV/res/Loud-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Loud.svg
+MINIRESOURCE_FILES += CellaVCV/res/LoudnessCV-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/LoudnessCV.svg
+MINIRESOURCE_FILES += CellaVCV/res/LoudnessMeter-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/LoudnessMeter.svg
+MINIRESOURCE_FILES += CellaVCV/res/Resonators-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Resonators.svg
+MINIRESOURCE_FILES += CellaVCV/res/Rich-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Rich.svg
+MINIRESOURCE_FILES += CellaVCV/res/Spectrum-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/Spectrum.svg
+MINIRESOURCE_FILES += CellaVCV/res/TwinPeaks-dark.svg
+MINIRESOURCE_FILES += CellaVCV/res/TwinPeaks.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/LargeFresnelLight.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/MediumFresnelLight.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/ScrewDark.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/ScrewGrey.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/VCVButtonHuge_0.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/VCVButtonHuge_1.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/VCVButtonTiny_0.svg
+MINIRESOURCE_FILES += CellaVCV/res/components/VCVButtonTiny_1.svg
+MINIRESOURCE_FILES += CellaVCV/res/fonts/JetBrainsMono-Medium.ttf
+MINIRESOURCE_FILES += CellaVCV/res/fonts/SofiaSansExtraCondensed-Regular.ttf
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_CC_Note.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_CV.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Channel.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Clock.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Input.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Mapper.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Merger.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Monitor.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Output.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/MIDI_Repeater.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/Multi_Meter.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/Quad_Decoder.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/Quad_Encoder.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/Quad_Panner.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/Stereo_Meter.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/Test_Osc.svg
+MINIRESOURCE_FILES += Kilpatrick-Toolbox/res/components/fixedsys.ttf
+MINIRESOURCE_FILES += kathode/res/Kathode-dark.svg
+MINIRESOURCE_FILES += kathode/res/Kathode.svg
 
 # MINIRESOURCE_FILES += ValleyAudio/res/DexterPanelDark.svg
 # MINIRESOURCE_FILES += ValleyAudio/res/InterzonePanelDark.svg
@@ -4119,6 +4209,11 @@ MINIPLUGIN_LIST += Venom
 MINIPLUGIN_LIST += Autinn
 MINIPLUGIN_LIST += Biset
 MINIPLUGIN_LIST += alefsbits
+MINIPLUGIN_LIST += HetrickCV
+MINIPLUGIN_LIST += CellaVCV
+MINIPLUGIN_LIST += Kilpatrick-Toolbox
+MINIPLUGIN_LIST += mschack-VCV-Rack-Plugins
+MINIPLUGIN_LIST += kathode
 # TODO(cardinal-mini-sync): no asset::plugin(...) resource refs auto-detected for AmbientModules -- verify panels load, add MINIRESOURCE_FILES manually if not.
 
 $(BUILD_DIR)/cf/%.cpp.o: cf/%.cpp
@@ -4172,3 +4267,58 @@ $(BUILD_DIR)/submit-vcv-modules/%.cpp.o: submit-vcv-modules/%.cpp
 # line for the same target is additive in GNU Make, so this one (written after
 # every append) picks up the rest.
 mini-resources: $(MINIPLUGIN_LIST:%=../bin/CardinalMini.lv2/resources/PluginManifests/%.json) $(MINIRESOURCE_FILES:%=../bin/CardinalMini.lv2/resources/%)
+
+$(BUILD_DIR)/CellaVCV/%.cpp.o: CellaVCV/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-ICellaVCV/deps/ebur128 \
+		-ICellaVCV/deps/ebur128/queue \
+		-DpluginInstance=pluginInstance__CellaVCV
+
+# LoudnessMeterEngine.hpp (used by Loud/LoudnessMeter) needs the vendored
+# libebur128 C sources CellaVCV's own upstream Makefile also compiles
+# (see CellaVCV/Makefile's own FLAGS/SOURCES).
+$(BUILD_DIR)/CellaVCV/%.c.o: CellaVCV/%.c
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CC) $< $(BUILD_C_FLAGS) -c -o $@ \
+		-ICellaVCV/deps/ebur128 \
+		-ICellaVCV/deps/ebur128/queue
+
+$(BUILD_DIR)/Kilpatrick-Toolbox/%.cpp.o: Kilpatrick-Toolbox/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__Kilpatrick_Toolbox \
+		-DSKIP_MINGW_FORMAT
+
+$(BUILD_DIR)/Kilpatrick-Toolbox-mini-shim.cpp.o: Kilpatrick-Toolbox-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__Kilpatrick_Toolbox \
+		-Dinit=init__Kilpatrick_Toolbox \
+		-DSKIP_MINGW_FORMAT
+# TODO(cardinal-mini-sync): no asset::plugin(...) resource refs auto-detected for mschack-VCV-Rack-Plugins -- verify panels load, add MINIRESOURCE_FILES manually if not.
+
+$(BUILD_DIR)/mschack-VCV-Rack-Plugins/%.cpp.o: mschack-VCV-Rack-Plugins/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__mschack_VCV_Rack_Plugins \
+		-DthePlugin=pluginInstance__mschack_VCV_Rack_Plugins
+
+$(BUILD_DIR)/mschack-VCV-Rack-Plugins-mini-shim.cpp.o: mschack-VCV-Rack-Plugins-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__mschack_VCV_Rack_Plugins \
+		-DthePlugin=pluginInstance__mschack_VCV_Rack_Plugins \
+		-Dinit=init__mschack_VCV_Rack_Plugins
+
+$(BUILD_DIR)/kathode/%.cpp.o: kathode/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__kathode
