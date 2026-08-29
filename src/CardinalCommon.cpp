@@ -74,6 +74,10 @@
 # define CARDINAL_VARIANT_NAME "loader"
 #elif CARDINAL_VARIANT_MINI
 # define CARDINAL_VARIANT_NAME "mini"
+#elif CARDINAL_VARIANT_MINIFX
+# define CARDINAL_VARIANT_NAME "minifx"
+#elif CARDINAL_VARIANT_MINISYNTH
+# define CARDINAL_VARIANT_NAME "minisynth"
 #elif CARDINAL_VARIANT_NATIVE
 # define CARDINAL_VARIANT_NAME "native"
 #elif CARDINAL_VARIANT_SYNTH
@@ -135,6 +139,10 @@ CardinalPluginContext::CardinalPluginContext(Plugin* const p)
     : variant(kCardinalVariantMain),
    #elif CARDINAL_VARIANT_MINI
     : variant(kCardinalVariantMini),
+   #elif CARDINAL_VARIANT_MINIFX
+    : variant(kCardinalVariantMiniFX),
+   #elif CARDINAL_VARIANT_MINISYNTH
+    : variant(kCardinalVariantMiniSynth),
    #elif CARDINAL_VARIANT_NATIVE
     : variant(kCardinalVariantNative),
    #elif CARDINAL_VARIANT_SYNTH

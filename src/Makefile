@@ -133,6 +133,8 @@ else
 	$(MAKE) -C CardinalNative
 	$(MAKE) -C CardinalFX $(CARDINAL_FX_ARGS)
 	$(MAKE) -C CardinalSynth $(CARDINAL_SYNTH_ARGS)
+	$(MAKE) -C CardinalMiniFX
+	$(MAKE) -C CardinalMiniSynth
 endif
 
 jack: $(TARGETS)
@@ -165,6 +167,8 @@ lv2: $(TARGETS)
 vst2: $(TARGETS)
 	$(MAKE) vst2 -C CardinalFX $(CARDINAL_FX_ARGS)
 	$(MAKE) vst2 -C CardinalSynth $(CARDINAL_SYNTH_ARGS)
+	$(MAKE) vst2 -C CardinalMiniFX
+	$(MAKE) vst2 -C CardinalMiniSynth
 
 vst2fx: $(TARGETS)
 	$(MAKE) vst2 -C CardinalFX $(CARDINAL_FX_ARGS)
@@ -184,6 +188,8 @@ clean:
 	$(MAKE) clean -C Cardinal
 	$(MAKE) clean -C CardinalFX $(CARDINAL_FX_ARGS)
 	$(MAKE) clean -C CardinalSynth $(CARDINAL_SYNTH_ARGS)
+	$(MAKE) clean -C CardinalMiniFX
+	$(MAKE) clean -C CardinalMiniSynth
 
 # --------------------------------------------------------------
 # Build commands

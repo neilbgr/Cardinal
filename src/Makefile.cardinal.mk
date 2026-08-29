@@ -14,10 +14,15 @@ ifeq ($(CARDINAL_VARIANT),)
 $(error invalid usage)
 endif
 
+# "mini family" = CardinalMini plus the VST2-only CardinalMiniFX/CardinalMiniSynth
+# variants, all sharing the curated plugins-mini.a module set and lean dependency
+# set (no Carla, no quickjs, no aubio/fftw3f).
+CARDINAL_VARIANT_IS_MINI_FAMILY = $(filter mini minifx minisynth,$(CARDINAL_VARIANT))
+
 # --------------------------------------------------------------
 # Carla stuff
 
-ifneq ($(CARDINAL_VARIANT),mini)
+ifeq ($(CARDINAL_VARIANT_IS_MINI_FAMILY),)
 ifneq ($(STATIC_BUILD),true)
 
 STATIC_PLUGIN_TARGET = true
@@ -42,7 +47,7 @@ CARLA_EXTRA_LIBS += $(CARLA_BUILD_DIR)/modules/$(CARLA_BUILD_TYPE)/ysfx.a
 CARLA_EXTRA_LIBS += $(CARLA_BUILD_DIR)/modules/$(CARLA_BUILD_TYPE)/zita-resampler.a
 
 endif # STATIC_BUILD
-endif # CARDINAL_VARIANT mini
+endif # CARDINAL_VARIANT_IS_MINI_FAMILY
 
 # --------------------------------------------------------------
 # Import base definitions
@@ -104,7 +109,7 @@ else ifeq ($(HEADLESS),true)
 TARGET_SUFFIX = -headless
 endif
 
-ifeq ($(CARDINAL_VARIANT),mini)
+ifneq ($(CARDINAL_VARIANT_IS_MINI_FAMILY),)
 RACK_EXTRA_LIBS  = ../../plugins/plugins-mini$(TARGET_SUFFIX).a
 else
 RACK_EXTRA_LIBS  = ../../plugins/plugins$(TARGET_SUFFIX).a
@@ -140,7 +145,7 @@ RACK_EXTRA_LIBS += $(SURGE_DEP_PATH)/libs/sst/sst-plugininfra/libs/tinyxml/libti
 # --------------------------------------------------------------
 # Extra libraries to link against
 
-ifneq ($(CARDINAL_VARIANT),mini)
+ifeq ($(CARDINAL_VARIANT_IS_MINI_FAMILY),)
 RACK_EXTRA_LIBS += $(DEP_LIB_PATH)/libquickjs.a
 endif
 
@@ -168,7 +173,7 @@ endif
 EXTRA_DSP_DEPENDENCIES = $(RACK_EXTRA_LIBS) $(CARLA_EXTRA_LIBS)
 EXTRA_DSP_LIBS = $(RACK_EXTRA_LIBS) $(CARLA_EXTRA_LIBS) $(STATIC_CARLA_PLUGIN_LIBS)
 
-ifneq ($(CARDINAL_VARIANT),mini)
+ifeq ($(CARDINAL_VARIANT_IS_MINI_FAMILY),)
 ifeq ($(shell $(PKG_CONFIG) --exists fftw3f && echo true),true)
 EXTRA_DSP_DEPENDENCIES += ../../deps/aubio/libaubio.a
 EXTRA_DSP_LIBS += ../../deps/aubio/libaubio.a
@@ -273,7 +278,7 @@ BASE_FLAGS += -DPRIVATE=
 ifeq ($(MOD_BUILD),true)
 BASE_FLAGS += -DDISTRHO_PLUGIN_MINIMUM_BUFFER_SIZE=0xffff
 BASE_FLAGS += -DDISTRHO_PLUGIN_USES_MODGUI=1
-else ifeq ($(CARDINAL_VARIANT),mini)
+else ifneq ($(CARDINAL_VARIANT_IS_MINI_FAMILY),)
 BASE_FLAGS += -DDISTRHO_PLUGIN_MINIMUM_BUFFER_SIZE=0xffff
 endif
 
@@ -423,6 +428,9 @@ else ifeq ($(CARDINAL_VARIANT),mini)
 TARGETS = jack
 else ifeq ($(CARDINAL_VARIANT),native)
 TARGETS = jack
+else ifneq ($(filter minifx minisynth,$(CARDINAL_VARIANT)),)
+# VST2-only mini-family variants, for hosts like LMMS that only load old VST2
+TARGETS = vst2
 else
 TARGETS = au clap lv2 vst2 vst3
 endif

@@ -300,6 +300,18 @@ MINIPLUGIN_FILES += Fundamental/src/VCA-1.cpp
 MINIPLUGIN_FILES += Fundamental/src/VCF.cpp
 MINIPLUGIN_FILES += Fundamental/src/VCMixer.cpp
 MINIPLUGIN_FILES += Fundamental/src/VCO.cpp
+MINIPLUGIN_FILES += Fundamental/src/Mixer.cpp
+MINIPLUGIN_FILES += Fundamental/src/8vert.cpp
+MINIPLUGIN_FILES += Fundamental/src/WTVCO.cpp
+MINIPLUGIN_FILES += Fundamental/src/Pulses.cpp
+MINIPLUGIN_FILES += Fundamental/src/VCA.cpp
+MINIPLUGIN_FILES += Fundamental/src/SequentialSwitch.cpp
+MINIPLUGIN_FILES += Fundamental/src/Octave.cpp
+MINIPLUGIN_FILES += Fundamental/src/SEQ3.cpp
+MINIPLUGIN_FILES += Fundamental/src/Delay.cpp
+MINIPLUGIN_FILES += Fundamental/src/WTLFO.cpp
+MINIPLUGIN_FILES += Fundamental/src/Mutes.cpp
+MINIPLUGIN_FILES += Fundamental/src/dr_wav.c
 
 # modules/types which are present in other plugins
 FUNDAMENTAL_CUSTOM = $(DRWAV)
@@ -322,10 +334,15 @@ PLUGIN_FILES += $(filter-out 8Mode/src/8mode.cpp,$(wildcard 8Mode/src/*.cpp))
 # --------------------------------------------------------------
 # alefsbits
 
-PLUGIN_FILES += $(filter-out alefsbits/src/plugin.cpp,$(wildcard alefsbits/src/*.cpp))
+PLUGIN_FILES += alefsbits/src/plugin.cpp
+PLUGIN_FILES += $(filter-out alefsbits/src/plugin.cpp alefsbits/src/polyplay.cpp,$(wildcard alefsbits/src/*.cpp))
+PLUGIN_FILES += $(wildcard alefsbits/src/widgets/*.cpp)
 
 # modules/types which are present in other plugins
 ALEFSBITS_CUSTOM = Steps Logic
+
+ALEFSBITS_FLAGS  = $(filter-out -std=gnu++11,$(BUILD_CXX_FLAGS))
+ALEFSBITS_FLAGS += -std=gnu++17
 
 # --------------------------------------------------------------
 # AlgoritmArte
@@ -637,6 +654,43 @@ MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/experiments.cpp
 MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/filter.cpp
 MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/multimode.cpp
 MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/resample.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Mono.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/AnalyzerXL.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Mix8.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/XFade.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/LVCF.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Stack.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Arp.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/UMix.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/LVCO.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Bool.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/ADSR.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/LLFO.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/FMOp.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/ASR.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Mix4.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/PolyCon8.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/AddrSeqX.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/AddrSeq.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Mix4x.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Pressor.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Velo.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Slew.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Pulse.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Sine.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/DGate.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/VCAmp.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Mix8x.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/Reftone.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/utility.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/mixer.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/analyzer_base.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/addressable_sequence.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/trigger_on_load.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/slew_common.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/mixer_expander.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/dsp/filters/equalizer.cpp
+MINIPLUGIN_FILES += BogaudioModules/src/output_range.cpp
 MINIPLUGIN_FILES += BogaudioModules-helper/BogaudioModules-helper.cpp
 
 # modules/types which are present in other plugins
@@ -709,6 +763,9 @@ EIGHTFOLD_CUSTOM = Comparator comparator
 
 EIGHTFOLD_FLAGS = $(filter-out -std=gnu++11,$(BUILD_CXX_FLAGS))
 EIGHTFOLD_FLAGS += -std=gnu++17
+
+PRODUCERPACK_FLAGS = $(filter-out -std=gnu++11,$(BUILD_CXX_FLAGS))
+PRODUCERPACK_FLAGS += -std=gnu++17
 
 # --------------------------------------------------------------
 # EnigmaCurry
@@ -920,6 +977,7 @@ MINIPLUGIN_FILES += MockbaModular/src/Mixah.cpp
 MINIPLUGIN_FILES += MockbaModular/src/Pannah.cpp
 MINIPLUGIN_FILES += MockbaModular/src/ReVoltah.cpp
 MINIPLUGIN_FILES += MockbaModular/src/Shapah.cpp
+MINIPLUGIN_FILES += MockbaModular/src/DualOR.cpp
 
 # --------------------------------------------------------------
 # Mog
@@ -1178,6 +1236,102 @@ MINIPLUGIN_FILES += surgext/src/XTModule.cpp
 MINIPLUGIN_FILES += surgext/src/XTModuleWidget.cpp
 MINIPLUGIN_FILES += surgext/src/XTStyle.cpp
 MINIPLUGIN_FILES += surgext-helper/surgext-helper.cpp
+MINIPLUGIN_FILES += Aluminium/src/PadX.cpp
+MINIPLUGIN_FILES += Aluminium/src/Zones.cpp
+MINIPLUGIN_FILES += Aluminium/src/Pads.cpp
+MINIPLUGIN_FILES += Aluminium/src/PanelTheme.cpp
+MINIPLUGIN_FILES += AmbientModules/src/LunarPapaSrapa.cpp
+MINIPLUGIN_FILES += AmbientModules/src/LunarSequencer.cpp
+MINIPLUGIN_FILES += AmbientModules/src/Lunar50Drone.cpp
+MINIPLUGIN_FILES += AmbientModules/src/Blank.cpp
+MINIPLUGIN_FILES += AmbientModules/src/LunarLFO.cpp
+MINIPLUGIN_FILES += AmbientModules/src/LunarVCO.cpp
+MINIPLUGIN_FILES += AmbientModules/src/PanelTheme.cpp
+MINIPLUGIN_FILES += cf/src/LABEL.cpp
+MINIPLUGIN_FILES += unless_modules/src/pianoid.cpp
+MINIPLUGIN_FILES += unless_modules/src/utils.cpp
+MINIPLUGIN_FILES += ValleyAudio/src/Plateau/Plateau.cpp
+MINIPLUGIN_FILES += ValleyAudio/src/Plateau/Dattorro.cpp
+MINIPLUGIN_FILES += ValleyAudio/src/dsp/modulation/LinearEnvelope.cpp
+MINIPLUGIN_FILES += ValleyAudio/src/dsp/filters/OnePoleFilters.cpp
+MINIPLUGIN_FILES += ProducerPack/src/SeventiesComp.cpp
+MINIPLUGIN_FILES += ProducerPack/src/StereoWidth.cpp
+MINIPLUGIN_FILES += ProducerPack/src/DrumBus.cpp
+MINIPLUGIN_FILES += ProducerPack/src/helpers/math_lut.cpp
+MINIPLUGIN_FILES += AS/src/stereoVUmeter.cpp
+MINIPLUGIN_FILES += AS/src/DelayPlusStereo.cpp
+MINIPLUGIN_FILES += AS/src/Phaser.cpp
+MINIPLUGIN_FILES += AS/src/MonoVUmeter.cpp
+MINIPLUGIN_FILES += VCVRackPlugins/src/modules/Oscilloscope.cpp
+MINIPLUGIN_FILES += VCVRackPlugins/src/modules/BarGraph.cpp
+MINIPLUGIN_FILES += CountModula-mini-shim.cpp
+MINIPLUGIN_FILES += GrandeModular/src/Merge8.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/Clkd.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/Clocked.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/ClockedExpander.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/PhraseSeq16.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/PhraseSeqExpander.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/PhraseSeq32.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/PhraseSeqUtil.cpp
+MINIPLUGIN_FILES += ImpromptuModular-mini-shim.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/Interop.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/comp/PanelTheme.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/comp/Components.cpp
+MINIPLUGIN_FILES += ImpromptuModular/src/comp/PianoKey.cpp
+MINIPLUGIN_FILES += JW-Modules/src/FullScope.cpp
+MINIPLUGIN_FILES += JW-Modules/src/Grains.cpp
+MINIPLUGIN_FILES += LittleUtils/src/ButtonModule.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/PatchSet/MasterChannel.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/MixMaster/MixMaster.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/MixMaster/MixerCommon.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/comp/GenericComponents.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/comp/VuMeters.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/MixMaster/AuxExpander.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/PatchSet/PatchMaster.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/PatchSet/PatchMasterBlank.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/Utilities/MSMelder.cpp
+MINIPLUGIN_FILES += MindMeldModular/src/Utilities/BassMaster.cpp
+MINIPLUGIN_FILES += MindMeldModular-mini-shim.cpp
+MINIPLUGIN_FILES += SignalFunctionSet-VCV-Rack/src/fill.cpp
+MINIPLUGIN_FILES += stoermelder-packone/src/Glue.cpp
+MINIPLUGIN_FILES += stoermelder-packone/src/pluginsettings.cpp
+MINIPLUGIN_FILES += stoermelder-packone-mini-shim.cpp
+MINIPLUGIN_FILES += submit-vcv-modules/src/Tag.cpp
+MINIPLUGIN_FILES += Venom/src/Venom.cpp
+MINIPLUGIN_FILES += Venom/src/AuxClone.cpp
+MINIPLUGIN_FILES += Venom/src/PolyClone.cpp
+MINIPLUGIN_FILES += Venom/src/MixSolo.cpp
+MINIPLUGIN_FILES += Venom/src/PolyUnison.cpp
+MINIPLUGIN_FILES += Venom/src/BayOutput.cpp
+MINIPLUGIN_FILES += Venom/src/PolyScale.cpp
+MINIPLUGIN_FILES += Venom/src/MixFade2.cpp
+MINIPLUGIN_FILES += Venom/src/BayNorm.cpp
+MINIPLUGIN_FILES += Venom/src/PolyOffset.cpp
+MINIPLUGIN_FILES += Venom/src/MixPan.cpp
+MINIPLUGIN_FILES += Venom/src/Knob5.cpp
+MINIPLUGIN_FILES += Venom/src/MixFade.cpp
+MINIPLUGIN_FILES += Venom/src/MixMute.cpp
+MINIPLUGIN_FILES += Venom/src/BayInput.cpp
+MINIPLUGIN_FILES += Venom/src/MixSend.cpp
+MINIPLUGIN_FILES += Venom/src/Mix4.cpp
+MINIPLUGIN_FILES += Venom/src/MixOffset.cpp
+MINIPLUGIN_FILES += Venom/src/Mix4Stereo.cpp
+MINIPLUGIN_FILES += Venom/src/CloneMerge.cpp
+MINIPLUGIN_FILES += Venom/src/VCAMix4.cpp
+MINIPLUGIN_FILES += Venom/src/Push5.cpp
+MINIPLUGIN_FILES += Venom/src/Bypass.cpp
+MINIPLUGIN_FILES += Venom/src/VCAMix4Stereo.cpp
+MINIPLUGIN_FILES += Autinn/src/Snare.cpp
+MINIPLUGIN_FILES += Autinn/src/Amp.cpp
+MINIPLUGIN_FILES += Autinn/src/Kicker.cpp
+MINIPLUGIN_FILES += Autinn/src/Scope.cpp
+MINIPLUGIN_FILES += Biset/src/Blank/Blank.cpp
+MINIPLUGIN_FILES += Biset/src/Blank/BlankWidget.cpp
+MINIPLUGIN_FILES += Biset/src/Blank/BlankScope.cpp
+MINIPLUGIN_FILES += Biset/src/Blank/BlankCables.cpp
+MINIPLUGIN_FILES += alefsbits/src/lights.cpp
+MINIPLUGIN_FILES += alefsbits/src/widgets/PanelBackground.cpp
+MINIPLUGIN_FILES += alefsbits-mini-shim.cpp
 
 # --------------------------------------------------------------
 # unless_modules
@@ -1535,7 +1689,7 @@ MINIPLUGIN_LIST    += BogaudioModules
 MINIPLUGIN_LIST    += Fundamental
 MINIPLUGIN_LIST    += MockbaModular
 MINIPLUGIN_LIST    += surgext
-# MINIPLUGIN_LIST    += ValleyAudio
+MINIPLUGIN_LIST    += ValleyAudio
 
 MINIRESOURCE_FILES  = AriaModules/res/components/jack-transparent.svg
 MINIRESOURCE_FILES += AriaModules/res/components/pushbutton-500-off.svg
@@ -1670,6 +1824,63 @@ MINIRESOURCE_FILES += BogaudioModules/res/VCA-dark.svg
 MINIRESOURCE_FILES += BogaudioModules/res/VCF-dark.svg
 # MINIRESOURCE_FILES += BogaudioModules/res/VCM-dark.svg
 MINIRESOURCE_FILES += BogaudioModules/res/VCO-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/LVCO.svg
+MINIRESOURCE_FILES += BogaudioModules/res/LVCO-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Sine.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Sine-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Pulse.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Pulse-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/FMOp.svg
+MINIRESOURCE_FILES += BogaudioModules/res/FMOp-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/LLFO.svg
+MINIRESOURCE_FILES += BogaudioModules/res/LLFO-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/LVCF.svg
+MINIRESOURCE_FILES += BogaudioModules/res/LVCF-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/ADSR.svg
+MINIRESOURCE_FILES += BogaudioModules/res/ADSR-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/ASR.svg
+MINIRESOURCE_FILES += BogaudioModules/res/ASR-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/DGate.svg
+MINIRESOURCE_FILES += BogaudioModules/res/DGate-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix8.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix8-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix4.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix4-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix4x.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix4x-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix8x.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mix8x-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/XFade.svg
+MINIRESOURCE_FILES += BogaudioModules/res/XFade-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/VCAmp.svg
+MINIRESOURCE_FILES += BogaudioModules/res/VCAmp-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Velo.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Velo-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/UMix.svg
+MINIRESOURCE_FILES += BogaudioModules/res/UMix-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Pressor.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Pressor-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/AddrSeq.svg
+MINIRESOURCE_FILES += BogaudioModules/res/AddrSeq-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/AddrSeqX.svg
+MINIRESOURCE_FILES += BogaudioModules/res/AddrSeqX-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/AnalyzerXL.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Stack.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Stack-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Reftone.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Reftone-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mono.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Mono-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Arp.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Arp-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/PolyCon8.svg
+MINIRESOURCE_FILES += BogaudioModules/res/PolyCon8-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Bool.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Bool-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Slew.svg
+MINIRESOURCE_FILES += BogaudioModules/res/Slew-dark.svg
+MINIRESOURCE_FILES += BogaudioModules/res/fonts/inconsolata.ttf
+MINIRESOURCE_FILES += BogaudioModules/res/fonts/inconsolata-bold.ttf
 # MINIRESOURCE_FILES += BogaudioModules/res/Velo-dark.svg
 # MINIRESOURCE_FILES += BogaudioModules/res/Vish-dark.svg
 # MINIRESOURCE_FILES += BogaudioModules/res/VU-dark.svg
@@ -1689,20 +1900,32 @@ MINIRESOURCE_FILES += Cardinal/res/HostParamsMap.svg
 MINIRESOURCE_FILES += Cardinal/res/HostTime.svg
 
 MINIRESOURCE_FILES += Fundamental/presets
+MINIRESOURCE_FILES += Fundamental/res/8vert.svg
 MINIRESOURCE_FILES += Fundamental/res/ADSR.svg
+MINIRESOURCE_FILES += Fundamental/res/Delay.svg
 MINIRESOURCE_FILES += Fundamental/res/LFO.svg
 MINIRESOURCE_FILES += Fundamental/res/Merge.svg
 MINIRESOURCE_FILES += Fundamental/res/MidSide.svg
+MINIRESOURCE_FILES += Fundamental/res/Mixer.svg
+MINIRESOURCE_FILES += Fundamental/res/Mutes.svg
 MINIRESOURCE_FILES += Fundamental/res/Noise.svg
+MINIRESOURCE_FILES += Fundamental/res/Octave.svg
+MINIRESOURCE_FILES += Fundamental/res/Pulses.svg
 MINIRESOURCE_FILES += Fundamental/res/Quantizer.svg
 MINIRESOURCE_FILES += Fundamental/res/Random.svg
 MINIRESOURCE_FILES += Fundamental/res/Scope.svg
+MINIRESOURCE_FILES += Fundamental/res/SEQ3.svg
+MINIRESOURCE_FILES += Fundamental/res/SequentialSwitch1.svg
+MINIRESOURCE_FILES += Fundamental/res/SequentialSwitch2.svg
 MINIRESOURCE_FILES += Fundamental/res/Split.svg
 MINIRESOURCE_FILES += Fundamental/res/Sum.svg
 MINIRESOURCE_FILES += Fundamental/res/VCA-1.svg
+MINIRESOURCE_FILES += Fundamental/res/VCA.svg
 MINIRESOURCE_FILES += Fundamental/res/VCF.svg
 MINIRESOURCE_FILES += Fundamental/res/VCMixer.svg
 MINIRESOURCE_FILES += Fundamental/res/VCO.svg
+MINIRESOURCE_FILES += Fundamental/res/WTLFO.svg
+MINIRESOURCE_FILES += Fundamental/res/WTVCO.svg
 MINIRESOURCE_FILES += Fundamental/res/components/ADSR-bg.svg
 MINIRESOURCE_FILES += Fundamental/res/components/button-off.svg
 MINIRESOURCE_FILES += Fundamental/res/components/button-on.svg
@@ -1760,6 +1983,920 @@ MINIRESOURCE_FILES += surgext/res/xt/glyphs/lt_4.svg
 MINIRESOURCE_FILES += surgext/res/xt/glyphs/lt_5.svg
 MINIRESOURCE_FILES += surgext/res/xt/glyphs/lt_6.svg
 MINIRESOURCE_FILES += surgext/res/xt/glyphs/lt_7.svg
+MINIRESOURCE_FILES += Aluminium/res/PadX_Silk_Dark.svg
+MINIRESOURCE_FILES += Aluminium/res/PadX_Silk_Light.svg
+MINIRESOURCE_FILES += Aluminium/res/Pads_Silk_Dark.svg
+MINIRESOURCE_FILES += Aluminium/res/Pads_Silk_Light.svg
+MINIRESOURCE_FILES += Aluminium/res/Port_Dark.svg
+MINIRESOURCE_FILES += Aluminium/res/Port_Light.svg
+MINIRESOURCE_FILES += Aluminium/res/Screw_Dark.svg
+MINIRESOURCE_FILES += Aluminium/res/Screw_Light.svg
+MINIRESOURCE_FILES += Aluminium/res/Zones_Silk_Dark.svg
+MINIRESOURCE_FILES += Aluminium/res/Zones_Silk_Light.svg
+MINIRESOURCE_FILES += AmbientModules/res/Blank_Black.svg
+MINIRESOURCE_FILES += AmbientModules/res/Blank_Blue.svg
+MINIRESOURCE_FILES += AmbientModules/res/Blank_Cream.svg
+MINIRESOURCE_FILES += AmbientModules/res/Blank_Pink.svg
+MINIRESOURCE_FILES += AmbientModules/res/Blank_Yellow.svg
+MINIRESOURCE_FILES += AmbientModules/res/Lunar50Drone_Black.svg
+MINIRESOURCE_FILES += AmbientModules/res/Lunar50Drone_Blue.svg
+MINIRESOURCE_FILES += AmbientModules/res/Lunar50Drone_Cream.svg
+MINIRESOURCE_FILES += AmbientModules/res/Lunar50Drone_Pink.svg
+MINIRESOURCE_FILES += AmbientModules/res/Lunar50Drone_Yellow.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarLFO_Black.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarLFO_Blue.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarLFO_Cream.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarLFO_Pink.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarLFO_Yellow.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarPapaSrapa_Black.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarPapaSrapa_Blue.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarPapaSrapa_Cream.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarPapaSrapa_Pink.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarPapaSrapa_Yellow.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarSequencer_Black.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarSequencer_Blue.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarSequencer_Cream.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarSequencer_Pink.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarSequencer_Yellow.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarVCO_Black.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarVCO_Blue.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarVCO_Cream.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarVCO_Pink.svg
+MINIRESOURCE_FILES += AmbientModules/res/LunarVCO_Yellow.svg
+MINIRESOURCE_FILES += cf/res/ALGEBRA.svg
+MINIRESOURCE_FILES += cf/res/BUFFER.svg
+MINIRESOURCE_FILES += cf/res/CHOKE.svg
+MINIRESOURCE_FILES += cf/res/CUBE.svg
+MINIRESOURCE_FILES += cf/res/CUTS.svg
+MINIRESOURCE_FILES += cf/res/DAVE.svg
+MINIRESOURCE_FILES += cf/res/DISTO.svg
+MINIRESOURCE_FILES += cf/res/DejaVuSansMono.ttf
+MINIRESOURCE_FILES += cf/res/EACH.svg
+MINIRESOURCE_FILES += cf/res/FOUR.svg
+MINIRESOURCE_FILES += cf/res/FUNKTION.svg
+MINIRESOURCE_FILES += cf/res/L.svg
+MINIRESOURCE_FILES += cf/res/L3DS3Q.svg
+MINIRESOURCE_FILES += cf/res/LABEL.svg
+MINIRESOURCE_FILES += cf/res/LEDSEQ.svg
+MINIRESOURCE_FILES += cf/res/Ldown.svg
+MINIRESOURCE_FILES += cf/res/MASTER.svg
+MINIRESOURCE_FILES += cf/res/METRO.svg
+MINIRESOURCE_FILES += cf/res/MONO.svg
+MINIRESOURCE_FILES += cf/res/PATCH.svg
+MINIRESOURCE_FILES += cf/res/PEAK.svg
+MINIRESOURCE_FILES += cf/res/PLAY.svg
+MINIRESOURCE_FILES += cf/res/PLAYER.svg
+MINIRESOURCE_FILES += cf/res/PadButton.svg
+MINIRESOURCE_FILES += cf/res/PadButtonDown.svg
+MINIRESOURCE_FILES += cf/res/SLIDERSEQ.svg
+MINIRESOURCE_FILES += cf/res/STEPS.svg
+MINIRESOURCE_FILES += cf/res/STEREO.svg
+MINIRESOURCE_FILES += cf/res/SUB.svg
+MINIRESOURCE_FILES += cf/res/Segment7Standard.ttf
+MINIRESOURCE_FILES += cf/res/VARIABLE.svg
+MINIRESOURCE_FILES += cf/res/VT323-Regular.ttf
+MINIRESOURCE_FILES += cf/res/cfBigKnob-bg.svg
+MINIRESOURCE_FILES += cf/res/cfBigKnob.svg
+MINIRESOURCE_FILES += cf/res/cfTrimpot-bg.svg
+MINIRESOURCE_FILES += cf/res/cfTrimpot.svg
+MINIRESOURCE_FILES += cf/res/distocach.svg
+MINIRESOURCE_FILES += cf/res/downButton.svg
+MINIRESOURCE_FILES += cf/res/downButtonDown.svg
+MINIRESOURCE_FILES += cf/res/plusButton.svg
+MINIRESOURCE_FILES += cf/res/trSEQ.svg
+MINIRESOURCE_FILES += cf/res/upButton.svg
+MINIRESOURCE_FILES += cf/res/upButtonDown.svg
+MINIRESOURCE_FILES += unless_modules/art/pianoid.art
+MINIRESOURCE_FILES += ValleyAudio/res/PlateauPanelDark.svg
+MINIRESOURCE_FILES += ValleyAudio/res/PlateauPanelLight.svg
+MINIRESOURCE_FILES += ValleyAudio/res/LightLEDButton80.svg
+MINIRESOURCE_FILES += ValleyAudio/res/PJ301MDarkSmall.svg
+MINIRESOURCE_FILES += ValleyAudio/res/PJ301MDarkSmallOut.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSWhiteMedSmall.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSMedSmall-bg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSWhiteMedSmall-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSWhiteSmall.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSSmall-bg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSWhiteSmall-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSGreenMed.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSMed-bg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSGreenMed-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSBlueMed.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSBlueMed-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSRedMed.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Med/Rogan1PSRedMed-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSGreenSmall.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSGreenSmall-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSBlueSmall.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSBlueSmall-fg.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSRedSmall.svg
+MINIRESOURCE_FILES += ValleyAudio/res/v2/Small/Rogan1PSRedSmall-fg.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/9mm_knob.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/Davies1900hBlack.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/Davies_large.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/SubMiniToggleH_0.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/SubMiniToggleH_1.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/SubMiniToggleH_2.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/SubMiniToggle_0.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/SubMiniToggle_1.svg
+MINIRESOURCE_FILES += ProducerPack/res/components/SubMiniToggle_2.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/AuxSends_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/Bitcrusher_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/Boost_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/DJFilter_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/Decay_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/DrumBus_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/SeventiesComp_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/SeventiesEQ_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/Spatializer_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/StereoCrossfader_info.svg
+MINIRESOURCE_FILES += ProducerPack/res/panels/StereoWidth_info.svg
+MINIRESOURCE_FILES += AS/res/2chMixer.svg
+MINIRESOURCE_FILES += AS/res/4chMixer.svg
+MINIRESOURCE_FILES += AS/res/8chMixer.svg
+MINIRESOURCE_FILES += AS/res/ADSR.svg
+MINIRESOURCE_FILES += AS/res/AtNuVrTr.svg
+MINIRESOURCE_FILES += AS/res/BPMCalc.svg
+MINIRESOURCE_FILES += AS/res/BPMCalc2.svg
+MINIRESOURCE_FILES += AS/res/BPMClock.svg
+MINIRESOURCE_FILES += AS/res/Blanks/BlankPanel4.svg
+MINIRESOURCE_FILES += AS/res/Blanks/BlankPanel6.svg
+MINIRESOURCE_FILES += AS/res/Blanks/BlankPanel8.svg
+MINIRESOURCE_FILES += AS/res/Blanks/as-BlankPanelSpecial0.svg
+MINIRESOURCE_FILES += AS/res/Blanks/as-BlankPanelSpecial1.svg
+MINIRESOURCE_FILES += AS/res/Blanks/as-BlankPanelSpecial2.svg
+MINIRESOURCE_FILES += AS/res/Blanks/as-BlankPanelSpecial3.svg
+MINIRESOURCE_FILES += AS/res/Blanks/as-BlankPanelSpecial4.svg
+MINIRESOURCE_FILES += AS/res/CV2T.svg
+MINIRESOURCE_FILES += AS/res/DelayPlus.svg
+MINIRESOURCE_FILES += AS/res/DelayPlusStereo.svg
+MINIRESOURCE_FILES += AS/res/Flow.svg
+MINIRESOURCE_FILES += AS/res/KillGate.svg
+MINIRESOURCE_FILES += AS/res/LaunchGate.svg
+MINIRESOURCE_FILES += AS/res/Merge2_5.svg
+MINIRESOURCE_FILES += AS/res/MonoVUmeter.svg
+MINIRESOURCE_FILES += AS/res/Multiple2_5.svg
+MINIRESOURCE_FILES += AS/res/Phaser.svg
+MINIRESOURCE_FILES += AS/res/QuadVCA.svg
+MINIRESOURCE_FILES += AS/res/ReScale.svg
+MINIRESOURCE_FILES += AS/res/Reverb.svg
+MINIRESOURCE_FILES += AS/res/ReverbStereo.svg
+MINIRESOURCE_FILES += AS/res/SEQ16.svg
+MINIRESOURCE_FILES += AS/res/SawOSC.svg
+MINIRESOURCE_FILES += AS/res/Segment7Standard.ttf
+MINIRESOURCE_FILES += AS/res/SignalDelay.svg
+MINIRESOURCE_FILES += AS/res/SineOSC.svg
+MINIRESOURCE_FILES += AS/res/Steps.svg
+MINIRESOURCE_FILES += AS/res/StereoVUmeter.svg
+MINIRESOURCE_FILES += AS/res/SuperDrive.svg
+MINIRESOURCE_FILES += AS/res/SuperDriveStereo.svg
+MINIRESOURCE_FILES += AS/res/Tremolo.svg
+MINIRESOURCE_FILES += AS/res/TremoloStereo.svg
+MINIRESOURCE_FILES += AS/res/TriggersMKI.svg
+MINIRESOURCE_FILES += AS/res/TriggersMKII.svg
+MINIRESOURCE_FILES += AS/res/TriggersMKIII.svg
+MINIRESOURCE_FILES += AS/res/VCA.svg
+MINIRESOURCE_FILES += AS/res/WaveShaper.svg
+MINIRESOURCE_FILES += AS/res/WaveShaperStereo.svg
+MINIRESOURCE_FILES += AS/res/ZeroCV2T.svg
+MINIRESOURCE_FILES += AS/res/as_CKSSH_0.svg
+MINIRESOURCE_FILES += AS/res/as_CKSSH_1.svg
+MINIRESOURCE_FILES += AS/res/as_CKSSThree_0.svg
+MINIRESOURCE_FILES += AS/res/as_CKSSThree_1.svg
+MINIRESOURCE_FILES += AS/res/as_CKSSThree_2.svg
+MINIRESOURCE_FILES += AS/res/as_CKSS_0.svg
+MINIRESOURCE_FILES += AS/res/as_CKSS_1.svg
+MINIRESOURCE_FILES += AS/res/as_CKSS_white_0.svg
+MINIRESOURCE_FILES += AS/res/as_CKSS_white_1.svg
+MINIRESOURCE_FILES += AS/res/as_FaderPot.svg
+MINIRESOURCE_FILES += AS/res/as_FxKnobBlack.svg
+MINIRESOURCE_FILES += AS/res/as_FxKnobBlack_bg.svg
+MINIRESOURCE_FILES += AS/res/as_FxKnobWhite.svg
+MINIRESOURCE_FILES += AS/res/as_FxKnobWhite_bg.svg
+MINIRESOURCE_FILES += AS/res/as_JumboLEDBezel44_0.svg
+MINIRESOURCE_FILES += AS/res/as_JumboLEDBezel44_1.svg
+MINIRESOURCE_FILES += AS/res/as_JumboLEDBezel60_0.svg
+MINIRESOURCE_FILES += AS/res/as_JumboLEDBezel60_1.svg
+MINIRESOURCE_FILES += AS/res/as_LFO.svg
+MINIRESOURCE_FILES += AS/res/as_PJ301M.svg
+MINIRESOURCE_FILES += AS/res/as_PJ301M_output_port.svg
+MINIRESOURCE_FILES += AS/res/as_SlidePot.svg
+MINIRESOURCE_FILES += AS/res/as_SlidePotHandle.svg
+MINIRESOURCE_FILES += AS/res/as_bigLEDBezel.svg
+MINIRESOURCE_FILES += AS/res/as_hexscrew.svg
+MINIRESOURCE_FILES += AS/res/as_knob.svg
+MINIRESOURCE_FILES += AS/res/as_knobBlack.svg
+MINIRESOURCE_FILES += AS/res/as_knobBlack_bg.svg
+MINIRESOURCE_FILES += AS/res/as_knob_bg.svg
+MINIRESOURCE_FILES += AS/res/saxmono.ttf
+MINIRESOURCE_FILES += VCVRackPlugins/res/BarGraph.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Oscilloscope.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/Jack.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/JackNoNut.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/Knob-bg.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/Knob-fg.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobBlue.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobGreen.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobGrey.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobOrange.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobRed.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobViolet.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobWhite.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobYellow.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMega-bg.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMega-fg.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaBlue.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaGreen.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaGrey.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaOrange.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaRed.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaViolet.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaWhite.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaYellow.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmall-bg.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmall-fg.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallBlue.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallGreen.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallGrey.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallOrange.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallRed.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallViolet.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallWhite.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallYellow.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButtonBig_0.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButtonMega_0.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButtonMini_0.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButton_0.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_ToggleS_0.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_ToggleS_1.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_ToggleS_2.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_Toggle_0.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_Toggle_1.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_Toggle_2.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/Components/ScrewHex.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/PolyrhythmicGenerator.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/VCFrequencyDivider.svg
+MINIRESOURCE_FILES += VCVRackPlugins/res/fonts/Segment14.ttf
+MINIRESOURCE_FILES += VCVRackPlugins/res/fonts/Sudo.ttf
+MINIRESOURCE_FILES += GrandeModular/res/BlackButton0.svg
+MINIRESOURCE_FILES += GrandeModular/res/BlackButton1.svg
+MINIRESOURCE_FILES += GrandeModular/res/Clip-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Clip.svg
+MINIRESOURCE_FILES += GrandeModular/res/Compare3-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Compare3.svg
+MINIRESOURCE_FILES += GrandeModular/res/LFO3-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/LFO3.svg
+MINIRESOURCE_FILES += GrandeModular/res/LFO4-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/LFO4.svg
+MINIRESOURCE_FILES += GrandeModular/res/Logic-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Logic.svg
+MINIRESOURCE_FILES += GrandeModular/res/MediumLightFlat.svg
+MINIRESOURCE_FILES += GrandeModular/res/Merge8-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Merge8.svg
+MINIRESOURCE_FILES += GrandeModular/res/MergeSplit4-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/MergeSplit4.svg
+MINIRESOURCE_FILES += GrandeModular/res/MicrotonalChords-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/MicrotonalChords.svg
+MINIRESOURCE_FILES += GrandeModular/res/MicrotonalNotes-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/MicrotonalNotes.svg
+MINIRESOURCE_FILES += GrandeModular/res/NoteMT-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/NoteMT.svg
+MINIRESOURCE_FILES += GrandeModular/res/Peak-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Peak.svg
+MINIRESOURCE_FILES += GrandeModular/res/PetiteLight.svg
+MINIRESOURCE_FILES += GrandeModular/res/PetiteLightBot.svg
+MINIRESOURCE_FILES += GrandeModular/res/PetiteLightFlat.svg
+MINIRESOURCE_FILES += GrandeModular/res/PetiteLightTop.svg
+MINIRESOURCE_FILES += GrandeModular/res/PolyMergeResplit-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/PolyMergeResplit.svg
+MINIRESOURCE_FILES += GrandeModular/res/PolySplit-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/PolySplit.svg
+MINIRESOURCE_FILES += GrandeModular/res/Push-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Push.svg
+MINIRESOURCE_FILES += GrandeModular/res/Quant-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Quant.svg
+MINIRESOURCE_FILES += GrandeModular/res/QuantIntervals-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/QuantIntervals.svg
+MINIRESOURCE_FILES += GrandeModular/res/QuantMT-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/QuantMT.svg
+MINIRESOURCE_FILES += GrandeModular/res/RectButton0.svg
+MINIRESOURCE_FILES += GrandeModular/res/RectButton1.svg
+MINIRESOURCE_FILES += GrandeModular/res/RectButton1dim.svg
+MINIRESOURCE_FILES += GrandeModular/res/SampleDelays-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/SampleDelays.svg
+MINIRESOURCE_FILES += GrandeModular/res/Scale-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Scale.svg
+MINIRESOURCE_FILES += GrandeModular/res/SmallLEDButton0.svg
+MINIRESOURCE_FILES += GrandeModular/res/SmallLEDButton1.svg
+MINIRESOURCE_FILES += GrandeModular/res/SmallLightBot.svg
+MINIRESOURCE_FILES += GrandeModular/res/SmallLightFlat.svg
+MINIRESOURCE_FILES += GrandeModular/res/SmallLightTop.svg
+MINIRESOURCE_FILES += GrandeModular/res/Split8-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Split8.svg
+MINIRESOURCE_FILES += GrandeModular/res/SquareButton0.svg
+MINIRESOURCE_FILES += GrandeModular/res/SquareButton1.svg
+MINIRESOURCE_FILES += GrandeModular/res/SquareButton1dim.svg
+MINIRESOURCE_FILES += GrandeModular/res/Tails-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Tails.svg
+MINIRESOURCE_FILES += GrandeModular/res/Tails4-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/Tails4.svg
+MINIRESOURCE_FILES += GrandeModular/res/TinyLightFlat.svg
+MINIRESOURCE_FILES += GrandeModular/res/TriangleLEDButton0.svg
+MINIRESOURCE_FILES += GrandeModular/res/TriangleLEDButton1.svg
+MINIRESOURCE_FILES += GrandeModular/res/TriangleLightFlat.svg
+MINIRESOURCE_FILES += GrandeModular/res/VCA3-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/VCA3.svg
+MINIRESOURCE_FILES += GrandeModular/res/VCA4-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/VCA4.svg
+MINIRESOURCE_FILES += GrandeModular/res/VarSampleDelays-dark.svg
+MINIRESOURCE_FILES += GrandeModular/res/VarSampleDelays.svg
+MINIRESOURCE_FILES += GrandeModular/res/WhiteButton0.svg
+MINIRESOURCE_FILES += GrandeModular/res/WhiteButton1.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/AqLedBg.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/CvPad.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/KeyboardBig.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/KeyboardSmall.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/TactPad.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/MediumLargeLight.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/Rogan1.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/Rogan1PSWhite_fg.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/Rogan1PWhite_fg.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/Rogan1S.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/Trimpot.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/comp/complib/Trimpot_bg.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/fonts/Segment14.ttf
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/AdaptiveQuantizer.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/BigButtonSeq.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/BigButtonSeq2.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/BlankPanel.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/ChordKey.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/ChordKeyExpander.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Clkd.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Clocked.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/ClockedExpander.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/CvPad.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Foundry.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/FoundryExpander.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/FourView.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/GateSeq64.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/GateSeq64Expander.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Hotkey.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Part.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/PhraseSeq16.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/PhraseSeq32.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/PhraseSeqExpander.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/ProbKey.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/SemiModular.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Sygen.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Tact.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Tact1.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/TactG.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/TwelveKey.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/Variations.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/WriteSeq32.svg
+MINIRESOURCE_FILES += ImpromptuModular/res/panels/WriteSeq64.svg
+MINIRESOURCE_FILES += JW-Modules/res/AbcdSeq.svg
+MINIRESOURCE_FILES += JW-Modules/res/Add5.svg
+MINIRESOURCE_FILES += JW-Modules/res/Arrange.svg
+MINIRESOURCE_FILES += JW-Modules/res/Arrange16.svg
+MINIRESOURCE_FILES += JW-Modules/res/BlankPanel1hp.svg
+MINIRESOURCE_FILES += JW-Modules/res/BlankPanel2hp.svg
+MINIRESOURCE_FILES += JW-Modules/res/BlankPanel4hp.svg
+MINIRESOURCE_FILES += JW-Modules/res/BlankPanelLarge.svg
+MINIRESOURCE_FILES += JW-Modules/res/BlankPanelMedium.svg
+MINIRESOURCE_FILES += JW-Modules/res/BlankPanelSmall.svg
+MINIRESOURCE_FILES += JW-Modules/res/BouncyBalls.svg
+MINIRESOURCE_FILES += JW-Modules/res/Bowl-food.svg
+MINIRESOURCE_FILES += JW-Modules/res/Bowl-no-food.svg
+MINIRESOURCE_FILES += JW-Modules/res/Buffer.svg
+MINIRESOURCE_FILES += JW-Modules/res/Cat.svg
+MINIRESOURCE_FILES += JW-Modules/res/CoolBreeze.svg
+MINIRESOURCE_FILES += JW-Modules/res/D1v1de.svg
+MINIRESOURCE_FILES += JW-Modules/res/DivSeq.svg
+MINIRESOURCE_FILES += JW-Modules/res/DownButton.svg
+MINIRESOURCE_FILES += JW-Modules/res/DownButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/EightSeq.svg
+MINIRESOURCE_FILES += JW-Modules/res/FullScope.svg
+MINIRESOURCE_FILES += JW-Modules/res/Grains.svg
+MINIRESOURCE_FILES += JW-Modules/res/GridSeq.svg
+MINIRESOURCE_FILES += JW-Modules/res/Hairball.svg
+MINIRESOURCE_FILES += JW-Modules/res/LeftButton.svg
+MINIRESOURCE_FILES += JW-Modules/res/LeftButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/MinMax.svg
+MINIRESOURCE_FILES += JW-Modules/res/NoteSeq.svg
+MINIRESOURCE_FILES += JW-Modules/res/NoteSeq16.svg
+MINIRESOURCE_FILES += JW-Modules/res/NoteSeqFu.svg
+MINIRESOURCE_FILES += JW-Modules/res/OnePattern.svg
+MINIRESOURCE_FILES += JW-Modules/res/PT.svg
+MINIRESOURCE_FILES += JW-Modules/res/Patterns.svg
+MINIRESOURCE_FILES += JW-Modules/res/Pres1t.svg
+MINIRESOURCE_FILES += JW-Modules/res/Quantizer.svg
+MINIRESOURCE_FILES += JW-Modules/res/RandomSound.svg
+MINIRESOURCE_FILES += JW-Modules/res/RepButton.svg
+MINIRESOURCE_FILES += JW-Modules/res/RepButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/RightButton.svg
+MINIRESOURCE_FILES += JW-Modules/res/RightButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/RndButton.svg
+MINIRESOURCE_FILES += JW-Modules/res/RndButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/SampleGrid.svg
+MINIRESOURCE_FILES += JW-Modules/res/Screw_J.svg
+MINIRESOURCE_FILES += JW-Modules/res/Screw_W.svg
+MINIRESOURCE_FILES += JW-Modules/res/ShiftRegRnd.svg
+MINIRESOURCE_FILES += JW-Modules/res/SimpleClock.svg
+MINIRESOURCE_FILES += JW-Modules/res/SmallButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/SmallButtonUp.svg
+MINIRESOURCE_FILES += JW-Modules/res/SmallWhiteKnob.svg
+MINIRESOURCE_FILES += JW-Modules/res/SnowFlake.svg
+MINIRESOURCE_FILES += JW-Modules/res/StereoSwitch.svg
+MINIRESOURCE_FILES += JW-Modules/res/StereoSwitchInv.svg
+MINIRESOURCE_FILES += JW-Modules/res/Str1ker.svg
+MINIRESOURCE_FILES += JW-Modules/res/Subtract5.svg
+MINIRESOURCE_FILES += JW-Modules/res/Switch_Horizontal_0.svg
+MINIRESOURCE_FILES += JW-Modules/res/Switch_Horizontal_1.svg
+MINIRESOURCE_FILES += JW-Modules/res/Switch_Vertical_0.svg
+MINIRESOURCE_FILES += JW-Modules/res/Switch_Vertical_1.svg
+MINIRESOURCE_FILES += JW-Modules/res/ThingThing.svg
+MINIRESOURCE_FILES += JW-Modules/res/Timer.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinierButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinierButtonUp.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyButtonUp.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyPJ301M.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyPJ301M_blue.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyPJ301M_orange.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyPJ301M_purple.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyPJ301M_white.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyPJ301M_yellow.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyWhiteGrayKnob.svg
+MINIRESOURCE_FILES += JW-Modules/res/TinyWhiteKnob.svg
+MINIRESOURCE_FILES += JW-Modules/res/Tree.svg
+MINIRESOURCE_FILES += JW-Modules/res/Trigs.svg
+MINIRESOURCE_FILES += JW-Modules/res/UpButton.svg
+MINIRESOURCE_FILES += JW-Modules/res/UpButtonDown.svg
+MINIRESOURCE_FILES += JW-Modules/res/WavHeadPanel.svg
+MINIRESOURCE_FILES += JW-Modules/res/WavHeadSmall.svg
+MINIRESOURCE_FILES += JW-Modules/res/XYPad.svg
+MINIRESOURCE_FILES += JW-Modules/res/fader.svg
+MINIRESOURCE_FILES += JW-Modules/res/faderbg.svg
+MINIRESOURCE_FILES += LittleUtils/res/Bias_Semitone.svg
+MINIRESOURCE_FILES += LittleUtils/res/ButtonModule.svg
+MINIRESOURCE_FILES += LittleUtils/res/Button_button_0.svg
+MINIRESOURCE_FILES += LittleUtils/res/Button_button_1.svg
+MINIRESOURCE_FILES += LittleUtils/res/MulDiv.svg
+MINIRESOURCE_FILES += LittleUtils/res/PulseGenerator.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/bass/bypass-round-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/bass/bypass-round-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/bass/solo-round-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/bass/solo-round-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/big-knob-pointer.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/bigger-knob-pointer.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/dots-7.5_120.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/dots-7.5c_120.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/dots-8.0_112.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/dots-8.0c_112.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band1-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band1-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band2-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band2-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band3-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band3-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band4-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/band4-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/bell-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/bell-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/global-bypass-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/global-bypass-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/high-shelf-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/high-shelf-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/low-shelf-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/eq/low-shelf-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/jack-poly.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/jack.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-bg-7.5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-bg-8.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-blue-7.5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-blue-8.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-green-8.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-grey-7.5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-grey-8.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-orange-7.5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-purple-7.5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-purple-8.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-red-7.5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/knob-red-8.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/led-button.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/logo.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/dim-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/dim-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fade-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fade-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fader-aux-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fader-channel-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fader-channel.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fader-master-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/fader-master.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/group-minus-active.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/group-minus.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/group-plus-active.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/group-plus.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/mono-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/mono-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/mute-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/mute-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/solo-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/mixer/solo-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/Omri-logo.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/Trimpot.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/Trimpot_bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/button-lg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/button-md.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/button-sm.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/fader-large-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/fader-xlarge-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/fader-xxlarge-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/knob-bg-13.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/patchset/knob-grey-13.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/round-button4-grey.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E1-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E2-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E3-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E4-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E5-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E6-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E7-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/E8-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/SL-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/freeze-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/freeze-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/headphones-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/headphones-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/lock-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/lock-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/loop-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/play-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/play-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/sidechain-settings-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/sidechain-settings-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/sustain-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/sync-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/shape/sync-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/switch-off.svg
+MINIRESOURCE_FILES += MindMeldModular/res/comp/switch-on.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/BassMaster.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/BassMasterSnr.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/EqSpander.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/ShapeMaster.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/auxspander-jr.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/auxspander.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/eqmaster.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/mixmaster-jr.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/mixmaster.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/ms-melder.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/RouteMaster1to5.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/RouteMaster1to5stereo.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/RouteMaster5to1.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/RouteMaster5to1stereo.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/master-channel.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-blank-smaller.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-blank-xsm.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-blank-xxsm.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-button-lg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-button-md.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-button-sm.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-fader-lg-u.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-fader-lg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-fader-xlg-u.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-fader-xlg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-fader-xxlg-u.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-fader-xxlg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-knob-lg-u.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-knob-lg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-knob-md-u.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-knob-md.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-knob-sm-u.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-knob-sm.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-vsep-bg-noline.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/pm-vsep-bg.svg
+MINIRESOURCE_FILES += MindMeldModular/res/dark/patchset/title-divider.svg
+MINIRESOURCE_FILES += MindMeldModular/res/fonts/RobotoCondensed-Regular.ttf
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/CKSSH_0.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/CKSSH_1.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/arrange.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/band.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/beat.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/chance.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/chime.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/crystal.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/cycle.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/drift.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/fill.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/fonts/Figtree-Regular.ttf
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/fonts/Figtree-SemiBold.ttf
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/fugue-expander.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/fugue.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/gravity.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/gsx.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/intone.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/key.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/kit.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/loom.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/metafugue.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/meter.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/meterx.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/muse-slider-bg.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/muse-slider-handle.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/muse.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/note.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/op_env.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/operator.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/opmorph.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/overtone.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/patterns
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/phase.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/play.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/ratio.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/record.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/shift.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/slice.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/slide.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/slider-horiz-bg.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/slider-horiz-handle.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/slidex.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/swell.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/tine.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/trace.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/vac.svg
+MINIRESOURCE_FILES += SignalFunctionSet-VCV-Rack/res/wave.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/Mb.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/dark/Glue.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/Me.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/RecButton.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/LargeKnob-fg.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/LargeKnob.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/MatrixButton.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/MatrixButton1.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/Port.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/Screw.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/SmallKnob-fg.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/SmallKnob.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/Trimpot-fg.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/components/Trimpot.svg
+MINIRESOURCE_FILES += stoermelder-packone/res/fonts/RedkostComic.otf
+MINIRESOURCE_FILES += submit-vcv-modules/res/Chain.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChainMuteButton_0.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChainMuteButton_1.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChainSliderHandle.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Chrono.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChronoBreak_0.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChronoBreak_1.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChronoSliderHandle.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChronoSurge_0.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/ChronoSurge_1.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Circles.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/CirclesComponents.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Clang.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Drift13.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Drift13KnobLarge.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Drift13KnobSmall.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Flip.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Gain.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Impact.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Loop.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Master.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Orbit.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Panel-design-sweep.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Pulse.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/React.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Set.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Shape.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Squeeze.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Sub.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobCompact.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobLarge.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobMedium.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobMini.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobPetite.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobSmall.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SubmitKnobTiny.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SumM4.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/SumS4.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Sync.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/Tag.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/TryMe_0.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/TryMe_1.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/knob-reset-off.svg
+MINIRESOURCE_FILES += submit-vcv-modules/res/knob-reset-on.svg
+MINIRESOURCE_FILES += Venom/res/PJ301M-poly.svg
+MINIRESOURCE_FILES += Venom/res/Coal/BayInput_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/BayInput_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/BayNorm_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/BayNorm_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/BayOutput_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/BayOutput_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/Bypass_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/Bypass_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/CloneMerge_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/CloneMerge_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/Knob5_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/Knob5_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/Mix4_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/Mix4_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/Mix4Stereo_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/Mix4Stereo_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixFade_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixFade_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixFade2_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixFade2_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixMute_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixMute_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixOffset_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixOffset_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixPan_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixPan_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixSend_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixSend_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/MixSolo_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/MixSolo_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/PolyOffset_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/PolyOffset_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/PolyScale_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/PolyScale_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/PolyUnison_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/PolyUnison_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/Push5_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/Push5_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/VCAMix4_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/VCAMix4_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/Coal/VCAMix4Stereo_Coal.svg
+MINIRESOURCE_FILES += Venom/res/Ivory/VCAMix4Stereo_Ivory.svg
+MINIRESOURCE_FILES += Venom/res/RoundTinyBlackKnob.svg
+MINIRESOURCE_FILES += Venom/res/RoundTinyBlackKnob_bg.svg
+MINIRESOURCE_FILES += Venom/res/VCVBezelBig.svg
+MINIRESOURCE_FILES += Venom/res/cnt_2.svg
+MINIRESOURCE_FILES += Venom/res/cnt_3.svg
+MINIRESOURCE_FILES += Venom/res/cnt_4.svg
+MINIRESOURCE_FILES += Venom/res/cnt_5.svg
+MINIRESOURCE_FILES += Venom/res/cnt_6.svg
+MINIRESOURCE_FILES += Venom/res/dir_left.svg
+MINIRESOURCE_FILES += Venom/res/dir_left_right.svg
+MINIRESOURCE_FILES += Venom/res/dir_off.svg
+MINIRESOURCE_FILES += Venom/res/dir_right.svg
+MINIRESOURCE_FILES += Venom/res/mode_0.svg
+MINIRESOURCE_FILES += Venom/res/mode_1.svg
+MINIRESOURCE_FILES += Venom/res/mode_2.svg
+MINIRESOURCE_FILES += Venom/res/mode_3.svg
+MINIRESOURCE_FILES += Venom/res/mode_4.svg
+MINIRESOURCE_FILES += Venom/res/mode_5.svg
+MINIRESOURCE_FILES += Venom/res/op_AND.svg
+MINIRESOURCE_FILES += Venom/res/op_NAND.svg
+MINIRESOURCE_FILES += Venom/res/op_NOR.svg
+MINIRESOURCE_FILES += Venom/res/op_OR.svg
+MINIRESOURCE_FILES += Venom/res/op_XNOR_1.svg
+MINIRESOURCE_FILES += Venom/res/op_XNOR_ODD.svg
+MINIRESOURCE_FILES += Venom/res/op_XOR_1.svg
+MINIRESOURCE_FILES += Venom/res/op_XOR_ODD.svg
+MINIRESOURCE_FILES += Venom/res/op_down.svg
+MINIRESOURCE_FILES += Venom/res/out_1.svg
+MINIRESOURCE_FILES += Venom/res/out_2.svg
+MINIRESOURCE_FILES += Venom/res/out_3.svg
+MINIRESOURCE_FILES += Venom/res/out_4.svg
+MINIRESOURCE_FILES += Venom/res/out_5.svg
+MINIRESOURCE_FILES += Venom/res/out_6.svg
+MINIRESOURCE_FILES += Venom/res/out_7.svg
+MINIRESOURCE_FILES += Venom/res/out_8.svg
+MINIRESOURCE_FILES += Venom/res/out_9.svg
+MINIRESOURCE_FILES += Venom/res/out_none.svg
+MINIRESOURCE_FILES += Venom/res/over_16.svg
+MINIRESOURCE_FILES += Venom/res/over_2.svg
+MINIRESOURCE_FILES += Venom/res/over_32.svg
+MINIRESOURCE_FILES += Venom/res/over_4.svg
+MINIRESOURCE_FILES += Venom/res/over_8.svg
+MINIRESOURCE_FILES += Venom/res/over_off.svg
+MINIRESOURCE_FILES += Venom/res/range_0-1.svg
+MINIRESOURCE_FILES += Venom/res/range_0-10.svg
+MINIRESOURCE_FILES += Venom/res/range_0-5.svg
+MINIRESOURCE_FILES += Venom/res/range_pm1.svg
+MINIRESOURCE_FILES += Venom/res/range_pm10.svg
+MINIRESOURCE_FILES += Venom/res/range_pm5.svg
+MINIRESOURCE_FILES += Venom/res/rate_0.svg
+MINIRESOURCE_FILES += Venom/res/rate_1.svg
+MINIRESOURCE_FILES += Venom/res/rate_10.svg
+MINIRESOURCE_FILES += Venom/res/rate_11.svg
+MINIRESOURCE_FILES += Venom/res/rate_12.svg
+MINIRESOURCE_FILES += Venom/res/rate_13.svg
+MINIRESOURCE_FILES += Venom/res/rate_14.svg
+MINIRESOURCE_FILES += Venom/res/rate_2.svg
+MINIRESOURCE_FILES += Venom/res/rate_3.svg
+MINIRESOURCE_FILES += Venom/res/rate_4.svg
+MINIRESOURCE_FILES += Venom/res/rate_5.svg
+MINIRESOURCE_FILES += Venom/res/rate_6.svg
+MINIRESOURCE_FILES += Venom/res/rate_7.svg
+MINIRESOURCE_FILES += Venom/res/rate_8.svg
+MINIRESOURCE_FILES += Venom/res/rate_9.svg
+MINIRESOURCE_FILES += Venom/res/smallBlueButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallGreenButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallLightBlueButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallOffButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallOrangeButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallPinkButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallPurpleButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallRedButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallWhiteButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/smallYellowButtonSwitch.svg
+MINIRESOURCE_FILES += Venom/res/wave_saw.svg
+MINIRESOURCE_FILES += Venom/res/wave_sin.svg
+MINIRESOURCE_FILES += Venom/res/wave_sqr.svg
+MINIRESOURCE_FILES += Venom/res/wave_tri.svg
+MINIRESOURCE_FILES += Venom/res/xm_AM.svg
+MINIRESOURCE_FILES += Venom/res/xm_AMoffset.svg
+MINIRESOURCE_FILES += Venom/res/xm_AMrect.svg
+MINIRESOURCE_FILES += Venom/res/xm_FM.svg
+MINIRESOURCE_FILES += Venom/res/xm_FM_DC.svg
+MINIRESOURCE_FILES += Venom/res/xm_PM.svg
+MINIRESOURCE_FILES += Venom/res/xm_RM.svg
+MINIRESOURCE_FILES += Autinn/res/AmpModule.svg
+MINIRESOURCE_FILES += Autinn/res/AxeModule.svg
+MINIRESOURCE_FILES += Autinn/res/BassModule.svg
+MINIRESOURCE_FILES += Autinn/res/CVConverterModule.svg
+MINIRESOURCE_FILES += Autinn/res/CoilModule.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/InPortAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/KnobLargeAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/KnobSmallAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/KnobSmallAutinnPink.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/KnobSmallAutinnTyrk.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/KnobSmallAutinnYel.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/OutPortAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/RoundButtonAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/RoundButtonAutinnDown.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/RoundButtonSmallAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/RoundButtonSmallAutinnDown.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/RoundCVButtonSmallAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/RoundCVButtonSmallAutinnDown.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/ScrewStarAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/SliderAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/SliderHandleAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/ComponentLibrary/SliderShortAutinn.svg
+MINIRESOURCE_FILES += Autinn/res/DeadbandModule.svg
+MINIRESOURCE_FILES += Autinn/res/DigiModule.svg
+MINIRESOURCE_FILES += Autinn/res/DiseeModule.svg
+MINIRESOURCE_FILES += Autinn/res/ExcaviModule.svg
+MINIRESOURCE_FILES += Autinn/res/FilModule.svg
+MINIRESOURCE_FILES += Autinn/res/FlopperModule.svg
+MINIRESOURCE_FILES += Autinn/res/ImpModule.svg
+MINIRESOURCE_FILES += Autinn/res/JetteModule.svg
+MINIRESOURCE_FILES += Autinn/res/KickerModule.svg
+MINIRESOURCE_FILES += Autinn/res/MelodyModule.svg
+MINIRESOURCE_FILES += Autinn/res/MeraModule.svg
+MINIRESOURCE_FILES += Autinn/res/Mixer6Module.svg
+MINIRESOURCE_FILES += Autinn/res/NapModule.svg
+MINIRESOURCE_FILES += Autinn/res/NonModule.svg
+MINIRESOURCE_FILES += Autinn/res/OxcartModule.svg
+MINIRESOURCE_FILES += Autinn/res/RadModule.svg
+MINIRESOURCE_FILES += Autinn/res/RebelModule.svg
+MINIRESOURCE_FILES += Autinn/res/RetriModule.svg
+MINIRESOURCE_FILES += Autinn/res/SawModule.svg
+MINIRESOURCE_FILES += Autinn/res/ScopeModule.svg
+MINIRESOURCE_FILES += Autinn/res/SjipModule.svg
+MINIRESOURCE_FILES += Autinn/res/SnareModule.svg
+MINIRESOURCE_FILES += Autinn/res/SquareModule.svg
+MINIRESOURCE_FILES += Autinn/res/VibratoModule.svg
+MINIRESOURCE_FILES += Autinn/res/VxyModule.svg
+MINIRESOURCE_FILES += Autinn/res/ZodModule.svg
+MINIRESOURCE_FILES += Biset/res/Blank-Wild.svg
+MINIRESOURCE_FILES += Biset/res/Blank-Gang.svg
+MINIRESOURCE_FILES += Biset/res/Blank-Army.svg
+MINIRESOURCE_FILES += Biset/res/Blank.svg
+MINIRESOURCE_FILES += alefsbits/res/blank6hp.svg
+MINIRESOURCE_FILES += alefsbits/res/components/bitknob_bg.svg
+MINIRESOURCE_FILES += alefsbits/res/components/bitknob_fg.svg
+MINIRESOURCE_FILES += alefsbits/res/components/bitport.svg
+MINIRESOURCE_FILES += alefsbits/res/components/empty.svg
+MINIRESOURCE_FILES += alefsbits/res/components/largebitknob_bg.svg
+MINIRESOURCE_FILES += alefsbits/res/components/largebitknob_fg.svg
+MINIRESOURCE_FILES += alefsbits/res/components/logo.svg
+MINIRESOURCE_FILES += alefsbits/res/components/smallbitknob_bg.svg
+MINIRESOURCE_FILES += alefsbits/res/components/smallbitknob_fg.svg
+MINIRESOURCE_FILES += alefsbits/res/fibb.svg
+MINIRESOURCE_FILES += alefsbits/res/lights.svg
+MINIRESOURCE_FILES += alefsbits/res/logic.svg
+MINIRESOURCE_FILES += alefsbits/res/lucc.svg
+MINIRESOURCE_FILES += alefsbits/res/math.svg
+MINIRESOURCE_FILES += alefsbits/res/mlt.svg
+MINIRESOURCE_FILES += alefsbits/res/noize.svg
+MINIRESOURCE_FILES += alefsbits/res/nos.svg
+MINIRESOURCE_FILES += alefsbits/res/octsclr.svg
+MINIRESOURCE_FILES += alefsbits/res/polycounter.svg
+MINIRESOURCE_FILES += alefsbits/res/polyplay.svg
+MINIRESOURCE_FILES += alefsbits/res/polyrand.svg
+MINIRESOURCE_FILES += alefsbits/res/polyshuffle.svg
+MINIRESOURCE_FILES += alefsbits/res/probablynot.svg
+MINIRESOURCE_FILES += alefsbits/res/shift.svg
+MINIRESOURCE_FILES += alefsbits/res/simplexandhold.svg
+MINIRESOURCE_FILES += alefsbits/res/slips.svg
+MINIRESOURCE_FILES += alefsbits/res/slipspander.svg
+MINIRESOURCE_FILES += alefsbits/res/steps.svg
+MINIRESOURCE_FILES += alefsbits/res/turnt.svg
 
 # MINIRESOURCE_FILES += ValleyAudio/res/DexterPanelDark.svg
 # MINIRESOURCE_FILES += ValleyAudio/res/InterzonePanelDark.svg
@@ -1871,8 +3008,8 @@ LV2_RESOURCES += $(RESOURCE_FILES:%=../bin/CardinalNative.lv2/resources/%)
 
 else
 
-LV2_RESOURCES += $(MINIPLUGIN_LIST:%=../bin/CardinalMini.lv2/resources/PluginManifests/%.json)
-LV2_RESOURCES += $(MINIRESOURCE_FILES:%=../bin/CardinalMini.lv2/resources/%)
+MINI_RESOURCES  = $(MINIPLUGIN_LIST:%=../bin/CardinalMini.lv2/resources/PluginManifests/%.json)
+MINI_RESOURCES += $(MINIRESOURCE_FILES:%=../bin/CardinalMini.lv2/resources/%)
 
 LV2_RESOURCES  = $(MINI_RESOURCES)
 LV2_RESOURCES += $(PLUGIN_LIST:%=../bin/Cardinal.lv2/resources/PluginManifests/%.json)
@@ -2187,10 +3324,25 @@ $(BUILD_DIR)/admiral/%.cpp.o: admiral/%.cpp
 		$(foreach m,$(ADMIRAL_CUSTOM),$(call custom_module_names,$(m),admiral)) \
 		-DpluginInstance=pluginInstance__admiral
 
+$(BUILD_DIR)/alefsbits/src/plugin.cpp.o: alefsbits/src/plugin.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(ALEFSBITS_FLAGS) -c -o $@ \
+		$(foreach m,$(ALEFSBITS_CUSTOM),$(call custom_module_names,$(m),alefsbits)) \
+		-DpluginInstance=pluginInstance__alefsbits \
+		-Dinit=init__alefsbits
+
+$(BUILD_DIR)/alefsbits-mini-shim.cpp.o: alefsbits-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(ALEFSBITS_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__alefsbits \
+		-Dinit=init__alefsbits
+
 $(BUILD_DIR)/alefsbits/%.cpp.o: alefsbits/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
 	@echo "Compiling $<"
-	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+	$(SILENT)$(CXX) $< $(ALEFSBITS_FLAGS) -c -o $@ \
 		$(foreach m,$(ALEFSBITS_CUSTOM),$(call custom_module_names,$(m),alefsbits)) \
 		-DpluginInstance=pluginInstance__alefsbits
 
@@ -2536,6 +3688,14 @@ $(BUILD_DIR)/ImpromptuModular/src/ImpromptuModular.cpp.o: ImpromptuModular/src/I
 		-DpluginInstance=pluginInstance__ImpromptuModular \
 		-Dinit=init__ImpromptuModular
 
+$(BUILD_DIR)/ImpromptuModular-mini-shim.cpp.o: ImpromptuModular-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		$(foreach m,$(IMPROMPTUMODULAR_CUSTOM),$(call custom_module_names,$(m),ImpromptuModular)) \
+		-DpluginInstance=pluginInstance__ImpromptuModular \
+		-Dinit=init__ImpromptuModular
+
 $(BUILD_DIR)/ImpromptuModular%.cpp.o: ImpromptuModular%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
 	@echo "Compiling $<"
@@ -2637,6 +3797,14 @@ $(BUILD_DIR)/MindMeldModular/src/MindMeldModular.cpp.o: MindMeldModular/src/Mind
 		$(foreach m,$(MINDMELD_CUSTOM),$(call custom_module_names,$(m),MindMeld)) \
 		-DpluginInstance=pluginInstance__MindMeld \
 		-Dinit=init__MindMeld
+
+$(BUILD_DIR)/MindMeldModular-mini-shim.cpp.o: MindMeldModular-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__MindMeld \
+		-Dinit=init__MindMeldModular \
+		-DprintNote=printNoteMindMeld
 
 $(BUILD_DIR)/MindMeldModular/%.cpp.o: MindMeldModular/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
@@ -2830,6 +3998,13 @@ $(BUILD_DIR)/stoermelder-packone/%.cpp.o: stoermelder-packone/%.cpp
 		-DpluginInstance=pluginInstance__stoermelder_p1 \
 		-Dinit=init__stoermelder_p1
 
+$(BUILD_DIR)/stoermelder-packone-mini-shim.cpp.o: stoermelder-packone-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__stoermelder_p1 \
+		-Dinit=init__stoermelder_p1
+
 $(BUILD_DIR)/stocaudio/%.cpp.o: stocaudio/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
 	@echo "Compiling $<"
@@ -2876,6 +4051,7 @@ $(BUILD_DIR)/voxglitch/%.cpp.o: voxglitch/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
 	@echo "Compiling $<"
 	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-Ivoxglitch/src \
 		$(foreach m,$(VOXGLITCH_CUSTOM),$(call custom_module_names,$(m),Voxglitch)) \
 		$(foreach m,$(VOXGLITCH_CUSTOM_PER_FILE),$(call custom_per_file_names,$(m),Voxglitch_$(shell basename -- $*))) \
 		-DpluginInstance=pluginInstance__Voxglitch \
@@ -2924,3 +4100,75 @@ $(BUILD_DIR)/ZZC/%.cpp.o: ZZC/%.cpp
 -include $(PLUGIN_OBJS:%.o=%.d)
 
 # --------------------------------------------------------------
+MINIPLUGIN_LIST += Aluminium
+MINIPLUGIN_LIST += AmbientModules
+MINIPLUGIN_LIST += cf
+MINIPLUGIN_LIST += unless_modules
+MINIPLUGIN_LIST += ProducerPack
+MINIPLUGIN_LIST += AS
+MINIPLUGIN_LIST += VCVRackPlugins
+MINIPLUGIN_LIST += GrandeModular
+MINIPLUGIN_LIST += ImpromptuModular
+MINIPLUGIN_LIST += JW-Modules
+MINIPLUGIN_LIST += LittleUtils
+MINIPLUGIN_LIST += MindMeldModular
+MINIPLUGIN_LIST += SignalFunctionSet-VCV-Rack
+MINIPLUGIN_LIST += stoermelder-packone
+MINIPLUGIN_LIST += submit-vcv-modules
+MINIPLUGIN_LIST += Venom
+MINIPLUGIN_LIST += Autinn
+MINIPLUGIN_LIST += Biset
+MINIPLUGIN_LIST += alefsbits
+# TODO(cardinal-mini-sync): no asset::plugin(...) resource refs auto-detected for AmbientModules -- verify panels load, add MINIRESOURCE_FILES manually if not.
+
+$(BUILD_DIR)/cf/%.cpp.o: cf/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__cf
+# TODO(cardinal-mini-sync): no asset::plugin(...) resource refs auto-detected for unless_modules -- verify panels load, add MINIRESOURCE_FILES manually if not.
+
+$(BUILD_DIR)/ProducerPack/%.cpp.o: ProducerPack/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(PRODUCERPACK_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__ProducerPack
+
+$(BUILD_DIR)/CountModula-mini-shim.cpp.o: CountModula-mini-shim.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__VCVRackPlugins \
+		-Dinit=init__VCVRackPlugins
+
+$(BUILD_DIR)/VCVRackPlugins/%.cpp.o: VCVRackPlugins/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__VCVRackPlugins
+
+$(BUILD_DIR)/ImpromptuModular/%.cpp.o: ImpromptuModular/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__ImpromptuModular
+
+$(BUILD_DIR)/SignalFunctionSet-VCV-Rack/%.cpp.o: SignalFunctionSet-VCV-Rack/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__SignalFunctionSet_VCV_Rack
+
+$(BUILD_DIR)/submit-vcv-modules/%.cpp.o: submit-vcv-modules/%.cpp
+	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
+	@echo "Compiling $<"
+	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		-DpluginInstance=pluginInstance__submit_vcv_modules
+
+# The `mini-resources: $(MINI_RESOURCES)` rule far above expands its
+# prerequisite list at that file position -- before most MINIPLUGIN_LIST/
+# MINIRESOURCE_FILES entries further down the file even exist yet -- so it
+# silently drops every plugin wired in after that point. A second prerequisite
+# line for the same target is additive in GNU Make, so this one (written after
+# every append) picks up the rest.
+mini-resources: $(MINIPLUGIN_LIST:%=../bin/CardinalMini.lv2/resources/PluginManifests/%.json) $(MINIRESOURCE_FILES:%=../bin/CardinalMini.lv2/resources/%)

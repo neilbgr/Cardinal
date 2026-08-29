@@ -426,6 +426,10 @@ protected:
         return d_cconst('d', 'C', 'd', 'n');
        #elif CARDINAL_VARIANT_MINI
         return d_cconst('d', 'C', 'd', 'M');
+       #elif CARDINAL_VARIANT_MINIFX
+        return d_cconst('d', 'C', 'M', 'F');
+       #elif CARDINAL_VARIANT_MINISYNTH
+        return d_cconst('d', 'C', 'M', 'S');
        #elif CARDINAL_VARIANT_FX
         return d_cconst('d', 'C', 'n', 'F');
        #elif CARDINAL_VARIANT_SYNTH
@@ -456,7 +460,7 @@ protected:
             port.hints = kAudioPortIsCV | kCVPortHasPositiveUnipolarRange | kCVPortHasScaledRange | kCVPortIsOptional;
             index -= CARDINAL_NUM_AUDIO_INPUTS;
         }
-       #elif CARDINAL_VARIANT_NATIVE || CARDINAL_VARIANT_FX || CARDINAL_VARIANT_SYNTH
+       #elif CARDINAL_VARIANT_NATIVE || CARDINAL_VARIANT_FX || CARDINAL_VARIANT_SYNTH || CARDINAL_VARIANT_MINIFX || CARDINAL_VARIANT_MINISYNTH
         if (index < 2)
             port.groupId = kPortGroupStereo;
        #endif

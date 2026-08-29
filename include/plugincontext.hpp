@@ -70,6 +70,8 @@ enum CardinalVariant {
     kCardinalVariantLoader,
     kCardinalVariantMain,
     kCardinalVariantMini,
+    kCardinalVariantMiniFX,
+    kCardinalVariantMiniSynth,
     kCardinalVariantNative,
     kCardinalVariantSynth,
 };

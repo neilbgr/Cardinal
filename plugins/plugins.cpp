@@ -971,7 +971,7 @@ Plugin* pluginInstance__21kHz;
 Plugin* pluginInstance__8Mode;
 extern Plugin* pluginInstance__AaronStatic;
 Plugin* pluginInstance__admiral;
-Plugin* pluginInstance__alefsbits;
+extern Plugin* pluginInstance__alefsbits;
 Plugin* pluginInstance__Algoritmarte;
 Plugin* pluginInstance__Aluminium;
 Plugin* pluginInstance__AmalgamatedHarmonics;
@@ -1356,6 +1356,15 @@ static void initStatic__alefsbits()
         p->addModel(modelMath);
         p->addModel(modelLogic);
         p->addModel(modelProbablynot);
+        p->addModel(modelLights);
+        p->addModel(modelSlips);
+        p->addModel(modelTurnt);
+        p->addModel(modelSlipspander);
+        p->addModel(modelNos);
+        p->addModel(modelLucc);
+        p->addModel(modelPolyshuffle);
+        p->addModel(modelPolycounter);
+        spl.removeModule("polyplay");
 #undef modelSteps
 #undef modelLogic
     }

@@ -56,6 +56,34 @@ extern Model* modelSwitch;
 extern Model* modelSwitch18;
 extern Model* modelUnison;
 
+extern Model* modelMono;
+extern Model* modelAnalyzerXL;
+extern Model* modelMix8;
+extern Model* modelXFade;
+extern Model* modelLVCF;
+extern Model* modelStack;
+extern Model* modelArp;
+extern Model* modelUMix;
+extern Model* modelLVCO;
+extern Model* modelBool;
+extern Model* modelBogaudioADSR;
+extern Model* modelLLFO;
+extern Model* modelFMOp;
+extern Model* modelASR;
+extern Model* modelMix4;
+extern Model* modelPolyCon8;
+extern Model* modelAddrSeqX;
+extern Model* modelAddrSeq;
+extern Model* modelMix4x;
+extern Model* modelPressor;
+extern Model* modelVelo;
+extern Model* modelSlew;
+extern Model* modelPulse;
+extern Model* modelSine;
+extern Model* modelDGate;
+extern Model* modelVCAmp;
+extern Model* modelMix8x;
+extern Model* modelReftone;
 // MockbaModular
 #include "MockbaModular/src/plugin.hpp"
 #include "MockbaModular/src/MockbaModular.hpp"
@@ -75,6 +103,109 @@ void surgext_rack_update_theme();
 // ValleyAudio
 #include "ValleyAudio/src/Valley.hpp"
 
+// Aluminium
+extern Model* modelPadX;
+extern Model* modelZones;
+extern Model* modelPads;
+
+// AmbientModules
+extern Model* modelLunarPapaSrapa;
+extern Model* modelLunarSequencer;
+extern Model* modelLunar50Drone;
+extern Model* modelBlank;
+extern Model* modelLunarLFO;
+extern Model* modelLunarVCO;
+
+// cf
+extern Model* modelLABEL;
+
+// unless_modules
+extern Model* modelPianoid;
+
+// ProducerPack
+extern Model* modelSeventiesComp;
+extern Model* modelStereoWidth;
+extern Model* modelDrumBus;
+
+// AS
+extern Model* modelStereoVUmeter;
+extern Model* modelDelayPlusStereoFx;
+extern Model* modelPhaserFx;
+extern Model* modelMonoVUmeter;
+
+// VCVRackPlugins
+extern Model* modelOscilloscope;
+extern Model* modelBarGraph;
+
+// GrandeModular
+extern Model* modelMerge8;
+
+// ImpromptuModular
+extern Model* modelClkd;
+extern Model* modelClocked;
+extern Model* modelClockedExpander;
+extern Model* modelPhraseSeq16;
+extern Model* modelPhraseSeqExpander;
+
+// JW-Modules
+extern Model* modelFullScope;
+extern Model* modelGrains;
+
+// LittleUtils
+extern Model* modelButtonModule;
+
+// MindMeldModular
+extern Model* modelMasterChannel;
+extern Model* modelMixMasterJr;
+
+extern Model* modelAuxExpanderJr;
+extern Model* modelMSMelder;
+extern Model* modelBassMaster;
+extern Model* modelBassMasterJr;
+// SignalFunctionSet-VCV-Rack
+extern Model* modelFill;
+
+// stoermelder-packone
+extern Model* modelGlue;
+
+// submit-vcv-modules
+extern Model* modelTag;
+
+// Venom
+extern Model* modelVenomMixSolo;
+extern Model* modelVenomPolyUnison;
+extern Model* modelVenomBayOutput;
+extern Model* modelVenomPolyScale;
+extern Model* modelVenomMixFade2;
+extern Model* modelVenomBayNorm;
+extern Model* modelVenomPolyOffset;
+extern Model* modelVenomMixPan;
+extern Model* modelVenomKnob5;
+extern Model* modelVenomMixFade;
+extern Model* modelVenomMixMute;
+extern Model* modelVenomBayInput;
+extern Model* modelVenomMixSend;
+extern Model* modelVenomMix4;
+extern Model* modelVenomMixOffset;
+extern Model* modelVenomMix4Stereo;
+extern Model* modelVenomCloneMerge;
+extern Model* modelVenomVCAMix4;
+extern Model* modelVenomPush5;
+extern Model* modelVenomBypass;
+extern Model* modelVenomVCAMix4Stereo;
+
+// Autinn
+extern Model* modelAutinnSnare;
+extern Model* modelAmp;
+extern Model* modelKicker;
+extern Model* modelAutinnScope;
+
+// Biset
+extern Model* modelBisetBlank;
+
+// alefsbits
+extern Model* modelLights;
+
 // known terminal modules
 std::vector<Model*> hostTerminalModels;
 
@@ -88,6 +219,26 @@ Plugin* pluginInstance__MockbaModular;
 Plugin* pluginInstance__surgext;
 Plugin* pluginInstance__ValleyAudio;
 
+Plugin* pluginInstance__Aluminium;
+Plugin* pluginInstance__AmbientModules;
+Plugin* pluginInstance__cf;
+Plugin* pluginInstance__unless_modules;
+Plugin* pluginInstance__ProducerPack;
+Plugin* pluginInstance__AS;
+extern Plugin* pluginInstance__VCVRackPlugins;
+Plugin* pluginInstance__GrandeModular;
+extern Plugin* pluginInstance__ImpromptuModular;
+extern void readThemeAndContrastFromDefault();
+Plugin* pluginInstance__JW;
+Plugin* pluginInstance__LittleUtils;
+extern Plugin* pluginInstance__MindMeld;
+Plugin* pluginInstance__SignalFunctionSet_VCV_Rack;
+extern Plugin* pluginInstance__stoermelder_p1;
+Plugin* pluginInstance__submit_vcv_modules;
+Plugin* pluginInstance__Venom;
+Plugin* pluginInstance__Autinn;
+Plugin* pluginInstance__Biset;
+extern Plugin* pluginInstance__alefsbits;
 namespace rack {
 
 namespace asset {
@@ -261,18 +412,18 @@ static void initStatic__Fundamental()
         p->addModel(modelVCF);
         p->addModel(modelVCMixer);
         p->addModel(modelVCO);
-        spl.removeModule("8vert");
-        spl.removeModule("Delay");
-        spl.removeModule("LFO2");
-        spl.removeModule("Mixer");
-        spl.removeModule("Mutes");
-        spl.removeModule("Octave");
-        spl.removeModule("Pulses");
-        spl.removeModule("SEQ3");
-        spl.removeModule("SequentialSwitch1");
-        spl.removeModule("SequentialSwitch2");
-        spl.removeModule("VCA");
-        spl.removeModule("VCO2");
+        p->addModel(modelMixer);
+        p->addModel(model_8vert);
+        p->addModel(modelVCO2);
+        p->addModel(modelPulses);
+        p->addModel(modelVCA);
+        p->addModel(modelSequentialSwitch1);
+        p->addModel(modelSequentialSwitch2);
+        p->addModel(modelOctave);
+        p->addModel(modelSEQ3);
+        p->addModel(modelDelay);
+        p->addModel(modelLFO2);
+        p->addModel(modelMutes);
     }
 }
 
@@ -284,9 +435,6 @@ static void initStatic__Aria()
     const StaticPluginLoader spl(p, "AriaModules");
     if (spl.ok())
     {
-        p->addModel(modelSpleet);
-        p->addModel(modelSwerge);
-
         spl.removeModule("Aleister");
         spl.removeModule("Arcane");
         spl.removeModule("Atout");
@@ -304,8 +452,10 @@ static void initStatic__Aria()
         spl.removeModule("Solomon16");
         spl.removeModule("Solomon4");
         spl.removeModule("Solomon8");
+        spl.removeModule("Spleet");
         spl.removeModule("Splirge");
         spl.removeModule("Splort");
+        spl.removeModule("Swerge");
         spl.removeModule("Undular");
 
     }
@@ -367,20 +517,41 @@ static void initStatic__BogaudioModules()
         p->addModel(modelSwitch18);
         p->addModel(modelUnison);
 
+        p->addModel(modelMono);
+        p->addModel(modelAnalyzerXL);
+        p->addModel(modelMix8);
+        p->addModel(modelXFade);
+        p->addModel(modelLVCF);
+        p->addModel(modelStack);
+        p->addModel(modelArp);
+        p->addModel(modelUMix);
+        p->addModel(modelLVCO);
+        p->addModel(modelBool);
+        p->addModel(modelBogaudioADSR);
+        p->addModel(modelLLFO);
+        p->addModel(modelFMOp);
+        p->addModel(modelASR);
+        p->addModel(modelMix4);
+        p->addModel(modelPolyCon8);
+        p->addModel(modelAddrSeqX);
+        p->addModel(modelAddrSeq);
+        p->addModel(modelMix4x);
+        p->addModel(modelPressor);
+        p->addModel(modelVelo);
+        p->addModel(modelSlew);
+        p->addModel(modelPulse);
+        p->addModel(modelSine);
+        p->addModel(modelDGate);
+        p->addModel(modelVCAmp);
+        p->addModel(modelMix8x);
+        p->addModel(modelReftone);
         // cat plugins/BogaudioModules/plugin.json  | jq -r .modules[].slug - | sort
         spl.removeModule("Bogaudio-Additator");
-        spl.removeModule("Bogaudio-AddrSeq");
-        spl.removeModule("Bogaudio-AddrSeqX");
-        spl.removeModule("Bogaudio-ADSR");
         spl.removeModule("Bogaudio-AMRM");
         spl.removeModule("Bogaudio-Analyzer");
-        spl.removeModule("Bogaudio-AnalyzerXL");
-        spl.removeModule("Bogaudio-Arp");
-        spl.removeModule("Bogaudio-ASR");
         spl.removeModule("Bogaudio-Assign");
         spl.removeModule("Bogaudio-Blank3");
         spl.removeModule("Bogaudio-Blank6");
-        spl.removeModule("Bogaudio-Bool");
         spl.removeModule("Bogaudio-Chirp");
         spl.removeModule("Bogaudio-Clpr");
         spl.removeModule("Bogaudio-Cmp");
@@ -389,7 +560,6 @@ static void initStatic__BogaudioModules()
         spl.removeModule("Bogaudio-DADSRH");
         spl.removeModule("Bogaudio-DADSRHPlus");
         spl.removeModule("Bogaudio-Detune");
-        spl.removeModule("Bogaudio-DGate");
         spl.removeModule("Bogaudio-Edge");
         spl.removeModule("Bogaudio-EightFO");
         spl.removeModule("Bogaudio-EightOne");
@@ -397,18 +567,14 @@ static void initStatic__BogaudioModules()
         spl.removeModule("Bogaudio-EQS");
         spl.removeModule("Bogaudio-FFB");
         spl.removeModule("Bogaudio-FlipFlop");
-        spl.removeModule("Bogaudio-FMOp");
         spl.removeModule("Bogaudio-Follow");
         spl.removeModule("Bogaudio-FourFO");
         spl.removeModule("Bogaudio-FourMan");
         spl.removeModule("Bogaudio-Inv");
         spl.removeModule("Bogaudio-Lgsw");
-        spl.removeModule("Bogaudio-LLFO");
         spl.removeModule("Bogaudio-LLPG");
         spl.removeModule("Bogaudio-Lmtr");
         spl.removeModule("Bogaudio-LPG");
-        spl.removeModule("Bogaudio-LVCF");
-        spl.removeModule("Bogaudio-LVCO");
         spl.removeModule("Bogaudio-Manual");
         spl.removeModule("Bogaudio-Matrix18");
         spl.removeModule("Bogaudio-Matrix44");
@@ -420,11 +586,6 @@ static void initStatic__BogaudioModules()
         spl.removeModule("Bogaudio-MegaGate");
         spl.removeModule("Bogaudio-Mix1");
         spl.removeModule("Bogaudio-Mix2");
-        spl.removeModule("Bogaudio-Mix4");
-        spl.removeModule("Bogaudio-Mix4x");
-        spl.removeModule("Bogaudio-Mix8");
-        spl.removeModule("Bogaudio-Mix8x");
-        spl.removeModule("Bogaudio-Mono");
         spl.removeModule("Bogaudio-Mult");
         spl.removeModule("Bogaudio-Mumix");
         spl.removeModule("Bogaudio-Mute8");
@@ -439,35 +600,24 @@ static void initStatic__BogaudioModules()
         spl.removeModule("Bogaudio-Pgmr");
         spl.removeModule("Bogaudio-PgmrX");
         spl.removeModule("Bogaudio-PolyCon");
-        spl.removeModule("Bogaudio-PolyCon8");
         spl.removeModule("Bogaudio-PolyMult");
         spl.removeModule("Bogaudio-PolyOff16");
         spl.removeModule("Bogaudio-PolyOff8");
-        spl.removeModule("Bogaudio-Pressor");
-        spl.removeModule("Bogaudio-Pulse");
         spl.removeModule("Bogaudio-Ranalyzer");
-        spl.removeModule("Bogaudio-Reftone");
         spl.removeModule("Bogaudio-RGate");
         spl.removeModule("Bogaudio-Shaper");
         spl.removeModule("Bogaudio-ShaperPlus");
-        spl.removeModule("Bogaudio-Sine");
-        spl.removeModule("Bogaudio-Slew");
-        spl.removeModule("Bogaudio-Stack");
         spl.removeModule("Bogaudio-Sums");
         spl.removeModule("Bogaudio-Switch1616");
         spl.removeModule("Bogaudio-Switch44");
         spl.removeModule("Bogaudio-Switch81");
         spl.removeModule("Bogaudio-Switch88");
-        spl.removeModule("Bogaudio-UMix");
-        spl.removeModule("Bogaudio-VCAmp");
         spl.removeModule("Bogaudio-VCM");
-        spl.removeModule("Bogaudio-Velo");
         spl.removeModule("Bogaudio-Vish");
         spl.removeModule("Bogaudio-VU");
         spl.removeModule("Bogaudio-Walk");
         spl.removeModule("Bogaudio-Walk2");
         spl.removeModule("Bogaudio-XCO");
-        spl.removeModule("Bogaudio-XFade");
     }
 }
 
@@ -479,18 +629,11 @@ static void initStatic__MockbaModular()
     const StaticPluginLoader spl(p, "MockbaModular");
     if (spl.ok())
     {
-        p->addModel(modelCZOsc);
-        p->addModel(modelFiltah);
-        p->addModel(modelMaugOsc);
-        p->addModel(modelMixah);
-        p->addModel(modelPannah);
-        p->addModel(modelReVoltah);
-        p->addModel(modelShapah);
-
         spl.removeModule("Blank");
         spl.removeModule("Comparator");
         spl.removeModule("Countah");
         spl.removeModule("CZDblSine");
+        spl.removeModule("CZOsc");
         spl.removeModule("CZPulse");
         spl.removeModule("CZReso1");
         spl.removeModule("CZReso2");
@@ -499,17 +642,19 @@ static void initStatic__MockbaModular()
         spl.removeModule("CZSawPulse");
         spl.removeModule("CZSquare");
         spl.removeModule("Dividah");
+        spl.removeModule("DualAND");
         spl.removeModule("DualBUFFER");
+        spl.removeModule("DualNAND");
+        spl.removeModule("DualNOR");
         spl.removeModule("DualNOT");
         spl.removeModule("DualOR");
-        spl.removeModule("DualNOR");
-        spl.removeModule("DualAND");
-        spl.removeModule("DualNAND");
-        spl.removeModule("DualXOR");
         spl.removeModule("DualXNOR");
+        spl.removeModule("DualXOR");
         spl.removeModule("Feidah");
         spl.removeModule("FeidahS");
+        spl.removeModule("Filtah");
         spl.removeModule("Holdah");
+        spl.removeModule("MaugOsc");
         spl.removeModule("MaugSaw");
         spl.removeModule("MaugSaw2");
         spl.removeModule("MaugShark");
@@ -517,9 +662,13 @@ static void initStatic__MockbaModular()
         spl.removeModule("MaugSquare2");
         spl.removeModule("MaugSquare3");
         spl.removeModule("MaugTriangle");
+        spl.removeModule("Mixah");
         spl.removeModule("Mixah3");
+        spl.removeModule("Pannah");
         spl.removeModule("PSelectah");
+        spl.removeModule("ReVoltah");
         spl.removeModule("Selectah");
+        spl.removeModule("Shapah");
         spl.removeModule("UDPClockMaster");
         spl.removeModule("UDPClockSlave");
     }
@@ -576,24 +725,24 @@ static void initStatic__surgext()
         spl.removeModule("SurgeXTVCF");
 
         p->addModel(modelFXNimbus);
+        p->addModel(modelFXPhaser);
+        p->addModel(modelFXChorus);
+        p->addModel(modelFXReverb);
+        p->addModel(modelFXDistortion);
+        p->addModel(modelFXFlanger);
+        p->addModel(modelFXSpringReverb);
         spl.removeModule("SurgeXTFXBonsai");
-        spl.removeModule("SurgeXTFXChorus");
         spl.removeModule("SurgeXTFXChow");
         spl.removeModule("SurgeXTFXCombulator");
         spl.removeModule("SurgeXTDigitalRingMod");
-        spl.removeModule("SurgeXTFXDistortion");
         spl.removeModule("SurgeXTFXExciter");
         spl.removeModule("SurgeXTFXEnsemble");
-        spl.removeModule("SurgeXTFXFlanger");
         spl.removeModule("SurgeXTFXFrequencyShifter");
         spl.removeModule("SurgeXTFXNeuron");
-        spl.removeModule("SurgeXTFXPhaser");
         spl.removeModule("SurgeXTFXResonator");
-        spl.removeModule("SurgeXTFXReverb");
         spl.removeModule("SurgeXTFXReverb2");
         spl.removeModule("SurgeXTFXRingMod");
         spl.removeModule("SurgeXTFXRotarySpeaker");
-        spl.removeModule("SurgeXTFXSpringReverb");
         spl.removeModule("SurgeXTFXTreeMonster");
         spl.removeModule("SurgeXTFXVocoder");
 
@@ -614,7 +763,6 @@ static void initStatic__surgext()
     }
 }
 
-/*
 static void initStatic__ValleyAudio()
 {
     Plugin* const p = new Plugin;
@@ -623,18 +771,873 @@ static void initStatic__ValleyAudio()
     const StaticPluginLoader spl(p, "ValleyAudio");
     if (spl.ok())
     {
-        p->addModel(modelDexter);
-        p->addModel(modelInterzone);
+        p->addModel(modelPlateau);
 
+        // Dexter/Interzone left out for now: this submodule has been
+        // restructured upstream since this block was last maintained (its
+        // source files moved to new subfolders, and Dexter's
+        // Osc4Core_SIMD.cpp no longer exists at all) -- re-enabling them
+        // needs a real path/dependency audit, not just uncommenting.
         spl.removeModule("Amalgam");
+        spl.removeModule("Dexter");
         spl.removeModule("Feline");
-        spl.removeModule("Plateau");
+        spl.removeModule("Interzone");
         spl.removeModule("Terrorform");
         spl.removeModule("Topograph");
         spl.removeModule("uGraph");
     }
 }
-*/
+
+static void initStatic__Aluminium()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__Aluminium = p;
+
+    const StaticPluginLoader spl(p, "Aluminium");
+    if (spl.ok())
+    {
+        p->addModel(modelPadX);
+        p->addModel(modelZones);
+        p->addModel(modelPads);
+    }
+}
+
+static void initStatic__AmbientModules()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__AmbientModules = p;
+
+    const StaticPluginLoader spl(p, "AmbientModules");
+    if (spl.ok())
+    {
+        p->addModel(modelLunarPapaSrapa);
+        p->addModel(modelLunarSequencer);
+        p->addModel(modelLunar50Drone);
+        p->addModel(modelBlank);
+        p->addModel(modelLunarLFO);
+        p->addModel(modelLunarVCO);
+    }
+}
+
+static void initStatic__cf()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__cf = p;
+
+    const StaticPluginLoader spl(p, "cf");
+    if (spl.ok())
+    {
+        p->addModel(modelLABEL);
+        spl.removeModule("ALGEBRA");
+        spl.removeModule("BUFFER");
+        spl.removeModule("CHOKE");
+        spl.removeModule("CUBE");
+        spl.removeModule("CUTS");
+        spl.removeModule("DAVE");
+        spl.removeModule("DISTO");
+        spl.removeModule("EACH");
+        spl.removeModule("FOUR");
+        spl.removeModule("FUNKTION");
+        spl.removeModule("L3DS3Q");
+        spl.removeModule("LEDSEQ");
+        spl.removeModule("MASTER");
+        spl.removeModule("METRO");
+        spl.removeModule("MONO");
+        spl.removeModule("PATCH");
+        spl.removeModule("PEAK");
+        spl.removeModule("PLAY");
+        spl.removeModule("PLAYER");
+        spl.removeModule("SLIDERSEQ");
+        spl.removeModule("STEPS");
+        spl.removeModule("STEREO");
+        spl.removeModule("SUB");
+        spl.removeModule("VARIABLE");
+        spl.removeModule("trSEQ");
+    }
+}
+
+static void initStatic__unless_modules()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__unless_modules = p;
+
+    const StaticPluginLoader spl(p, "unless_modules");
+    if (spl.ok())
+    {
+        p->addModel(modelPianoid);
+        spl.removeModule("atoms");
+        spl.removeModule("avoider");
+        spl.removeModule("cantor");
+        spl.removeModule("markov");
+        spl.removeModule("piong");
+        spl.removeModule("premuter");
+        spl.removeModule("room");
+        spl.removeModule("snake");
+        spl.removeModule("towers");
+    }
+}
+
+static void initStatic__ProducerPack()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__ProducerPack = p;
+
+    const StaticPluginLoader spl(p, "ProducerPack");
+    if (spl.ok())
+    {
+        p->addModel(modelSeventiesComp);
+        p->addModel(modelStereoWidth);
+        p->addModel(modelDrumBus);
+        spl.removeModule("AuxSends");
+        spl.removeModule("Bitcrusher");
+        spl.removeModule("Boost");
+        spl.removeModule("DJFilter");
+        spl.removeModule("Decay");
+        spl.removeModule("SeventiesEQ");
+        spl.removeModule("Spatializer");
+        spl.removeModule("StereoCrossfader");
+    }
+}
+
+static void initStatic__AS()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__AS = p;
+
+    const StaticPluginLoader spl(p, "AS");
+    if (spl.ok())
+    {
+        p->addModel(modelStereoVUmeter);
+        p->addModel(modelDelayPlusStereoFx);
+        p->addModel(modelPhaserFx);
+        p->addModel(modelMonoVUmeter);
+        spl.removeModule("ADSR");
+        spl.removeModule("AtNuVrTr");
+        spl.removeModule("BPMCalc");
+        spl.removeModule("BPMCalc2");
+        spl.removeModule("BPMClock");
+        spl.removeModule("BlankPanel4");
+        spl.removeModule("BlankPanel6");
+        spl.removeModule("BlankPanel8");
+        spl.removeModule("BlankPanelSpecial");
+        spl.removeModule("Cv2T");
+        spl.removeModule("DelayPlusFx");
+        spl.removeModule("Flow");
+        spl.removeModule("KillGate");
+        spl.removeModule("LaunchGate");
+        spl.removeModule("Merge2_5");
+        spl.removeModule("Mixer2ch");
+        spl.removeModule("Mixer4ch");
+        spl.removeModule("Mixer8ch");
+        spl.removeModule("Multiple2_5");
+        spl.removeModule("QuadVCA");
+        spl.removeModule("ReScale");
+        spl.removeModule("ReverbFx");
+        spl.removeModule("ReverbStereoFx");
+        spl.removeModule("SEQ16");
+        spl.removeModule("SawOSC");
+        spl.removeModule("SignalDelay");
+        spl.removeModule("SineOSC");
+        spl.removeModule("Steps");
+        spl.removeModule("SuperDriveFx");
+        spl.removeModule("SuperDriveStereoFx");
+        spl.removeModule("TremoloFx");
+        spl.removeModule("TremoloStereoFx");
+        spl.removeModule("TriLFO");
+        spl.removeModule("TriggersMKI");
+        spl.removeModule("TriggersMKII");
+        spl.removeModule("TriggersMKIII");
+        spl.removeModule("VCA");
+        spl.removeModule("WaveShaper");
+        spl.removeModule("WaveShaperStereo");
+        spl.removeModule("ZeroCV2T");
+    }
+}
+
+static void initStatic__VCVRackPlugins()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__VCVRackPlugins = p;
+
+    const StaticPluginLoader spl(p, "VCVRackPlugins");
+    if (spl.ok())
+    {
+        p->addModel(modelOscilloscope);
+        p->addModel(modelBarGraph);
+        spl.removeModule("AnalogueShiftRegister");
+        spl.removeModule("Arpeggiator");
+        spl.removeModule("Attenuator");
+        spl.removeModule("Attenuverter");
+        spl.removeModule("BasicSequencer8");
+        spl.removeModule("BinaryComparator");
+        spl.removeModule("BinarySequencer");
+        spl.removeModule("BinarySequencerPlus");
+        spl.removeModule("Blank12HP");
+        spl.removeModule("Blank16HP");
+        spl.removeModule("Blank20HP");
+        spl.removeModule("Blank24HP");
+        spl.removeModule("Blank2HP");
+        spl.removeModule("Blank4HP");
+        spl.removeModule("Blank8HP");
+        spl.removeModule("BooleanAND");
+        spl.removeModule("BooleanOR");
+        spl.removeModule("BooleanVCNOT");
+        spl.removeModule("BooleanXOR");
+        spl.removeModule("Breakout");
+        spl.removeModule("BurstGenerator");
+        spl.removeModule("BurstGenerator64");
+        spl.removeModule("BusRoute");
+        spl.removeModule("BusRoute2");
+        spl.removeModule("CVSpreader");
+        spl.removeModule("Carousel");
+        spl.removeModule("Chances");
+        spl.removeModule("ClockDivider");
+        spl.removeModule("ClockedRandomGateExpanderCV");
+        spl.removeModule("ClockedRandomGateExpanderLog");
+        spl.removeModule("ClockedRandomGates");
+        spl.removeModule("Comparator");
+        spl.removeModule("Euclid");
+        spl.removeModule("EuclidExpanderCV");
+        spl.removeModule("EventArranger");
+        spl.removeModule("EventTimer");
+        spl.removeModule("EventTimer2");
+        spl.removeModule("Fade");
+        spl.removeModule("FadeExpander");
+        spl.removeModule("G2T");
+        spl.removeModule("GateDelay");
+        spl.removeModule("GateDelayMT");
+        spl.removeModule("GateModifier");
+        spl.removeModule("GateSequencer16");
+        spl.removeModule("GateSequencer16b");
+        spl.removeModule("GateSequencer8");
+        spl.removeModule("GatedComparator");
+        spl.removeModule("HyperManiacalLFO");
+        spl.removeModule("HyperManiacalLFOExpander");
+        spl.removeModule("LightStrip");
+        spl.removeModule("Mangler");
+        spl.removeModule("Manifold");
+        spl.removeModule("ManualCV");
+        spl.removeModule("ManualCV2");
+        spl.removeModule("ManualGate");
+        spl.removeModule("MasterReset");
+        spl.removeModule("MatrixCombiner");
+        spl.removeModule("MatrixMixer");
+        spl.removeModule("Megalomaniac");
+        spl.removeModule("MiniMix");
+        spl.removeModule("MinimusMaximus");
+        spl.removeModule("Mixer");
+        spl.removeModule("MorphShaper");
+        spl.removeModule("Mult");
+        spl.removeModule("MultiStepSequencer");
+        spl.removeModule("Multiplexer");
+        spl.removeModule("Mute");
+        spl.removeModule("Mute-iple");
+        spl.removeModule("NibbleTriggerSequencer");
+        spl.removeModule("OctetTriggerSequencer");
+        spl.removeModule("OctetTriggerSequencerCVExpander");
+        spl.removeModule("OctetTriggerSequencerGateExpander");
+        spl.removeModule("OffsetGenerator");
+        spl.removeModule("Palette");
+        spl.removeModule("PolyChances");
+        spl.removeModule("PolyG2T");
+        spl.removeModule("PolyGateModifier");
+        spl.removeModule("PolyLogic");
+        spl.removeModule("PolyMinMax");
+        spl.removeModule("PolyMute");
+        spl.removeModule("PolyVCPolarizer");
+        spl.removeModule("PolyVCSwitch");
+        spl.removeModule("PolyrhythmicGenerator");
+        spl.removeModule("PolyrhythmicGeneratorMkII");
+        spl.removeModule("RackEarLeft");
+        spl.removeModule("RackEarRight");
+        spl.removeModule("RandomAccessSwitch18");
+        spl.removeModule("RandomAccessSwitch81");
+        spl.removeModule("Rectifier");
+        spl.removeModule("SRFlipFlop");
+        spl.removeModule("SampleAndHold");
+        spl.removeModule("SampleAndHold2");
+        spl.removeModule("SequenceEncoder");
+        spl.removeModule("Sequencer16");
+        spl.removeModule("Sequencer64");
+        spl.removeModule("Sequencer8");
+        spl.removeModule("SequencerChannel16");
+        spl.removeModule("SequencerChannel8");
+        spl.removeModule("SequencerExpanderCV8");
+        spl.removeModule("SequencerExpanderLOG8");
+        spl.removeModule("SequencerExpanderOut8");
+        spl.removeModule("SequencerExpanderRM8");
+        spl.removeModule("SequencerExpanderTSG");
+        spl.removeModule("SequencerExpanderTrig8");
+        spl.removeModule("SequencerGates16");
+        spl.removeModule("SequencerGates8");
+        spl.removeModule("SequencerTriggers16");
+        spl.removeModule("SequencerTriggers8");
+        spl.removeModule("ShepardGenerator");
+        spl.removeModule("ShiftRegister16");
+        spl.removeModule("ShiftRegister32");
+        spl.removeModule("SingleDFlipFlop");
+        spl.removeModule("SingleSRFlipFlop");
+        spl.removeModule("SingleTFlipFlop");
+        spl.removeModule("SlopeDetector");
+        spl.removeModule("Stack");
+        spl.removeModule("StartupDelay");
+        spl.removeModule("StepSequencer8");
+        spl.removeModule("SubHarmonicGenerator");
+        spl.removeModule("Switch16To1");
+        spl.removeModule("Switch1To16");
+        spl.removeModule("Switch1To8");
+        spl.removeModule("Switch2");
+        spl.removeModule("Switch3");
+        spl.removeModule("Switch4");
+        spl.removeModule("Switch8To1");
+        spl.removeModule("TFlipFlop");
+        spl.removeModule("TriggerSequencer16");
+        spl.removeModule("TriggerSequencer8");
+        spl.removeModule("VCFrequencyDivider");
+        spl.removeModule("VCFrequencyDividerMkII");
+        spl.removeModule("VCPolarizer");
+        spl.removeModule("VCPulseDivider");
+        spl.removeModule("VoltageControlledSwitch");
+        spl.removeModule("VoltageInverter");
+        spl.removeModule("VoltageScaler");
+    }
+}
+
+static void initStatic__GrandeModular()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__GrandeModular = p;
+
+    const StaticPluginLoader spl(p, "GrandeModular");
+    if (spl.ok())
+    {
+        p->addModel(modelMerge8);
+        spl.removeModule("Clip");
+        spl.removeModule("Compare3");
+        spl.removeModule("LFO3");
+        spl.removeModule("LFO4");
+        spl.removeModule("Logic");
+        spl.removeModule("MergeSplit4");
+        spl.removeModule("MicrotonalChords");
+        spl.removeModule("MicrotonalNotes");
+        spl.removeModule("NoteMT");
+        spl.removeModule("Peak");
+        spl.removeModule("PolyMergeResplit");
+        spl.removeModule("PolySplit");
+        spl.removeModule("Push");
+        spl.removeModule("Quant");
+        spl.removeModule("QuantIntervals");
+        spl.removeModule("QuantMT");
+        spl.removeModule("SampleDelays");
+        spl.removeModule("Scale");
+        spl.removeModule("Split8");
+        spl.removeModule("Tails");
+        spl.removeModule("Tails4");
+        spl.removeModule("VCA3");
+        spl.removeModule("VCA4");
+        spl.removeModule("VarSampleDelays");
+    }
+}
+
+static void initStatic__ImpromptuModular()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__ImpromptuModular = p;
+
+    const StaticPluginLoader spl(p, "ImpromptuModular");
+    if (spl.ok())
+    {
+        // Mini uses StaticPluginLoader instead of calling the pack's real init(),
+        // so the line that normally sets defaultPanelContrast away from its
+        // zero-initialized value (making panels render pure black) never runs.
+        readThemeAndContrastFromDefault();
+        p->addModel(modelClkd);
+        p->addModel(modelClocked);
+        p->addModel(modelClockedExpander);
+        p->addModel(modelPhraseSeq16);
+        p->addModel(modelPhraseSeqExpander);
+        spl.removeModule("Adaptive-Quantizer");
+        spl.removeModule("Big-Button-Seq");
+        spl.removeModule("Big-Button-Seq2");
+        spl.removeModule("Blank-Panel");
+        spl.removeModule("Chord-Key");
+        spl.removeModule("Chord-Key-Expander");
+        spl.removeModule("Cv-Pad");
+        spl.removeModule("Foundry");
+        spl.removeModule("Foundry-Expander");
+        spl.removeModule("Four-View");
+        spl.removeModule("Gate-Seq-64");
+        spl.removeModule("Gate-Seq-64-Expander");
+        spl.removeModule("Hotkey");
+        spl.removeModule("NoteEcho");
+        spl.removeModule("NoteFilter");
+        spl.removeModule("NoteLoop");
+        spl.removeModule("Part-Gate-Split");
+        spl.removeModule("Phrase-Seq-32");
+        spl.removeModule("Prob-Key");
+        spl.removeModule("Semi-ModularSynth");
+        spl.removeModule("Sygen");
+        spl.removeModule("Tact");
+        spl.removeModule("Tact1");
+        spl.removeModule("TactG");
+        spl.removeModule("Twelve-Key");
+        spl.removeModule("Variations");
+        spl.removeModule("Write-Seq-32");
+        spl.removeModule("Write-Seq-64");
+    }
+}
+
+static void initStatic__JW_Modules()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__JW = p;
+
+    const StaticPluginLoader spl(p, "JW-Modules");
+    if (spl.ok())
+    {
+        p->addModel(modelFullScope);
+        p->addModel(modelGrains);
+        spl.removeModule("0Cat");
+        spl.removeModule("1Pattern");
+        spl.removeModule("8Seq");
+        spl.removeModule("AbcdSeq");
+        spl.removeModule("Add5");
+        spl.removeModule("Arrange");
+        spl.removeModule("Arrange16");
+        spl.removeModule("BlankPanel_1HP");
+        spl.removeModule("BlankPanel_2HP");
+        spl.removeModule("BlankPanel_4HP");
+        spl.removeModule("BlankPanel_LG");
+        spl.removeModule("BlankPanel_MD");
+        spl.removeModule("BlankPanel_SM");
+        spl.removeModule("BouncyBalls");
+        spl.removeModule("Buffer");
+        spl.removeModule("CoolBreeze");
+        spl.removeModule("Crawl");
+        spl.removeModule("D1v1de");
+        spl.removeModule("DivSeq");
+        spl.removeModule("FM16Seq");
+        spl.removeModule("FM4Dice");
+        spl.removeModule("Fract");
+        spl.removeModule("GridSeq");
+        spl.removeModule("MinMax");
+        spl.removeModule("NoteSeq");
+        spl.removeModule("NoteSeq16");
+        spl.removeModule("NoteSeqFu");
+        spl.removeModule("Patterns");
+        spl.removeModule("Pete");
+        spl.removeModule("Pres1t");
+        spl.removeModule("Quantizer");
+        spl.removeModule("RandomSound");
+        spl.removeModule("SampleGrid");
+        spl.removeModule("ShiftRegRnd");
+        spl.removeModule("SimpleClock");
+        spl.removeModule("StereoSwitch");
+        spl.removeModule("StereoSwitchInv");
+        spl.removeModule("Str1ker");
+        spl.removeModule("Subtract5");
+        spl.removeModule("ThingThing");
+        spl.removeModule("Timer");
+        spl.removeModule("Tree");
+        spl.removeModule("Trigs");
+        spl.removeModule("Trigs128");
+        spl.removeModule("WavHead");
+        spl.removeModule("XYPad");
+    }
+}
+
+static void initStatic__LittleUtils()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__LittleUtils = p;
+
+    const StaticPluginLoader spl(p, "LittleUtils");
+    if (spl.ok())
+    {
+        p->addModel(modelButtonModule);
+        spl.removeModule("BiasSemitone");
+        spl.removeModule("MultiplyDivide");
+        spl.removeModule("PulseGenerator");
+        spl.removeModule("TeleportIn");
+        spl.removeModule("TeleportOut");
+    }
+}
+
+static void initStatic__MindMeldModular()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__MindMeld = p;
+
+    const StaticPluginLoader spl(p, "MindMeldModular");
+    if (spl.ok())
+    {
+        p->addModel(modelMasterChannel);
+        p->addModel(modelMixMasterJr);
+        p->addModel(modelAuxExpanderJr);
+        p->addModel(modelMSMelder);
+        p->addModel(modelBassMaster);
+        p->addModel(modelBassMasterJr);
+        spl.removeModule("AuxExpander");
+        spl.removeModule("EqExpander");
+        spl.removeModule("EqMaster");
+        spl.removeModule("Meld");
+        spl.removeModule("MixMaster");
+        spl.removeModule("PatchMaster");
+        spl.removeModule("PatchMasterBlank");
+        spl.removeModule("RouteMasterMono1to5");
+        spl.removeModule("RouteMasterMono5to1");
+        spl.removeModule("RouteMasterStereo1to5");
+        spl.removeModule("RouteMasterStereo5to1");
+        spl.removeModule("ShapeMaster");
+        spl.removeModule("Unmeld");
+    }
+}
+
+static void initStatic__SignalFunctionSet_VCV_Rack()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__SignalFunctionSet_VCV_Rack = p;
+
+    const StaticPluginLoader spl(p, "SignalFunctionSet-VCV-Rack");
+    if (spl.ok())
+    {
+        p->addModel(modelFill);
+        spl.removeModule("Arrange");
+        spl.removeModule("Band");
+        spl.removeModule("Beat");
+        spl.removeModule("Chance");
+        spl.removeModule("Chime");
+        spl.removeModule("Crystal");
+        spl.removeModule("Cycle");
+        spl.removeModule("Drift");
+        spl.removeModule("Fugue");
+        spl.removeModule("FugueX");
+        spl.removeModule("Gravity");
+        spl.removeModule("Intone");
+        spl.removeModule("Key");
+        spl.removeModule("Kit");
+        spl.removeModule("Loom");
+        spl.removeModule("MetaFugue");
+        spl.removeModule("Meter");
+        spl.removeModule("MeterX");
+        spl.removeModule("Muse");
+        spl.removeModule("Note");
+        spl.removeModule("OpEnv");
+        spl.removeModule("OpMorph");
+        spl.removeModule("Operator");
+        spl.removeModule("Overtone");
+        spl.removeModule("Phase");
+        spl.removeModule("Play");
+        spl.removeModule("Ratio");
+        spl.removeModule("Record");
+        spl.removeModule("Shift");
+        spl.removeModule("Slice");
+        spl.removeModule("Slide");
+        spl.removeModule("SlideX");
+        spl.removeModule("Swell");
+        spl.removeModule("Tine");
+        spl.removeModule("Trace");
+        spl.removeModule("Vac");
+        spl.removeModule("Wave");
+        spl.removeModule("gsx");
+    }
+}
+
+static void initStatic__stoermelder_packone()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__stoermelder_p1 = p;
+
+    const StaticPluginLoader spl(p, "stoermelder-packone");
+    if (spl.ok())
+    {
+        p->addModel(modelGlue);
+        spl.removeModule("Affix");
+        spl.removeModule("AffixMicro");
+        spl.removeModule("Ahab");
+        spl.removeModule("Arena");
+        spl.removeModule("AudioInterface64");
+        spl.removeModule("Bolt");
+        spl.removeModule("CVMap");
+        spl.removeModule("CVMapCtx");
+        spl.removeModule("CVMapMicro");
+        spl.removeModule("CVPam");
+        spl.removeModule("Dirt");
+        spl.removeModule("EightFace");
+        spl.removeModule("EightFaceMk2");
+        spl.removeModule("EightFaceMk2Ex");
+        spl.removeModule("EightFaceX2");
+        spl.removeModule("FourRounds");
+        spl.removeModule("Goto");
+        spl.removeModule("Grip");
+        spl.removeModule("Hive");
+        spl.removeModule("Infix");
+        spl.removeModule("InfixMicro");
+        spl.removeModule("Intermix");
+        spl.removeModule("IntermixEnv");
+        spl.removeModule("IntermixFade");
+        spl.removeModule("IntermixGate");
+        spl.removeModule("Macro");
+        spl.removeModule("Maze");
+        spl.removeModule("Mb");
+        spl.removeModule("Me");
+        spl.removeModule("MidiCat");
+        spl.removeModule("MidiCatClk");
+        spl.removeModule("MidiCatCtx");
+        spl.removeModule("MidiCatEx");
+        spl.removeModule("MidiCatFine");
+        spl.removeModule("MidiCatXl");
+        spl.removeModule("MidiEsx");
+        spl.removeModule("MidiKey");
+        spl.removeModule("MidiMon");
+        spl.removeModule("MidiPlug");
+        spl.removeModule("MidiStep");
+        spl.removeModule("Mirror");
+        spl.removeModule("Orbit");
+        spl.removeModule("PanicRoom");
+        spl.removeModule("Pile");
+        spl.removeModule("PilePoly");
+        spl.removeModule("Raw");
+        spl.removeModule("ReMoveLite");
+        spl.removeModule("RotorA");
+        spl.removeModule("Sail");
+        spl.removeModule("Sipo");
+        spl.removeModule("Siren");
+        spl.removeModule("Spin");
+        spl.removeModule("Strip");
+        spl.removeModule("StripBay4");
+        spl.removeModule("StripPp");
+        spl.removeModule("Stroke");
+        spl.removeModule("Transit");
+        spl.removeModule("TransitEx");
+        spl.removeModule("X4");
+    }
+}
+
+static void initStatic__submit_vcv_modules()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__submit_vcv_modules = p;
+
+    const StaticPluginLoader spl(p, "submit-vcv-modules");
+    if (spl.ok())
+    {
+        p->addModel(modelTag);
+        spl.removeModule("Chain");
+        spl.removeModule("Chrono");
+        spl.removeModule("Circles");
+        spl.removeModule("Clang");
+        spl.removeModule("Drift");
+        spl.removeModule("Flip");
+        spl.removeModule("Gain");
+        spl.removeModule("Impact");
+        spl.removeModule("Loop");
+        spl.removeModule("Master");
+        spl.removeModule("Orbit");
+        spl.removeModule("Pulse");
+        spl.removeModule("React");
+        spl.removeModule("Set");
+        spl.removeModule("Shape");
+        spl.removeModule("Squeeze");
+        spl.removeModule("Sub");
+        spl.removeModule("SumM4");
+        spl.removeModule("SumS4");
+        spl.removeModule("Sweep");
+        spl.removeModule("Sync");
+    }
+}
+
+static void initStatic__Venom()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__Venom = p;
+
+    const StaticPluginLoader spl(p, "Venom");
+    if (spl.ok())
+    {
+        p->addModel(modelVenomMixSolo);
+        p->addModel(modelVenomPolyUnison);
+        p->addModel(modelVenomBayOutput);
+        p->addModel(modelVenomPolyScale);
+        p->addModel(modelVenomMixFade2);
+        p->addModel(modelVenomBayNorm);
+        p->addModel(modelVenomPolyOffset);
+        p->addModel(modelVenomMixPan);
+        p->addModel(modelVenomKnob5);
+        p->addModel(modelVenomMixFade);
+        p->addModel(modelVenomMixMute);
+        p->addModel(modelVenomBayInput);
+        p->addModel(modelVenomMixSend);
+        p->addModel(modelVenomMix4);
+        p->addModel(modelVenomMixOffset);
+        p->addModel(modelVenomMix4Stereo);
+        p->addModel(modelVenomCloneMerge);
+        p->addModel(modelVenomVCAMix4);
+        p->addModel(modelVenomPush5);
+        p->addModel(modelVenomBypass);
+        p->addModel(modelVenomVCAMix4Stereo);
+        spl.removeModule("AD_ASR");
+        spl.removeModule("AuxClone");
+        spl.removeModule("BenjolinGatesExpander");
+        spl.removeModule("BenjolinOsc");
+        spl.removeModule("BenjolinVoltsExpander");
+        spl.removeModule("BernoulliSwitch");
+        spl.removeModule("BernoulliSwitchExpander");
+        spl.removeModule("Blocker");
+        spl.removeModule("Compare2");
+        spl.removeModule("CrossFade3D");
+        spl.removeModule("HQ");
+        spl.removeModule("LinearBeats");
+        spl.removeModule("LinearBeatsExpander");
+        spl.removeModule("Logic");
+        spl.removeModule("Merge4x2");
+        spl.removeModule("MergeSplit");
+        spl.removeModule("MousePad");
+        spl.removeModule("MultiMerge");
+        spl.removeModule("MultiSplit");
+        spl.removeModule("NORSIQChord2Scale");
+        spl.removeModule("NORS_IQ");
+        spl.removeModule("NullCable");
+        spl.removeModule("Octaver");
+        spl.removeModule("Oscillator");
+        spl.removeModule("Pan3D");
+        spl.removeModule("PolyClone");
+        spl.removeModule("PolyFade");
+        spl.removeModule("PolyMute");
+        spl.removeModule("PolyPrune");
+        spl.removeModule("PolySHASR");
+        spl.removeModule("QuadVCPolarizer");
+        spl.removeModule("REXCV");
+        spl.removeModule("Recurse");
+        spl.removeModule("RecurseStereo");
+        spl.removeModule("Reformation");
+        spl.removeModule("RhythmExplorer");
+        spl.removeModule("SVF");
+        spl.removeModule("ShapedVCA");
+        spl.removeModule("Slew");
+        spl.removeModule("SphereToXYZ");
+        spl.removeModule("Split4x2");
+        spl.removeModule("Thru");
+        spl.removeModule("VCOUnit");
+        spl.removeModule("VenomBlank");
+        spl.removeModule("WaveFolder");
+        spl.removeModule("WaveMangler");
+        spl.removeModule("WaveMultiplier");
+        spl.removeModule("WidgetMenuExtender");
+        spl.removeModule("WinComp");
+        spl.removeModule("XM_OP");
+    }
+}
+
+static void initStatic__Autinn()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__Autinn = p;
+
+    const StaticPluginLoader spl(p, "Autinn");
+    if (spl.ok())
+    {
+        p->addModel(modelAutinnSnare);
+        p->addModel(modelAmp);
+        p->addModel(modelKicker);
+        p->addModel(modelAutinnScope);
+        spl.removeModule("Alias");
+        spl.removeModule("Au");
+        spl.removeModule("Bass");
+        spl.removeModule("Big");
+        spl.removeModule("Boomerang");
+        spl.removeModule("CVConverter");
+        spl.removeModule("Chord");
+        spl.removeModule("Coil");
+        spl.removeModule("Deadband");
+        spl.removeModule("Digi");
+        spl.removeModule("Disee");
+        spl.removeModule("Distortion");
+        spl.removeModule("Excavi");
+        spl.removeModule("Fauna");
+        spl.removeModule("Flopper");
+        spl.removeModule("Geiger");
+        spl.removeModule("Jette");
+        spl.removeModule("Melody");
+        spl.removeModule("Mixer6");
+        spl.removeModule("Non");
+        spl.removeModule("Overdrive");
+        spl.removeModule("Oxcart");
+        spl.removeModule("Retri");
+        spl.removeModule("Saw");
+        spl.removeModule("Saw2");
+        spl.removeModule("Sjip");
+        spl.removeModule("Square");
+        spl.removeModule("Trace");
+        spl.removeModule("TriBand");
+        spl.removeModule("Vector");
+        spl.removeModule("Vibrato");
+        spl.removeModule("Zod");
+    }
+}
+
+static void initStatic__Biset()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__Biset = p;
+
+    const StaticPluginLoader spl(p, "Biset");
+    if (spl.ok())
+    {
+        p->addModel(modelBisetBlank);
+        spl.removeModule("Biset-Igc");
+        spl.removeModule("Biset-Omega3");
+        spl.removeModule("Biset-Omega6");
+        spl.removeModule("Biset-Gbu");
+        spl.removeModule("Biset-Pkm");
+        spl.removeModule("Biset-Tracker");
+        spl.removeModule("Biset-Tracker-Synth");
+        spl.removeModule("Biset-Tracker-Drum");
+        spl.removeModule("Biset-Tracker-Clock");
+        spl.removeModule("Biset-Tracker-Phase");
+        spl.removeModule("Biset-Tracker-Quant");
+        spl.removeModule("Biset-Tracker-State");
+        spl.removeModule("Biset-Tracker-Control");
+        spl.removeModule("Biset-Regex");
+        spl.removeModule("Biset-Regex-Condensed");
+        spl.removeModule("Biset-Regex-Exp");
+        spl.removeModule("Biset-Tree");
+        spl.removeModule("Biset-Tree-Seed");
+        spl.removeModule("Biset-Segfault");
+    }
+}
+
+static void initStatic__alefsbits()
+{
+    Plugin* const p = new Plugin;
+    pluginInstance__alefsbits = p;
+
+    const StaticPluginLoader spl(p, "alefsbits");
+    if (spl.ok())
+    {
+        p->addModel(modelLights);
+        spl.removeModule("blank6hp");
+        spl.removeModule("fibb");
+        spl.removeModule("logic");
+        spl.removeModule("lucc");
+        spl.removeModule("math");
+        spl.removeModule("mlt");
+        spl.removeModule("noize");
+        spl.removeModule("nos");
+        spl.removeModule("octsclr");
+        spl.removeModule("polycounter");
+        spl.removeModule("polyplay");
+        spl.removeModule("polyrand");
+        spl.removeModule("polyshuffle");
+        spl.removeModule("probablynot");
+        spl.removeModule("shift");
+        spl.removeModule("simplexandhold");
+        spl.removeModule("slips");
+        spl.removeModule("slipspander");
+        spl.removeModule("steps");
+        spl.removeModule("turnt");
+    }
+}
 
 void initStaticPlugins()
 {
@@ -645,9 +1648,46 @@ void initStaticPlugins()
     initStatic__BogaudioModules();
     initStatic__MockbaModular();
     initStatic__surgext();
-    /*
+    initStatic__Aluminium();
+
+    initStatic__AmbientModules();
+
+    initStatic__cf();
+
+    initStatic__unless_modules();
+
     initStatic__ValleyAudio();
-    */
+
+    initStatic__ProducerPack();
+
+    initStatic__AS();
+
+    initStatic__VCVRackPlugins();
+
+    initStatic__GrandeModular();
+
+    initStatic__ImpromptuModular();
+
+    initStatic__JW_Modules();
+
+    initStatic__LittleUtils();
+
+    initStatic__MindMeldModular();
+
+    initStatic__SignalFunctionSet_VCV_Rack();
+
+    initStatic__stoermelder_packone();
+
+    initStatic__submit_vcv_modules();
+
+
+    initStatic__Venom();
+
+    initStatic__Autinn();
+
+    initStatic__Biset();
+
+    initStatic__alefsbits();
 }
 
 void destroyStaticPlugins()

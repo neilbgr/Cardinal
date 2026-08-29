@@ -18,28 +18,28 @@
 #ifndef DISTRHO_PLUGIN_INFO_H_INCLUDED
 #define DISTRHO_PLUGIN_INFO_H_INCLUDED
 
-#define CARDINAL_VARIANT_FX     0
-#define CARDINAL_VARIANT_LOADER 0
-#define CARDINAL_VARIANT_MAIN   0
-#define CARDINAL_VARIANT_MINI   0
-#define CARDINAL_VARIANT_MINIFX 0
-#define CARDINAL_VARIANT_MINISYNTH 0
-#define CARDINAL_VARIANT_NATIVE 0
-#define CARDINAL_VARIANT_SYNTH  1
+#define CARDINAL_VARIANT_FX        0
+#define CARDINAL_VARIANT_LOADER    0
+#define CARDINAL_VARIANT_MAIN      0
+#define CARDINAL_VARIANT_MINI      0
+#define CARDINAL_VARIANT_MINIFX    0
+#define CARDINAL_VARIANT_MINISYNTH 1
+#define CARDINAL_VARIANT_NATIVE    0
+#define CARDINAL_VARIANT_SYNTH     0
 
 #define CARDINAL_NUM_AUDIO_INPUTS  0
 #define CARDINAL_NUM_AUDIO_OUTPUTS 2
 #define CARDINAL_NUM_PARAMETERS    24
 
 #define DISTRHO_PLUGIN_BRAND   "DISTRHO"
-#define DISTRHO_PLUGIN_NAME    "Cardinal Synth"
-#define DISTRHO_PLUGIN_LABEL   "CardinalSynth"
-#define DISTRHO_PLUGIN_URI     "https://distrho.kx.studio/plugins/cardinal#synth"
-#define DISTRHO_PLUGIN_CLAP_ID "studio.kx.distrho.cardinal#synth"
+#define DISTRHO_PLUGIN_NAME    "Cardinal Mini Synth"
+#define DISTRHO_PLUGIN_LABEL   "CardinalMiniSynth"
+#define DISTRHO_PLUGIN_URI     "https://distrho.kx.studio/plugins/cardinal#minisynth"
+#define DISTRHO_PLUGIN_CLAP_ID "studio.kx.distrho.cardinal#minisynth"
 
 #define DISTRHO_PLUGIN_AU_TYPE   aumu
 #define DISTRHO_PLUGIN_BRAND_ID  Dstr
-#define DISTRHO_PLUGIN_UNIQUE_ID DcnS
+#define DISTRHO_PLUGIN_UNIQUE_ID DcMS
 
 #ifdef HEADLESS
 #define DISTRHO_PLUGIN_HAS_UI             0
@@ -50,8 +50,8 @@
 #define DISTRHO_UI_FILE_BROWSER           1
 #define DISTRHO_UI_USE_NANOVG             1
 #define DISTRHO_UI_USER_RESIZABLE         1
-#define DISTRHO_UI_DEFAULT_WIDTH          1228
-#define DISTRHO_UI_DEFAULT_HEIGHT         666
+#define DISTRHO_UI_DEFAULT_WIDTH          1000
+#define DISTRHO_UI_DEFAULT_HEIGHT         600
 #endif
 #define DISTRHO_PLUGIN_IS_SYNTH           1
 #define DISTRHO_PLUGIN_NUM_INPUTS         CARDINAL_NUM_AUDIO_INPUTS
