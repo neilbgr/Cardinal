@@ -195,6 +195,8 @@ extern Model* modelVenomPush5;
 extern Model* modelVenomBypass;
 extern Model* modelVenomVCAMix4Stereo;
 
+extern Model* modelVenomLogic;
+extern Model* modelVenomShapedVCA;
 // Autinn
 extern Model* modelAutinnSnare;
 extern Model* modelAmp;
@@ -1505,6 +1507,8 @@ static void initStatic__Venom()
         p->addModel(modelVenomPush5);
         p->addModel(modelVenomBypass);
         p->addModel(modelVenomVCAMix4Stereo);
+        p->addModel(modelVenomLogic);
+        p->addModel(modelVenomShapedVCA);
         spl.removeModule("AD_ASR");
         spl.removeModule("AuxClone");
         spl.removeModule("BenjolinGatesExpander");
@@ -1518,7 +1522,6 @@ static void initStatic__Venom()
         spl.removeModule("HQ");
         spl.removeModule("LinearBeats");
         spl.removeModule("LinearBeatsExpander");
-        spl.removeModule("Logic");
         spl.removeModule("Merge4x2");
         spl.removeModule("MergeSplit");
         spl.removeModule("MousePad");
@@ -1542,7 +1545,6 @@ static void initStatic__Venom()
         spl.removeModule("Reformation");
         spl.removeModule("RhythmExplorer");
         spl.removeModule("SVF");
-        spl.removeModule("ShapedVCA");
         spl.removeModule("Slew");
         spl.removeModule("SphereToXYZ");
         spl.removeModule("Split4x2");
