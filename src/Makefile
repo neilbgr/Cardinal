@@ -118,7 +118,17 @@ CARDINAL_FX_ARGS = VST2_FILENAME=Cardinal.vst/CardinalFX$(LIB_EXT) CLAP_FILENAME
 CARDINAL_SYNTH_ARGS = VST2_FILENAME=Cardinal.vst/CardinalSynth$(LIB_EXT) CLAP_FILENAME=Cardinal.clap/CardinalSynth.clap
 endif
 
-all: $(TARGETS)
+ifeq ($(MOD_BUILD),true)
+ALL_DEPS = $(TARGETS)
+else ifeq ($(WASM),true)
+ALL_DEPS = $(TARGETS)
+else
+# split into separate .PHONY prerequisites (instead of sequential recipe
+# lines) so `-j` actually parallelizes these 8 final variant builds
+ALL_DEPS = $(TARGETS) build-cardinal build-cardinalmini build-cardinalminisep build-cardinalnative build-cardinalfx build-cardinalsynth build-cardinalminifx build-cardinalminisynth
+endif
+
+all: $(ALL_DEPS)
 ifeq ($(MOD_BUILD),true)
 	$(MAKE) -C Cardinal lv2
 	$(MAKE) -C CardinalFX lv2
@@ -126,16 +136,33 @@ ifeq ($(MOD_BUILD),true)
 else ifeq ($(WASM),true)
 	$(MAKE) -C CardinalNative
 	$(MAKE) -C CardinalMini
-else
-	$(MAKE) -C Cardinal
-	$(MAKE) -C CardinalMini
-	$(MAKE) -C CardinalMiniSep
-	$(MAKE) -C CardinalNative
-	$(MAKE) -C CardinalFX $(CARDINAL_FX_ARGS)
-	$(MAKE) -C CardinalSynth $(CARDINAL_SYNTH_ARGS)
-	$(MAKE) -C CardinalMiniFX
-	$(MAKE) -C CardinalMiniSynth
 endif
+
+.PHONY: build-cardinal build-cardinalmini build-cardinalminisep build-cardinalnative build-cardinalfx build-cardinalsynth build-cardinalminifx build-cardinalminisynth
+
+build-cardinal: $(TARGETS)
+	$(MAKE) -C Cardinal
+
+build-cardinalmini: $(TARGETS)
+	$(MAKE) -C CardinalMini
+
+build-cardinalminisep: $(TARGETS)
+	$(MAKE) -C CardinalMiniSep
+
+build-cardinalnative: $(TARGETS)
+	$(MAKE) -C CardinalNative
+
+build-cardinalfx: $(TARGETS)
+	$(MAKE) -C CardinalFX $(CARDINAL_FX_ARGS)
+
+build-cardinalsynth: $(TARGETS)
+	$(MAKE) -C CardinalSynth $(CARDINAL_SYNTH_ARGS)
+
+build-cardinalminifx: $(TARGETS)
+	$(MAKE) -C CardinalMiniFX
+
+build-cardinalminisynth: $(TARGETS)
+	$(MAKE) -C CardinalMiniSynth
 
 jack: $(TARGETS)
 	$(MAKE) jack -C Cardinal
