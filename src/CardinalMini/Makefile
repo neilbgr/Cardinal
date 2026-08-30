@@ -6,4 +6,5 @@
 
 NAME = CardinalMini
 CARDINAL_VARIANT = mini
+WINDOWS_ICON_RC = distrho-mini.rc
 include ../Makefile.cardinal.mk

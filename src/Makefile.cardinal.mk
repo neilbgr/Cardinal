@@ -93,7 +93,10 @@ FILES_UI += Window.cpp
 endif
 
 ifeq ($(WINDOWS),true)
-FILES_UI += distrho.rc
+# per-variant override (set before including this file) to give
+# CardinalNative/CardinalMini a distinct-colored icon from official builds
+WINDOWS_ICON_RC ?= distrho.rc
+FILES_UI += $(WINDOWS_ICON_RC)
 endif
 
 ifneq ($(HAIKU_OR_MACOS_OR_WASM_OR_WINDOWS),true)
@@ -479,9 +482,9 @@ endif
 ifeq ($(WINDOWS),true)
 WINDRES ?= $(subst gcc,windres,$(CC))
 
-$(BUILD_DIR)/distrho.rc.o: ../../utils/distrho.rc ../../utils/distrho.ico
+$(BUILD_DIR)/%.rc.o: ../../utils/%.rc ../../utils/%.ico
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
-	@echo "Compiling distrho.rc"
+	@echo "Compiling $<"
 	$(SILENT)$(WINDRES) $< -O coff -o $@
 endif
 
