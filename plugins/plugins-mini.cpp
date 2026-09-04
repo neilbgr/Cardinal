@@ -85,8 +85,14 @@ extern Model* modelVCAmp;
 extern Model* modelMix8x;
 extern Model* modelReftone;
 extern Model* modelMatrix81;
-// MockbaModular
+// MockbaModular (MOCKBAMODULAR_CUSTOM in plugins/Makefile renames these at
+// compile time -- see plugins.cpp's own inline include block for the same
+// pattern)
+#define modelBlank modelMockbaModularBlank
+#define modelComparator modelMockbaModularComparator
 #include "MockbaModular/src/plugin.hpp"
+#undef modelBlank
+#undef modelComparator
 #include "MockbaModular/src/MockbaModular.hpp"
 #undef min
 #define saveBack ignoreMockbaModular1
@@ -117,6 +123,9 @@ extern Model* modelBlank;
 extern Model* modelLunarLFO;
 extern Model* modelLunarVCO;
 
+extern Model* modelLunarMixer;
+extern Model* modelLunarJoystick;
+extern Model* modelLunarPads;
 // cf
 extern Model* modelLABEL;
 
@@ -660,46 +669,48 @@ static void initStatic__MockbaModular()
     const StaticPluginLoader spl(p, "MockbaModular");
     if (spl.ok())
     {
+#define modelComparator modelMockbaModularComparator
+        p->addModel(modelComparator);
+#undef modelComparator
+        p->addModel(modelDualNOR);
+        p->addModel(modelCZSquare);
+        p->addModel(modelDualNAND);
+        p->addModel(modelPSelectah);
+        p->addModel(modelDividah);
+        p->addModel(modelDualXOR);
+        p->addModel(modelDualNOT);
+        p->addModel(modelPannah);
+        p->addModel(modelDualBUFFER);
+        p->addModel(modelCZPulse);
+        p->addModel(modelMaugSquare2);
+        p->addModel(modelCZReso3);
+        p->addModel(modelSelectah);
+        p->addModel(modelCZReso2);
+        p->addModel(modelCZOsc);
+        p->addModel(modelMaugShark);
+        p->addModel(modelDualXNOR);
+        p->addModel(modelMaugSquare3);
+        p->addModel(modelMaugSaw2);
+        p->addModel(modelReVoltah);
+        p->addModel(modelDualAND);
+        p->addModel(modelMaugOsc);
+        p->addModel(modelCZDblSine);
+        p->addModel(modelCZSawPulse);
+        p->addModel(modelHoldah);
+        p->addModel(modelMaugSquare);
+        p->addModel(modelMixah);
+        p->addModel(modelCountah);
+        p->addModel(modelFiltah);
+        p->addModel(modelFeidah);
+        p->addModel(modelDualOR);
+        p->addModel(modelMixah3);
+        p->addModel(modelCZSaw);
+        p->addModel(modelFeidahS);
+        p->addModel(modelMaugTriangle);
+        p->addModel(modelMaugSaw);
+        p->addModel(modelCZReso1);
+        p->addModel(modelShapah);
         spl.removeModule("Blank");
-        spl.removeModule("Comparator");
-        spl.removeModule("Countah");
-        spl.removeModule("CZDblSine");
-        spl.removeModule("CZOsc");
-        spl.removeModule("CZPulse");
-        spl.removeModule("CZReso1");
-        spl.removeModule("CZReso2");
-        spl.removeModule("CZReso3");
-        spl.removeModule("CZSaw");
-        spl.removeModule("CZSawPulse");
-        spl.removeModule("CZSquare");
-        spl.removeModule("Dividah");
-        spl.removeModule("DualAND");
-        spl.removeModule("DualBUFFER");
-        spl.removeModule("DualNAND");
-        spl.removeModule("DualNOR");
-        spl.removeModule("DualNOT");
-        spl.removeModule("DualOR");
-        spl.removeModule("DualXNOR");
-        spl.removeModule("DualXOR");
-        spl.removeModule("Feidah");
-        spl.removeModule("FeidahS");
-        spl.removeModule("Filtah");
-        spl.removeModule("Holdah");
-        spl.removeModule("MaugOsc");
-        spl.removeModule("MaugSaw");
-        spl.removeModule("MaugSaw2");
-        spl.removeModule("MaugShark");
-        spl.removeModule("MaugSquare");
-        spl.removeModule("MaugSquare2");
-        spl.removeModule("MaugSquare3");
-        spl.removeModule("MaugTriangle");
-        spl.removeModule("Mixah");
-        spl.removeModule("Mixah3");
-        spl.removeModule("Pannah");
-        spl.removeModule("PSelectah");
-        spl.removeModule("ReVoltah");
-        spl.removeModule("Selectah");
-        spl.removeModule("Shapah");
         spl.removeModule("UDPClockMaster");
         spl.removeModule("UDPClockSlave");
     }
@@ -742,18 +753,17 @@ static void initStatic__surgext()
         p->addModel(modelSurgeMixerSlider);
         p->addModel(modelSurgeModMatrix);
         p->addModel(modelSurgeWaveshaper);
+        p->addModel(modelSurgeVCF);
         /*
         p->addModel(modelSurgeDelay);
         p->addModel(modelSurgeDelayLineByFreq);
         p->addModel(modelSurgeDelayLineByFreqExpanded);
         p->addModel(modelSurgeDigitalRingMods);
-        p->addModel(modelSurgeVCF);
         */
         spl.removeModule("SurgeXTDelay");
         spl.removeModule("SurgeXTDelayLineByFreq");
         spl.removeModule("SurgeXTDelayLineByFreqExpanded");
         spl.removeModule("SurgeXTDigitalRingMod");
-        spl.removeModule("SurgeXTVCF");
 
         p->addModel(modelFXNimbus);
         p->addModel(modelFXPhaser);
@@ -847,6 +857,9 @@ static void initStatic__AmbientModules()
         p->addModel(modelBlank);
         p->addModel(modelLunarLFO);
         p->addModel(modelLunarVCO);
+        p->addModel(modelLunarMixer);
+        p->addModel(modelLunarJoystick);
+        p->addModel(modelLunarPads);
     }
 }
 
