@@ -126,6 +126,8 @@ extern Model* modelLunarVCO;
 extern Model* modelLunarMixer;
 extern Model* modelLunarJoystick;
 extern Model* modelLunarPads;
+extern Model* modelLunarDetector;
+extern Model* modelLunarFilter;
 // cf
 extern Model* modelLABEL;
 
@@ -860,6 +862,8 @@ static void initStatic__AmbientModules()
         p->addModel(modelLunarMixer);
         p->addModel(modelLunarJoystick);
         p->addModel(modelLunarPads);
+        p->addModel(modelLunarDetector);
+        p->addModel(modelLunarFilter);
     }
 }
 

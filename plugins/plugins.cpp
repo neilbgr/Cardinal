@@ -1451,6 +1451,8 @@ static void initStatic__AmbientModules()
         p->addModel(modelLunarMixer);
         p->addModel(modelLunarJoystick);
         p->addModel(modelLunarPads);
+        p->addModel(modelLunarDetector);
+        p->addModel(modelLunarFilter);
     }
 }
 
