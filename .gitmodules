@@ -275,9 +275,6 @@
 [submodule "plugins/ProducerPack"]
 	path = plugins/ProducerPack
 	url = https://github.com/4ms/ProducerPack.git
-[submodule "plugins/VCVRackPlugins"]
-	path = plugins/VCVRackPlugins
-	url = https://github.com/countmodula/VCVRackPlugins.git
 [submodule "plugins/SignalFunctionSet-VCV-Rack"]
 	path = plugins/SignalFunctionSet-VCV-Rack
 	url = https://github.com/neilbgr/SignalFunctionSet-VCV-Rack.git

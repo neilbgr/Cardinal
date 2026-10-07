@@ -39,7 +39,6 @@ Below follows a list of all code licenses used in Cardinal and linked submodules
 | cf                      | BSD-3-Clause             | |
 | ChowDSP                 | GPL-3.0-or-later         | |
 | Computerscare           | BSD-3-Clause             | |
-| Count Modula            | GPL-3.0-only             | |
 | CVfunk                  | MIT                      | |
 | dBiz                    | GPL-3.0-or-later         | |
 | DHE-Modules             | MIT                      | |
@@ -187,7 +186,6 @@ Below is a list of artwork licenses from plugins
 | Computerscare/*                         | BSD-3-Clause     | No artwork specific license provided |
 | Computerscare/Oswald-Regular.ttf        | OFL-1.1          | |
 | Computerscare/Segment7Standard.ttf      | OFL-1.1-RFN      | |
-| CountModula/*                           | ???              | Copyright © Adam Verspaget/Count Modula, "may not be used in derivative works" per README; permission not yet requested |
 | CVfunk/*                                | MIT              | Same license as source code |
 | dBiz/*                                  | CC-BY-NC-ND-4.0  | |
 | dBiz/DejaVuSansMono.ttf                 | Bitstream-Vera   | |

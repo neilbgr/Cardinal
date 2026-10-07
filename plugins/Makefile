@@ -1299,9 +1299,6 @@ MINIPLUGIN_FILES += AS/src/stereoVUmeter.cpp
 MINIPLUGIN_FILES += AS/src/DelayPlusStereo.cpp
 MINIPLUGIN_FILES += AS/src/Phaser.cpp
 MINIPLUGIN_FILES += AS/src/MonoVUmeter.cpp
-MINIPLUGIN_FILES += VCVRackPlugins/src/modules/Oscilloscope.cpp
-MINIPLUGIN_FILES += VCVRackPlugins/src/modules/BarGraph.cpp
-MINIPLUGIN_FILES += CountModula-mini-shim.cpp
 MINIPLUGIN_FILES += GrandeModular/src/Merge8.cpp
 MINIPLUGIN_FILES += ImpromptuModular/src/Clkd.cpp
 MINIPLUGIN_FILES += ImpromptuModular/src/Clocked.cpp
@@ -2326,55 +2323,6 @@ MINIRESOURCE_FILES += AS/res/as_knobBlack.svg
 MINIRESOURCE_FILES += AS/res/as_knobBlack_bg.svg
 MINIRESOURCE_FILES += AS/res/as_knob_bg.svg
 MINIRESOURCE_FILES += AS/res/saxmono.ttf
-MINIRESOURCE_FILES += VCVRackPlugins/res/BarGraph.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Oscilloscope.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/Jack.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/JackNoNut.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/Knob-bg.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/Knob-fg.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobBlue.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobGreen.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobGrey.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobOrange.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobRed.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobViolet.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobWhite.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobYellow.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMega-bg.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMega-fg.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaBlue.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaGreen.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaGrey.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaOrange.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaRed.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaViolet.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaWhite.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobMegaYellow.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmall-bg.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmall-fg.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallBlue.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallGreen.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallGrey.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallOrange.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallRed.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallViolet.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallWhite.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/KnobSmallYellow.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButtonBig_0.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButtonMega_0.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButtonMini_0.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/PushButton_0.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_ToggleS_0.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_ToggleS_1.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_ToggleS_2.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_Toggle_0.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_Toggle_1.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/SW_Toggle_2.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/Components/ScrewHex.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/PolyrhythmicGenerator.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/VCFrequencyDivider.svg
-MINIRESOURCE_FILES += VCVRackPlugins/res/fonts/Segment14.ttf
-MINIRESOURCE_FILES += VCVRackPlugins/res/fonts/Sudo.ttf
 MINIRESOURCE_FILES += GrandeModular/res/BlackButton0.svg
 MINIRESOURCE_FILES += GrandeModular/res/BlackButton1.svg
 MINIRESOURCE_FILES += GrandeModular/res/Clip-dark.svg
@@ -4329,7 +4277,6 @@ MINIPLUGIN_LIST += cf
 MINIPLUGIN_LIST += unless_modules
 MINIPLUGIN_LIST += ProducerPack
 MINIPLUGIN_LIST += AS
-MINIPLUGIN_LIST += VCVRackPlugins
 MINIPLUGIN_LIST += GrandeModular
 MINIPLUGIN_LIST += ImpromptuModular
 MINIPLUGIN_LIST += JW-Modules
@@ -4361,19 +4308,6 @@ $(BUILD_DIR)/ProducerPack/%.cpp.o: ProducerPack/%.cpp
 	@echo "Compiling $<"
 	$(SILENT)$(CXX) $< $(PRODUCERPACK_FLAGS) -c -o $@ \
 		-DpluginInstance=pluginInstance__ProducerPack
-
-$(BUILD_DIR)/CountModula-mini-shim.cpp.o: CountModula-mini-shim.cpp
-	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
-	@echo "Compiling $<"
-	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
-		-DpluginInstance=pluginInstance__VCVRackPlugins \
-		-Dinit=init__VCVRackPlugins
-
-$(BUILD_DIR)/VCVRackPlugins/%.cpp.o: VCVRackPlugins/%.cpp
-	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
-	@echo "Compiling $<"
-	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
-		-DpluginInstance=pluginInstance__VCVRackPlugins
 
 $(BUILD_DIR)/ImpromptuModular/%.cpp.o: ImpromptuModular/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"

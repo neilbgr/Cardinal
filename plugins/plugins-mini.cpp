@@ -145,10 +145,6 @@ extern Model* modelDelayPlusStereoFx;
 extern Model* modelPhaserFx;
 extern Model* modelMonoVUmeter;
 
-// VCVRackPlugins
-extern Model* modelOscilloscope;
-extern Model* modelBarGraph;
-
 // GrandeModular
 extern Model* modelMerge8;
 
@@ -262,7 +258,6 @@ Plugin* pluginInstance__cf;
 Plugin* pluginInstance__unless_modules;
 Plugin* pluginInstance__ProducerPack;
 Plugin* pluginInstance__AS;
-extern Plugin* pluginInstance__VCVRackPlugins;
 Plugin* pluginInstance__GrandeModular;
 extern Plugin* pluginInstance__ImpromptuModular;
 extern void readThemeAndContrastFromDefault();
@@ -999,155 +994,6 @@ static void initStatic__AS()
         spl.removeModule("WaveShaper");
         spl.removeModule("WaveShaperStereo");
         spl.removeModule("ZeroCV2T");
-    }
-}
-
-static void initStatic__VCVRackPlugins()
-{
-    Plugin* const p = new Plugin;
-    pluginInstance__VCVRackPlugins = p;
-
-    const StaticPluginLoader spl(p, "VCVRackPlugins");
-    if (spl.ok())
-    {
-        p->addModel(modelOscilloscope);
-        p->addModel(modelBarGraph);
-        spl.removeModule("AnalogueShiftRegister");
-        spl.removeModule("Arpeggiator");
-        spl.removeModule("Attenuator");
-        spl.removeModule("Attenuverter");
-        spl.removeModule("BasicSequencer8");
-        spl.removeModule("BinaryComparator");
-        spl.removeModule("BinarySequencer");
-        spl.removeModule("BinarySequencerPlus");
-        spl.removeModule("Blank12HP");
-        spl.removeModule("Blank16HP");
-        spl.removeModule("Blank20HP");
-        spl.removeModule("Blank24HP");
-        spl.removeModule("Blank2HP");
-        spl.removeModule("Blank4HP");
-        spl.removeModule("Blank8HP");
-        spl.removeModule("BooleanAND");
-        spl.removeModule("BooleanOR");
-        spl.removeModule("BooleanVCNOT");
-        spl.removeModule("BooleanXOR");
-        spl.removeModule("Breakout");
-        spl.removeModule("BurstGenerator");
-        spl.removeModule("BurstGenerator64");
-        spl.removeModule("BusRoute");
-        spl.removeModule("BusRoute2");
-        spl.removeModule("CVSpreader");
-        spl.removeModule("Carousel");
-        spl.removeModule("Chances");
-        spl.removeModule("ClockDivider");
-        spl.removeModule("ClockedRandomGateExpanderCV");
-        spl.removeModule("ClockedRandomGateExpanderLog");
-        spl.removeModule("ClockedRandomGates");
-        spl.removeModule("Comparator");
-        spl.removeModule("Euclid");
-        spl.removeModule("EuclidExpanderCV");
-        spl.removeModule("EventArranger");
-        spl.removeModule("EventTimer");
-        spl.removeModule("EventTimer2");
-        spl.removeModule("Fade");
-        spl.removeModule("FadeExpander");
-        spl.removeModule("G2T");
-        spl.removeModule("GateDelay");
-        spl.removeModule("GateDelayMT");
-        spl.removeModule("GateModifier");
-        spl.removeModule("GateSequencer16");
-        spl.removeModule("GateSequencer16b");
-        spl.removeModule("GateSequencer8");
-        spl.removeModule("GatedComparator");
-        spl.removeModule("HyperManiacalLFO");
-        spl.removeModule("HyperManiacalLFOExpander");
-        spl.removeModule("LightStrip");
-        spl.removeModule("Mangler");
-        spl.removeModule("Manifold");
-        spl.removeModule("ManualCV");
-        spl.removeModule("ManualCV2");
-        spl.removeModule("ManualGate");
-        spl.removeModule("MasterReset");
-        spl.removeModule("MatrixCombiner");
-        spl.removeModule("MatrixMixer");
-        spl.removeModule("Megalomaniac");
-        spl.removeModule("MiniMix");
-        spl.removeModule("MinimusMaximus");
-        spl.removeModule("Mixer");
-        spl.removeModule("MorphShaper");
-        spl.removeModule("Mult");
-        spl.removeModule("MultiStepSequencer");
-        spl.removeModule("Multiplexer");
-        spl.removeModule("Mute");
-        spl.removeModule("Mute-iple");
-        spl.removeModule("NibbleTriggerSequencer");
-        spl.removeModule("OctetTriggerSequencer");
-        spl.removeModule("OctetTriggerSequencerCVExpander");
-        spl.removeModule("OctetTriggerSequencerGateExpander");
-        spl.removeModule("OffsetGenerator");
-        spl.removeModule("Palette");
-        spl.removeModule("PolyChances");
-        spl.removeModule("PolyG2T");
-        spl.removeModule("PolyGateModifier");
-        spl.removeModule("PolyLogic");
-        spl.removeModule("PolyMinMax");
-        spl.removeModule("PolyMute");
-        spl.removeModule("PolyVCPolarizer");
-        spl.removeModule("PolyVCSwitch");
-        spl.removeModule("PolyrhythmicGenerator");
-        spl.removeModule("PolyrhythmicGeneratorMkII");
-        spl.removeModule("RackEarLeft");
-        spl.removeModule("RackEarRight");
-        spl.removeModule("RandomAccessSwitch18");
-        spl.removeModule("RandomAccessSwitch81");
-        spl.removeModule("Rectifier");
-        spl.removeModule("SRFlipFlop");
-        spl.removeModule("SampleAndHold");
-        spl.removeModule("SampleAndHold2");
-        spl.removeModule("SequenceEncoder");
-        spl.removeModule("Sequencer16");
-        spl.removeModule("Sequencer64");
-        spl.removeModule("Sequencer8");
-        spl.removeModule("SequencerChannel16");
-        spl.removeModule("SequencerChannel8");
-        spl.removeModule("SequencerExpanderCV8");
-        spl.removeModule("SequencerExpanderLOG8");
-        spl.removeModule("SequencerExpanderOut8");
-        spl.removeModule("SequencerExpanderRM8");
-        spl.removeModule("SequencerExpanderTSG");
-        spl.removeModule("SequencerExpanderTrig8");
-        spl.removeModule("SequencerGates16");
-        spl.removeModule("SequencerGates8");
-        spl.removeModule("SequencerTriggers16");
-        spl.removeModule("SequencerTriggers8");
-        spl.removeModule("ShepardGenerator");
-        spl.removeModule("ShiftRegister16");
-        spl.removeModule("ShiftRegister32");
-        spl.removeModule("SingleDFlipFlop");
-        spl.removeModule("SingleSRFlipFlop");
-        spl.removeModule("SingleTFlipFlop");
-        spl.removeModule("SlopeDetector");
-        spl.removeModule("Stack");
-        spl.removeModule("StartupDelay");
-        spl.removeModule("StepSequencer8");
-        spl.removeModule("SubHarmonicGenerator");
-        spl.removeModule("Switch16To1");
-        spl.removeModule("Switch1To16");
-        spl.removeModule("Switch1To8");
-        spl.removeModule("Switch2");
-        spl.removeModule("Switch3");
-        spl.removeModule("Switch4");
-        spl.removeModule("Switch8To1");
-        spl.removeModule("TFlipFlop");
-        spl.removeModule("TriggerSequencer16");
-        spl.removeModule("TriggerSequencer8");
-        spl.removeModule("VCFrequencyDivider");
-        spl.removeModule("VCFrequencyDividerMkII");
-        spl.removeModule("VCPolarizer");
-        spl.removeModule("VCPulseDivider");
-        spl.removeModule("VoltageControlledSwitch");
-        spl.removeModule("VoltageInverter");
-        spl.removeModule("VoltageScaler");
     }
 }
 
@@ -1898,8 +1744,6 @@ void initStaticPlugins()
     initStatic__ProducerPack();
 
     initStatic__AS();
-
-    initStatic__VCVRackPlugins();
 
     initStatic__GrandeModular();
 
