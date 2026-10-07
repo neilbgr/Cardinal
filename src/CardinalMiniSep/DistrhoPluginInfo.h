@@ -31,10 +31,10 @@
 #define CARDINAL_NUM_AUDIO_OUTPUTS 2
 #define CARDINAL_NUM_PARAMETERS    24
 
-#define DISTRHO_PLUGIN_BRAND   "DISTRHO"
-#define DISTRHO_PLUGIN_URI     "https://distrho.kx.studio/plugins/cardinal#mini"
+#define DISTRHO_PLUGIN_BRAND   "neilbgr"
+#define DISTRHO_PLUGIN_URI     "https://github.com/neilbgr/Cardinal#mini"
 
-#define DISTRHO_PLUGIN_NAME  "Cardinal Mini"
+#define DISTRHO_PLUGIN_NAME  "Cardinal Mini (neilbgr edition)"
 #define DISTRHO_PLUGIN_LABEL "CardinalMini"
 
 #define DISTRHO_PLUGIN_HAS_UI             1

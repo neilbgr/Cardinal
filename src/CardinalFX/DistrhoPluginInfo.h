@@ -31,15 +31,15 @@
 #define CARDINAL_NUM_AUDIO_OUTPUTS 2
 #define CARDINAL_NUM_PARAMETERS    24
 
-#define DISTRHO_PLUGIN_BRAND   "DISTRHO"
-#define DISTRHO_PLUGIN_URI     "https://distrho.kx.studio/plugins/cardinal#fx"
-#define DISTRHO_PLUGIN_CLAP_ID "studio.kx.distrho.cardinal#fx"
+#define DISTRHO_PLUGIN_BRAND   "neilbgr"
+#define DISTRHO_PLUGIN_URI     "https://github.com/neilbgr/Cardinal#fx"
+#define DISTRHO_PLUGIN_CLAP_ID "io.github.neilbgr.cardinal#fx"
 
 #define DISTRHO_PLUGIN_AU_TYPE   aumf
-#define DISTRHO_PLUGIN_BRAND_ID  Dstr
-#define DISTRHO_PLUGIN_UNIQUE_ID DcnF
+#define DISTRHO_PLUGIN_BRAND_ID  Nbgr
+#define DISTRHO_PLUGIN_UNIQUE_ID NbnF
 
-#define DISTRHO_PLUGIN_NAME  "Cardinal FX"
+#define DISTRHO_PLUGIN_NAME  "Cardinal FX (neilbgr edition)"
 #define DISTRHO_PLUGIN_LABEL "CardinalFX"
 
 #ifdef HEADLESS

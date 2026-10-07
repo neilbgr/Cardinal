@@ -31,15 +31,15 @@
 #define CARDINAL_NUM_AUDIO_OUTPUTS 2
 #define CARDINAL_NUM_PARAMETERS    24
 
-#define DISTRHO_PLUGIN_BRAND   "DISTRHO"
-#define DISTRHO_PLUGIN_NAME    "Cardinal Mini Synth"
+#define DISTRHO_PLUGIN_BRAND   "neilbgr"
+#define DISTRHO_PLUGIN_NAME    "Cardinal Mini Synth (neilbgr edition)"
 #define DISTRHO_PLUGIN_LABEL   "CardinalMiniSynth"
-#define DISTRHO_PLUGIN_URI     "https://distrho.kx.studio/plugins/cardinal#minisynth"
-#define DISTRHO_PLUGIN_CLAP_ID "studio.kx.distrho.cardinal#minisynth"
+#define DISTRHO_PLUGIN_URI     "https://github.com/neilbgr/Cardinal#minisynth"
+#define DISTRHO_PLUGIN_CLAP_ID "io.github.neilbgr.cardinal#minisynth"
 
 #define DISTRHO_PLUGIN_AU_TYPE   aumu
-#define DISTRHO_PLUGIN_BRAND_ID  Dstr
-#define DISTRHO_PLUGIN_UNIQUE_ID DcMS
+#define DISTRHO_PLUGIN_BRAND_ID  Nbgr
+#define DISTRHO_PLUGIN_UNIQUE_ID NbMS
 
 #ifdef HEADLESS
 #define DISTRHO_PLUGIN_HAS_UI             0

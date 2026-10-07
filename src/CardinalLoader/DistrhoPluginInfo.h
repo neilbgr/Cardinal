@@ -39,15 +39,15 @@
 #define CARDINAL_NUM_AUDIO_OUTPUTS CARDINAL_LOADER_IO
 #define CARDINAL_NUM_PARAMETERS    CARDINAL_LOADER_PARAMS
 
-#define DISTRHO_PLUGIN_BRAND   "DISTRHO"
-#define DISTRHO_PLUGIN_URI     "https://distrho.kx.studio/plugins/cardinal#loader"
-#define DISTRHO_PLUGIN_CLAP_ID "studio.kx.distrho.cardinal#loader"
+#define DISTRHO_PLUGIN_BRAND   "neilbgr"
+#define DISTRHO_PLUGIN_URI     "https://github.com/neilbgr/Cardinal#loader"
+#define DISTRHO_PLUGIN_CLAP_ID "io.github.neilbgr.cardinal#loader"
 
 #define DISTRHO_PLUGIN_AU_TYPE   aumf
-#define DISTRHO_PLUGIN_BRAND_ID  Dstr
-#define DISTRHO_PLUGIN_UNIQUE_ID DcnC
+#define DISTRHO_PLUGIN_BRAND_ID  Nbgr
+#define DISTRHO_PLUGIN_UNIQUE_ID NbnC
 
-#define DISTRHO_PLUGIN_NAME  "Cardinal Loader"
+#define DISTRHO_PLUGIN_NAME  "Cardinal Loader (neilbgr edition)"
 #define DISTRHO_PLUGIN_LABEL "CardinalLoader"
 
 #define DISTRHO_PLUGIN_HAS_UI             0
