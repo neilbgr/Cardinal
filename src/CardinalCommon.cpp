@@ -1169,7 +1169,7 @@ static void saveAsDialog(const bool uncompressed)
 
     DISTRHO_NAMESPACE::FileBrowserOptions opts;
     opts.saving = ui->saving = true;
-    opts.defaultName = "patch.vcv";
+    opts.defaultName = "patch.cardinal.vcv";
     opts.startDir = dir.c_str();
     opts.title = "Save patch";
     ui->savingUncompressed = uncompressed;
