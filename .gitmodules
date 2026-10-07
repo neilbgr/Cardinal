@@ -280,7 +280,8 @@
 	url = https://github.com/countmodula/VCVRackPlugins.git
 [submodule "plugins/SignalFunctionSet-VCV-Rack"]
 	path = plugins/SignalFunctionSet-VCV-Rack
-	url = https://github.com/stuart78/SignalFunctionSet-VCV-Rack.git
+	url = https://github.com/neilbgr/SignalFunctionSet-VCV-Rack.git
+	branch = cardinal
 [submodule "plugins/submit-vcv-modules"]
 	path = plugins/submit-vcv-modules
 	url = https://github.com/submitaudio/submit-vcv-modules.git
@@ -289,7 +290,7 @@
 	url = https://github.com/victorkashirin/CellaVCV.git
 [submodule "plugins/Kilpatrick-Toolbox"]
 	path = plugins/Kilpatrick-Toolbox
-	url = https://github.com/kilpatrickaudio/Kilpatrick-Toolbox.git
+	url = https://github.com/neilbgr/Kilpatrick-Toolbox.git
 [submodule "plugins/mschack-VCV-Rack-Plugins"]
 	path = plugins/mschack-VCV-Rack-Plugins
 	url = https://github.com/baconpaul/mschack-VCV-Rack-Plugins.git
