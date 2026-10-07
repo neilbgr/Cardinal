@@ -19,7 +19,9 @@ Below follows a list of all code licenses used in Cardinal and linked submodules
 | admiral                 | MIT                      | |
 | alef's bits             | GPL-3.0-or-later         | |
 | AlgoritmArte            | GPL-3.0-or-later         | |
+| Aluminium               | GPL-3.0-or-later         | |
 | Amalgamated Harmonics   | BSD-3-Clause             | |
+| AmbientModules          | GPL-3.0-or-later         | |
 | Animated Circuits       | GPL-3.0-or-later         | |
 | Arable Instruments      | GPL-3.0-or-later         | |
 | Aria Salvatrice         | GPL-3.0-or-later         | |
@@ -33,9 +35,11 @@ Below follows a list of all code licenses used in Cardinal and linked submodules
 | Biset                   | MIT                      | |
 | Bogaudio                | GPL-3.0-or-later         | |
 | Catro/Modulo            | BSD-3-Clause             | |
+| Cella                   | GPL-3.0-or-later         | |
 | cf                      | BSD-3-Clause             | |
 | ChowDSP                 | GPL-3.0-or-later         | |
 | Computerscare           | BSD-3-Clause             | |
+| Count Modula            | GPL-3.0-only             | |
 | CVfunk                  | MIT                      | |
 | dBiz                    | GPL-3.0-or-later         | |
 | DHE-Modules             | MIT                      | |
@@ -56,6 +60,8 @@ Below follows a list of all code licenses used in Cardinal and linked submodules
 | ihtsyn                  | GPL-3.0-or-later         | |
 | Impromptu               | GPL-3.0-or-later         | |
 | JW-Modules              | BSD-3-Clause             | |
+| Kathode                 | MIT                      | |
+| Kilpatrick Toolbox      | GPL-3.0-or-later         | |
 | kocmoc                  | GPL-3.0-or-later         | |
 | LifeFormModular         | MIT                      | |
 | Lilac Loop              | GPL-3.0-or-later         | |
@@ -68,6 +74,7 @@ Below follows a list of all code licenses used in Cardinal and linked submodules
 | Mockba Modular          | MIT                      | |
 | Mog                     | CC0-1.0                  | |
 | mscHack                 | BSD-3-Clause             | |
+| mscHack (baconpaul fork) | BSD-3-Clause             | Used for PingPong in Cardinal Mini |
 | MSM                     | MIT                      | Repo's [LICENSE-dist.md](https://github.com/netboy3/MSM-vcvrack-plugin/issues/10) includes wrong information |
 | MUS-X                   | GPL-3.0-or-later         | |
 | Myth                    | GPL-3.0-or-later         | |
@@ -78,15 +85,18 @@ Below follows a list of all code licenses used in Cardinal and linked submodules
 | PdArray                 | EUPL-1.2                 | |
 | PinkTrombone            | GPL-3.0-or-later         | |
 | Prism                   | BSD-3-Clause             | |
+| ProducerPack (4ms)      | GPL-3.0-or-later         | |
 | Rackwindows             | MIT                      | |
 | RCM                     | GPL-2.0-or-later         | |
 | repelzen                | GPL-3.0-or-later         | |
 | RebelTech               | GPL-2.0-or-later         | |
 | Sapphire                | GPL-3.0-or-later         | |
+| Signal Function Set     | GPL-3.0-or-later         | |
 | Sonus Modular           | GPL-3.0-or-later         | |
 | Starling Via            | MIT                      | |
 | stocaudio               | GPL-3.0-or-later         | |
 | Stoermelder Pack-One    | GPL-3.0-or-later         | |
+| Submit                  | GPL-3.0-only             | |
 | Surge XT                | GPL-3.0-or-later         | |
 | unless_modules          | GPL-3.0-or-later         | |
 | Valley                  | GPL-3.0-or-later         | |
@@ -114,15 +124,18 @@ Below is a list of artwork licenses from plugins
 | Name                                    | License(s)       | Additional notes |
 |-----------------------------------------|------------------|------------------|
 | 21kHz                                   | MIT              | No artwork specific license provided |
+| 4ms-ProducerPack/*                      | GPL-3.0-or-later | No artwork specific license provided |
 | 8Mode                                   | BSD-3-Clause     | No artwork specific license provided |
 | AaronStatic/*                           | MIT              | No artwork specific license provided |
 | AaronStatic/fonts/PixelOperator.ttf     | CC0-1.0          | |
 | alefsbits/*                             | GPL-3.0-or-later | No artwork specific license provided |
 | Algoritmarte/*                          | GPL-3.0-or-later | No artwork specific license provided |
 | Algoritmarte/LEDSliderGreenHandle.svg   | CC-BY-NC-4.0     | |
+| Aluminium/*                             | GPL-3.0-or-later | No artwork specific license provided |
 | AmalgamatedHarmonics/*                  | BSD-3-Clause     | No artwork specific license provided |
 | AmalgamatedHarmonics/DSEG*.ttf          | OFL-1.1-RFN      | |
 | AmalgamatedHarmonics/Roboto*.ttf        | Apache-2.0       | |
+| AmbientModules/*                        | GPL-3.0-or-later | No artwork specific license provided |
 | AnimatedCircuits/*                      | CC-BY-NC-SA-4.0  | |
 | ArableInstruments/*                     | Custom           | Copyright © Alex Brandt, [used and distributed with permission](https://github.com/adbrant/ArableInstruments/issues/21) |
 | AriaModules/*                           | CC-BY-SA-4.0     | |
@@ -164,6 +177,7 @@ Below is a list of artwork licenses from plugins
 | Cardinal/Miku/Miku.png                  | CC-BY-NC-3.0     | https://piapro.net/intl/en_for_creators.html |
 | CatroModulo/*                           | BSD-3-Clause     | No artwork specific license provided |
 | CatroModulo/Segment7Standard.ttf        | OFL-1.1-RFN      | |
+| Cella/*                                 | CC-BY-SA-4.0     | See [LICENSE-graphics](../plugins/CellaVCV/LICENSE-graphics) |
 | cf/*                                    | BSD-3-Clause     | No artwork specific license provided |
 | cf/DejaVuSansMono.ttf                   | Bitstream-Vera   | |
 | cf/Segment7Standard.ttf                 | OFL-1.1-RFN      | |
@@ -173,6 +187,7 @@ Below is a list of artwork licenses from plugins
 | Computerscare/*                         | BSD-3-Clause     | No artwork specific license provided |
 | Computerscare/Oswald-Regular.ttf        | OFL-1.1          | |
 | Computerscare/Segment7Standard.ttf      | OFL-1.1-RFN      | |
+| CountModula/*                           | ???              | Copyright © Adam Verspaget/Count Modula, "may not be used in derivative works" per README; permission not yet requested |
 | CVfunk/*                                | MIT              | Same license as source code |
 | dBiz/*                                  | CC-BY-NC-ND-4.0  | |
 | dBiz/DejaVuSansMono.ttf                 | Bitstream-Vera   | |
@@ -205,6 +220,8 @@ Below is a list of artwork licenses from plugins
 | JW-Modules/*                            | BSD-3-Clause     | No artwork specific license provided |
 | JW-Modules/DejaVuSansMono.ttf           | Bitstream-Vera   | Unused in Cardinal |
 | JW-Modules/res/fonts/ShareTechMono-Regular.ttf | OFL-1.1 | |
+| kathode/*                               | MIT              | No artwork specific license provided |
+| Kilpatrick-Toolbox/*                    | Custom           | Copyright © Andrew Kilpatrick and/or others; commercial use requires the author's permission (README) |
 | kocmoc/*                                | GPL-3.0-or-later | No artwork specific license provided |
 | LifeFormModular/*                       | MIT              | No artwork specific license provided |
 | LilacLoop/*                             | GPL-3.0-or-later | No artwork specific license provided |
@@ -228,6 +245,7 @@ Below is a list of artwork licenses from plugins
 | Mog/*                                   | CC0-1.0          | |
 | Mog/components/*                        | CC-BY-NC-4.0     | |
 | Mog/Exo2-BoldItalic.ttf                 | OFL-1.1-RFN      | |
+| mschack-VCV-Rack-Plugins/*              | BSD-3-Clause     | No artwork specific license provided |
 | mscHack/*                               | BSD-3-Clause     | No artwork specific license provided, see [mschack#108](https://github.com/mschack/VCV-Rack-Plugins/issues/108) |
 | MSM/*                                   | MIT              | No artwork specific license provided |
 | MSM/Fonts/DejaVuSansMono.ttf            | Bitstream-Vera   | |
@@ -252,11 +270,13 @@ Below is a list of artwork licenses from plugins
 | repelzen/*                              | CC-BY-SA-4.0     | |
 | RebelTech/*                             | CC-BY-NC-4.0     | |
 | Sapphire/*                              | GPL-3.0-or-later | No artwork specific license provided |
+| SignalFunctionSet/*                     | GPL-3.0-or-later | No artwork specific license provided |
 | sonusmodular/*                          | GPL-3.0-or-later | [Same license as source code](https://gitlab.com/sonusdept/sonusmodular/-/issues/14) |
 | StarlingVia/*                           | MIT              | No artwork specific license provided |
 | stocaudio/*                             | GPL-3.0-or-later | No artwork specific license provided |
 | stoermelder-packone/*                   | GPL-3.0-or-later | No artwork specific license provided |
 | stoermelder-packone/fonts/RedkostComic.otf | OFL-1.1-RFN   | |
+| Submit/*                                | GPL-3.0-only     | No artwork specific license provided |
 | surgext/*                               | GPL-3.0-or-later | |
 | surgext/xt/*                            | CC-BY-NC-SA-4.0  | |
 | surgext/xt/fonts/quicksand/*            | OFL-1.1-RFN      | |
