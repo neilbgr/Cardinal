@@ -36,7 +36,8 @@
 	url = https://github.com/CardinalModules/rackwindows.git
 [submodule "plugins/ImpromptuModular"]
 	path = plugins/ImpromptuModular
-	url = https://github.com/MarcBoule/ImpromptuModular.git
+	url = https://github.com/neilbgr/ImpromptuModular.git
+	branch = cardinal
 [submodule "plugins/AmalgamatedHarmonics"]
 	path = plugins/AmalgamatedHarmonics
 	url = https://github.com/jhoar/AmalgamatedHarmonics.git
@@ -45,7 +46,8 @@
 	url = https://github.com/CardinalModules/cf.git
 [submodule "plugins/MindMeldModular"]
 	path = plugins/MindMeldModular
-	url = https://github.com/MarcBoule/MindMeldModular.git
+	url = https://github.com/neilbgr/MindMeldModular.git
+	branch = cardinal
 [submodule "plugins/ValleyAudio"]
 	path = plugins/ValleyAudio
 	url = https://github.com/ValleyAudio/ValleyRackFree.git
@@ -208,7 +210,8 @@
 	url = https://github.com/Ahineya/vcv-myth-plugin.git
 [submodule "plugins/alefsbits"]
 	path = plugins/alefsbits
-	url = https://github.com/alefnull/alefsbits.git
+	url = https://github.com/neilbgr/alefsbits.git
+	branch = cardinal
 [submodule "plugins/h4n4-modules"]
 	path = plugins/h4n4-modules
 	url = https://github.com/hannakoppelaar/h4n4-modules.git
@@ -220,7 +223,8 @@
 	url = https://github.com/hemmer/rebel-tech-vcv.git
 [submodule "plugins/stoermelder-packone"]
 	path = plugins/stoermelder-packone
-	url = https://github.com/stoermelder/vcvrack-packone.git
+	url = https://github.com/neilbgr/vcvrack-packone.git
+	branch = cardinal
 [submodule "plugins/surgext"]
 	path = plugins/surgext
 	url = https://github.com/surge-synthesizer/surge-rack.git
@@ -290,7 +294,8 @@
 	url = https://github.com/neilbgr/Kilpatrick-Toolbox.git
 [submodule "plugins/mschack-VCV-Rack-Plugins"]
 	path = plugins/mschack-VCV-Rack-Plugins
-	url = https://github.com/baconpaul/mschack-VCV-Rack-Plugins.git
+	url = https://github.com/neilbgr/mschack-VCV-Rack-Plugins.git
+	branch = cardinal
 [submodule "plugins/kathode"]
 	path = plugins/kathode
 	url = https://github.com/ketodin/kathode.git
