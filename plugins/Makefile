@@ -339,7 +339,7 @@ PLUGIN_FILES += $(filter-out alefsbits/src/plugin.cpp alefsbits/src/polyplay.cpp
 PLUGIN_FILES += $(wildcard alefsbits/src/widgets/*.cpp)
 
 # modules/types which are present in other plugins
-ALEFSBITS_CUSTOM = Steps Logic
+ALEFSBITS_CUSTOM = Steps Logic Scope
 
 ALEFSBITS_FLAGS  = $(filter-out -std=gnu++11,$(BUILD_CXX_FLAGS))
 ALEFSBITS_FLAGS += -std=gnu++17
@@ -4308,12 +4308,6 @@ $(BUILD_DIR)/ProducerPack/%.cpp.o: ProducerPack/%.cpp
 	@echo "Compiling $<"
 	$(SILENT)$(CXX) $< $(PRODUCERPACK_FLAGS) -c -o $@ \
 		-DpluginInstance=pluginInstance__ProducerPack
-
-$(BUILD_DIR)/ImpromptuModular/%.cpp.o: ImpromptuModular/%.cpp
-	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
-	@echo "Compiling $<"
-	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
-		-DpluginInstance=pluginInstance__ImpromptuModular
 
 $(BUILD_DIR)/SignalFunctionSet-VCV-Rack/%.cpp.o: SignalFunctionSet-VCV-Rack/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
