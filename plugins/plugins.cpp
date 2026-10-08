@@ -53,7 +53,9 @@ extern Model* modelDivisions;
 #include "AmalgamatedHarmonics/src/AH.hpp"
 
 // AmbientModules
+#define modelBlank modelAmbientModulesBlank
 #include "AmbientModules/src/plugin.hpp"
+#undef modelBlank
 
 // AnimatedCircuits
 #include "AnimatedCircuits/src/plugin.hpp"
@@ -1442,7 +1444,7 @@ static void initStatic__AmbientModules()
     const StaticPluginLoader spl(p, "AmbientModules");
     if (spl.ok())
     {
-        p->addModel(modelBlank);
+        p->addModel(modelAmbientModulesBlank);
         p->addModel(modelLunar50Drone);
         p->addModel(modelLunarLFO);
         p->addModel(modelLunarVCO);

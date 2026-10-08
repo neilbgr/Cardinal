@@ -339,7 +339,7 @@ PLUGIN_FILES += $(filter-out alefsbits/src/plugin.cpp alefsbits/src/polyplay.cpp
 PLUGIN_FILES += $(wildcard alefsbits/src/widgets/*.cpp)
 
 # modules/types which are present in other plugins
-ALEFSBITS_CUSTOM = Steps Logic Scope
+ALEFSBITS_CUSTOM = Steps Logic Scope ScopeData Quantizer
 
 ALEFSBITS_FLAGS  = $(filter-out -std=gnu++11,$(BUILD_CXX_FLAGS))
 ALEFSBITS_FLAGS += -std=gnu++17
@@ -352,7 +352,7 @@ PLUGIN_FILES += $(filter-out Algoritmarte/src/plugin.cpp,$(wildcard Algoritmarte
 # --------------------------------------------------------------
 # Aluminium
 
-PLUGIN_FILES += $(wildcard Aluminium/src/*.cpp)
+PLUGIN_FILES += $(filter-out Aluminium/src/plugin.cpp,$(wildcard Aluminium/src/*.cpp))
 
 # --------------------------------------------------------------
 # Aaron Static
@@ -379,7 +379,10 @@ AMALGAMATEDHARMONICS_CUSTOM += bogaudio
 # --------------------------------------------------------------
 # AmbientModules
 
-PLUGIN_FILES += $(wildcard AmbientModules/src/*.cpp)
+PLUGIN_FILES += $(filter-out AmbientModules/src/plugin.cpp,$(wildcard AmbientModules/src/*.cpp))
+
+# modules/types clashing with other plugins
+AMBIENTMODULES_CUSTOM = Blank XYPad
 
 # --------------------------------------------------------------
 # AnimatedCircuits
@@ -3541,6 +3544,7 @@ $(BUILD_DIR)/AmbientModules/%.cpp.o: AmbientModules/%.cpp
 	-@mkdir -p "$(shell dirname $(BUILD_DIR)/$<)"
 	@echo "Compiling $<"
 	$(SILENT)$(CXX) $< $(BUILD_CXX_FLAGS) -c -o $@ \
+		$(foreach m,$(AMBIENTMODULES_CUSTOM),$(call custom_module_names,$(m),AmbientModules)) \
 		-DpluginInstance=pluginInstance__AmbientModules
 
 $(BUILD_DIR)/AnimatedCircuits/%.cpp.o: AnimatedCircuits/%.cpp

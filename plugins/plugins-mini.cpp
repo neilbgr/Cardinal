@@ -119,7 +119,7 @@ extern Model* modelPads;
 extern Model* modelLunarPapaSrapa;
 extern Model* modelLunarSequencer;
 extern Model* modelLunar50Drone;
-extern Model* modelBlank;
+extern Model* modelAmbientModulesBlank;
 extern Model* modelLunarLFO;
 extern Model* modelLunarVCO;
 
@@ -851,7 +851,7 @@ static void initStatic__AmbientModules()
         p->addModel(modelLunarPapaSrapa);
         p->addModel(modelLunarSequencer);
         p->addModel(modelLunar50Drone);
-        p->addModel(modelBlank);
+        p->addModel(modelAmbientModulesBlank);
         p->addModel(modelLunarLFO);
         p->addModel(modelLunarVCO);
         p->addModel(modelLunarMixer);
