@@ -403,6 +403,7 @@ jobs:
 
   windows:
     strategy:
+      fail-fast: false
       matrix:
         target: [win32, win64]
     runs-on: ubuntu-latest
