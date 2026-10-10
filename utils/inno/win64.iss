@@ -2,17 +2,18 @@
 
 [Setup]
 ArchitecturesInstallIn64BitMode=x64
-AppName=Cardinal
-AppPublisher=DISTRHO
-AppPublisherURL=https://github.com/DISTRHO/Cardinal/
-AppSupportURL=https://github.com/DISTRHO/Cardinal/issues/
-AppUpdatesURL=https://github.com/DISTRHO/Cardinal/releases/
+AppName=Cardinal (neilbgr edition)
+AppId={{5E0C3B41-9C7A-4D2E-8F61-2B7D9A4C1E58}
+AppPublisher=neilbgr
+AppPublisherURL=https://github.com/neilbgr/Cardinal/
+AppSupportURL=https://github.com/neilbgr/Cardinal/issues/
+AppUpdatesURL=https://github.com/neilbgr/Cardinal/releases/
 AppVersion={#VERSION}
-DefaultDirName={commonpf64}\Cardinal
+DefaultDirName={commonpf64}\Cardinal-neilbgr
 DisableDirPage=yes
 DisableWelcomePage=no
 LicenseFile=..\..\LICENSE
-OutputBaseFilename=Cardinal-win64-{#VERSION}-installer
+OutputBaseFilename=Cardinal-neilbgr-win64-{#VERSION}-installer
 OutputDir=.
 UsePreviousAppDir=no
 
@@ -35,39 +36,42 @@ Name: clap; Description: "CLAP plugin"; Types: normal;
 ; icon
 Source: "..\..\utils\distrho.ico"; DestDir: "{app}"; Components: resources; Flags: ignoreversion;
 ; carla
-Source: "..\..\carla\bin\carla-bridge-*.*"; DestDir: "{commoncf64}\Cardinal\Carla"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\bin\carla-discovery-*.exe"; DestDir: "{commoncf64}\Cardinal\Carla"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\bin\libcarla_utils.dll"; DestDir: "{commoncf64}\Cardinal\Carla"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\bin\libcarla_frontend.dll"; DestDir: "{commoncf64}\Cardinal\Carla"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\libpython3.8.dll"; DestDir: "{commoncf64}\Cardinal\Carla\resources"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\Qt5*.dll"; DestDir: "{commoncf64}\Cardinal\Carla\resources"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\resources\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\iconengines\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources\iconengines"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\imageformats\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources\imageformats"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\platforms\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources\platforms"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\styles\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources\styles"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\resources\lib\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources\lib"; Components: carla; Flags: ignoreversion;
-Source: "..\..\carla\build\Carla\resources\lib\PyQt5\*.*"; DestDir: "{commoncf64}\Cardinal\Carla\resources\lib\PyQt5"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\bin\carla-bridge-*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\bin\carla-discovery-*.exe"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\bin\libcarla_utils.dll"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\bin\libcarla_frontend.dll"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\libpython3.8.dll"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\Qt5*.dll"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\resources\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\iconengines\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources\iconengines"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\imageformats\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources\imageformats"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\platforms\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources\platforms"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\styles\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources\styles"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\resources\lib\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources\lib"; Components: carla; Flags: ignoreversion;
+Source: "..\..\carla\build\Carla\resources\lib\PyQt5\*.*"; DestDir: "{commoncf64}\Cardinal-neilbgr\Carla\resources\lib\PyQt5"; Components: carla; Flags: ignoreversion;
 ; jack
 Source: "..\..\bin\Cardinal.exe"; DestDir: "{app}"; Components: jack; Flags: ignoreversion;
 ; native
 Source: "..\..\bin\CardinalNative.exe"; DestDir: "{app}"; Components: native; Flags: ignoreversion;
 ; lv2
-Source: "..\..\bin\Cardinal.lv2\*.*"; DestDir: "{commoncf64}\LV2\Cardinal.lv2"; Components: lv2; Flags: ignoreversion;
-Source: "..\..\bin\CardinalFX.lv2\*.*"; DestDir: "{commoncf64}\LV2\CardinalFX.lv2"; Components: lv2; Flags: ignoreversion;
-Source: "..\..\bin\CardinalSynth.lv2\*.*"; DestDir: "{commoncf64}\LV2\CardinalSynth.lv2"; Components: lv2; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.lv2\*.*"; DestDir: "{commoncf64}\LV2\Cardinal-neilbgr.lv2"; Components: lv2; Flags: ignoreversion;
+Source: "..\..\bin\CardinalFX.lv2\*.*"; DestDir: "{commoncf64}\LV2\CardinalFX-neilbgr.lv2"; Components: lv2; Flags: ignoreversion;
+Source: "..\..\bin\CardinalSynth.lv2\*.*"; DestDir: "{commoncf64}\LV2\CardinalSynth-neilbgr.lv2"; Components: lv2; Flags: ignoreversion;
 ; vst2
-Source: "..\..\bin\Cardinal.vst\*.*"; DestDir: "{code:GetVST2Dir}\Cardinal.vst"; Components: vst2; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.vst\CardinalFX.dll"; DestDir: "{code:GetVST2Dir}\Cardinal-neilbgr.vst"; DestName: "CardinalFX-neilbgr.dll"; Components: vst2; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.vst\CardinalSynth.dll"; DestDir: "{code:GetVST2Dir}\Cardinal-neilbgr.vst"; DestName: "CardinalSynth-neilbgr.dll"; Components: vst2; Flags: ignoreversion;
 ; vst3
-Source: "..\..\bin\Cardinal.vst3\Contents\x86_64-win\Cardinal.vst3"; DestDir: "{commoncf64}\VST3\Cardinal.vst3\Contents\x86_64-win"; Components: vst3; Flags: ignoreversion;
-Source: "..\..\bin\CardinalFX.vst3\Contents\x86_64-win\CardinalFX.vst3"; DestDir: "{commoncf64}\VST3\CardinalFX.vst3\Contents\x86_64-win"; Components: vst3; Flags: ignoreversion;
-Source: "..\..\bin\CardinalSynth.vst3\Contents\x86_64-win\CardinalSynth.vst3"; DestDir: "{commoncf64}\VST3\CardinalSynth.vst3\Contents\x86_64-win"; Components: vst3; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.vst3\Contents\x86_64-win\Cardinal.vst3"; DestDir: "{commoncf64}\VST3\Cardinal-neilbgr.vst3\Contents\x86_64-win"; DestName: "Cardinal-neilbgr.vst3"; Components: vst3; Flags: ignoreversion;
+Source: "..\..\bin\CardinalFX.vst3\Contents\x86_64-win\CardinalFX.vst3"; DestDir: "{commoncf64}\VST3\CardinalFX-neilbgr.vst3\Contents\x86_64-win"; DestName: "CardinalFX-neilbgr.vst3"; Components: vst3; Flags: ignoreversion;
+Source: "..\..\bin\CardinalSynth.vst3\Contents\x86_64-win\CardinalSynth.vst3"; DestDir: "{commoncf64}\VST3\CardinalSynth-neilbgr.vst3\Contents\x86_64-win"; DestName: "CardinalSynth-neilbgr.vst3"; Components: vst3; Flags: ignoreversion;
 ; clap
-Source: "..\..\bin\Cardinal.clap\*.*"; DestDir: "{commoncf64}\CLAP\Cardinal.clap"; Components: clap; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.clap\Cardinal.clap"; DestDir: "{commoncf64}\CLAP\Cardinal-neilbgr.clap"; DestName: "Cardinal-neilbgr.clap"; Components: clap; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.clap\CardinalFX.clap"; DestDir: "{commoncf64}\CLAP\Cardinal-neilbgr.clap"; DestName: "CardinalFX-neilbgr.clap"; Components: clap; Flags: ignoreversion;
+Source: "..\..\bin\Cardinal.clap\CardinalSynth.clap"; DestDir: "{commoncf64}\CLAP\Cardinal-neilbgr.clap"; DestName: "CardinalSynth-neilbgr.clap"; Components: clap; Flags: ignoreversion;
 
 [Icons]
-Name: "{commonprograms}\Cardinal (JACK)"; Filename: "{app}\Cardinal.exe"; IconFilename: "{app}\distrho.ico"; WorkingDir: "{app}"; Comment: "Virtual modular synthesizer plugin (JACK variant)"; Components: jack;
-Name: "{commonprograms}\Cardinal (Native)"; Filename: "{app}\CardinalNative.exe"; IconFilename: "{app}\distrho.ico"; WorkingDir: "{app}"; Comment: "Virtual modular synthesizer plugin (Native variant)"; Components: native;
+Name: "{commonprograms}\Cardinal neilbgr edition (JACK)"; Filename: "{app}\Cardinal.exe"; IconFilename: "{app}\distrho.ico"; WorkingDir: "{app}"; Comment: "Virtual modular synthesizer plugin (JACK variant)"; Components: jack;
+Name: "{commonprograms}\Cardinal neilbgr edition (Native)"; Filename: "{app}\CardinalNative.exe"; IconFilename: "{app}\distrho.ico"; WorkingDir: "{app}"; Comment: "Virtual modular synthesizer plugin (Native variant)"; Components: native;
 
 ; based on https://www.kvraudio.com/forum/viewtopic.php?t=501615
 [Code]

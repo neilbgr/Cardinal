@@ -629,7 +629,9 @@ Initializer::Initializer(const CardinalBasePlugin* const plugin, const CardinalB
                #elif defined(ARCH_MAC)
                 asset::systemDir = "/Library/Application Support/Cardinal";
                #elif defined(ARCH_WIN)
-                asset::systemDir = system::join(getSpecialPath(kSpecialPathCommonProgramFiles), "Cardinal");
+                // must match the resources folder of utils/create-windows-installer.sh,
+                // distinct from official Cardinal's so both installs can coexist
+                asset::systemDir = system::join(getSpecialPath(kSpecialPathCommonProgramFiles), "Cardinal-neilbgr");
                #else
                 asset::systemDir = CARDINAL_PLUGIN_PREFIX "/share/cardinal";
                #endif

@@ -48,7 +48,7 @@ IFS='
 '
 for f in $(find -L bin/Cardinal.lv2/resources/ -type f); do
     d=$(dirname $(echo ${f} | sed "s|bin/Cardinal.lv2/resources/||"))
-    echo "Source: \"..\\..\\$(echo ${f} | tr '/' '\\')\"; DestDir: \"{commoncf${bit}}\\Cardinal\\$(echo ${d} | tr '/' '\\')\"; Components: resources; Flags: ignoreversion;" >> utils/inno/resources.iss
+    echo "Source: \"..\\..\\$(echo ${f} | tr '/' '\\')\"; DestDir: \"{commoncf${bit}}\\Cardinal-neilbgr\\$(echo ${d} | tr '/' '\\')\"; Components: resources; Flags: ignoreversion;" >> utils/inno/resources.iss
 done
 
 # generate version
