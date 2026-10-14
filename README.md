@@ -1,4 +1,14 @@
-# DISTRHO Cardinal
+# DISTRHO Cardinal (neilbgr edition)
+
+## About this fork
+
+This is a personal fork of [DISTRHO Cardinal](https://github.com/DISTRHO/Cardinal), built as "Cardinal (neilbgr edition)". Its purpose is to ship two module packs inside Cardinal: [AmbientModules](https://github.com/neilbgr/AmbientModules) (modules inspired by the Elta Music SOLAR 42F) and [Aluminium](https://github.com/neilbgr/Aluminium) (Zones, Pads and PadX, for live performance with MIDI keyboards and pad controllers).
+
+The DISTRHO team doesn't accept AI-assisted code, so these modules won't be included in the official Cardinal. Both packs, and the changes this fork makes to Cardinal, were written with an AI coding assistant (Claude Code), under the direction of a human developer who reviewed, tested and approved every change before it was committed. See the "AI disclosure" section of each pack's README for details.
+
+You don't need this fork to use them: AmbientModules and Aluminium are available for free in VCV Rack, from the [VCV Library](https://library.vcvrack.com/).
+
+Builds of this fork use their own plugin names and IDs, so they install next to an official Cardinal without clashing. Releases: https://github.com/neilbgr/Cardinal/releases. Everything below is the upstream Cardinal README.
 
 *Cardinal, the Rack!*
 
@@ -127,7 +137,9 @@ At the moment the following 3rd-party modules are provided:
 - [Admiral](https://github.com/wapiflapi/admiral)
 - [alef's bits](https://github.com/alefnull/alefsbits)
 - [AlgoritmArte](https://github.com/algoritmarte/AlgoritmarteVCVPlugin)
+- [Aluminium](https://github.com/neilbgr/Aluminium) (this fork only)
 - [Amalgamated Harmonics](https://github.com/jhoar/AmalgamatedHarmonics)
+- [AmbientModules](https://github.com/neilbgr/AmbientModules) (this fork only)
 - [Animated Circuits](https://github.com/AnimatedCircuits/RackModules)
 - [Arable Instruments](https://github.com/adbrant/ArableInstruments)
 - [Aria Salvatrice](https://aria.dog/modules/)

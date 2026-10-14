@@ -665,9 +665,9 @@ void Window::step() {
 	// Set window title
 	if (isStandalone()) {
 #if CARDINAL_VARIANT_MINI
-		std::string windowTitle = "Cardinal Mini";
+		std::string windowTitle = "Cardinal Mini (neilbgr edition) " + CARDINAL_VERSION;
 #else
-		std::string windowTitle = "Cardinal";
+		std::string windowTitle = "Cardinal (neilbgr edition) " + CARDINAL_VERSION;
 #endif
 		if (APP->patch->path != "") {
 			windowTitle += " - ";
