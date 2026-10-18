@@ -114,6 +114,9 @@ void surgext_rack_update_theme();
 extern Model* modelPadX;
 extern Model* modelZones;
 extern Model* modelPads;
+extern Model* modelFader;
+extern Model* modelFaders2;
+extern Model* modelFaders4;
 
 // AmbientModules
 extern Model* modelLunarPapaSrapa;
@@ -837,6 +840,9 @@ static void initStatic__Aluminium()
         p->addModel(modelPadX);
         p->addModel(modelZones);
         p->addModel(modelPads);
+        p->addModel(modelFader);
+        p->addModel(modelFaders2);
+        p->addModel(modelFaders4);
     }
 }
 

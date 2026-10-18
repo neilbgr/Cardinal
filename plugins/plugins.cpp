@@ -1401,6 +1401,9 @@ static void initStatic__Aluminium()
         p->addModel(modelZones);
         p->addModel(modelPads);
         p->addModel(modelPadX);
+        p->addModel(modelFader);
+        p->addModel(modelFaders2);
+        p->addModel(modelFaders4);
     }
 }
 
