@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [aarch64, armhf, i686, riscv64, x86_64]
+        target: [aarch64, armhf, i686, x86_64]
     runs-on: ubuntu-latest
     container:
       image: ubuntu:22.04
@@ -55,20 +55,14 @@ jobs:
       - name: Setup dependencies
         shell: bash
         run: |
-          # workaround for ncurses riscv64 build failure
-          if [[ "${{ matrix.target }}" = "riscv64" ]]; then
-              echo "deb [arch=riscv64] http://ports.ubuntu.com/ubuntu-ports jammy main restricted universe multiverse" | tee -a /etc/apt/sources.list
-              echo "deb [arch=riscv64] http://ports.ubuntu.com/ubuntu-ports jammy-updates main restricted universe multiverse" | tee -a /etc/apt/sources.list
-              echo "deb [arch=riscv64] http://ports.ubuntu.com/ubuntu-ports jammy-backports main restricted universe multiverse" | tee -a /etc/apt/sources.list
-              apt-get update -qq
-              apt-get purge -yqq libncurses-dev
-              apt-get install -yqq wget
-              wget \
-                  http://kx.studio/tmp/libtinfo6_6.3-2ubuntu0.1_amd64.deb \
-                  http://kx.studio/tmp/libncurses6_6.3-2ubuntu0.1_amd64.deb \
-                  http://kx.studio/tmp/libncursesw6_6.3-2ubuntu0.1_amd64.deb \
-                  && dpkg -i *.deb && rm *.deb
-              apt-get install -yqq libtinfo6:riscv64
+          # PawPaw adds ports.ubuntu.com without the -security pocket, so multi-arch
+          # libraries (e.g. libssl3) can't match the amd64 versions from jammy-security
+          case "${{ matrix.target }}" in
+              aarch64) port_arch=arm64 ;;
+              armhf) port_arch=armhf ;;
+          esac
+          if [[ -n "${port_arch}" ]]; then
+              echo "deb [arch=${port_arch}] http://ports.ubuntu.com/ubuntu-ports jammy-security main restricted universe multiverse" | tee -a /etc/apt/sources.list
           fi
           ./deps/PawPaw/.github/workflows/bootstrap-deps.sh linux-${{ matrix.target }}
           apt-get install -yqq wget zip
@@ -89,12 +83,6 @@ jobs:
         shell: bash
         run: |
           apt-get install -yqq libsdl2-dev:i386
-          apt-get clean
-      - name: Setup dependencies (riscv64)
-        if: ${{ matrix.target == 'riscv64' }}
-        shell: bash
-        run: |
-          apt-get install -yqq libsdl2-dev:riscv64
           apt-get clean
       - name: Setup dependencies (x86_64)
         if: ${{ matrix.target == 'x86_64' }}
@@ -254,6 +242,9 @@ jobs:
             ${{ github.event.repository.name }}-*.pkg
 
   mod-plugin-builder:
+    # disabled: Linaro shut down releases.linaro.org, so crosstool-NG can no longer
+    # fetch the gcc-linaro sources every MOD toolchain is built from
+    if: false
     strategy:
       matrix:
         include:
