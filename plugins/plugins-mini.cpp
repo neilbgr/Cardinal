@@ -117,6 +117,7 @@ extern Model* modelPads;
 extern Model* modelFader;
 extern Model* modelFaders2;
 extern Model* modelFaders4;
+extern Model* modelButtons;
 
 // AmbientModules
 extern Model* modelLunarPapaSrapa;
@@ -843,6 +844,7 @@ static void initStatic__Aluminium()
         p->addModel(modelFader);
         p->addModel(modelFaders2);
         p->addModel(modelFaders4);
+        p->addModel(modelButtons);
     }
 }
 

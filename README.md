@@ -2,7 +2,7 @@
 
 ## About this fork
 
-This is a personal fork of [DISTRHO Cardinal](https://github.com/DISTRHO/Cardinal), built as "Cardinal (neilbgr edition)". Its purpose is to ship two module packs inside Cardinal: [AmbientModules](https://github.com/neilbgr/AmbientModules) (modules inspired by the Elta Music SOLAR 42F) and [Aluminium](https://github.com/neilbgr/Aluminium) (Zones, Pads and PadX, for live performance with MIDI keyboards and pad controllers).
+This is a personal fork of [DISTRHO Cardinal](https://github.com/DISTRHO/Cardinal), built as "Cardinal (neilbgr edition)". Its purpose is to ship two module packs inside Cardinal: [AmbientModules](https://github.com/neilbgr/AmbientModules) (modules inspired by the Elta Music SOLAR 42F) and [Aluminium](https://github.com/neilbgr/Aluminium) (Zones, Pads, PadX, Fader/Faders2/Faders4 and Buttons, for live performance with MIDI controllers).
 
 The DISTRHO team doesn't accept AI-assisted code, so these modules won't be included in the official Cardinal. Both packs, and the changes this fork makes to Cardinal, were written with an AI coding assistant (Claude Code), under the direction of a human developer who reviewed, tested and approved every change before it was committed. See the "AI disclosure" section of each pack's README for details.
 
