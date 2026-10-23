@@ -16,6 +16,11 @@ env:
   PAWPAW_SKIP_OPENSSL: 1
   PAWPAW_SKIP_SAMPLERATE: 1
   PAWPAW_SKIP_TESTS: 1
+  # gitlab.xiph.org keeps failing with 502/504, fetch Rack's speexdsp submodule
+  # from xiph's GitHub mirror instead
+  GIT_CONFIG_COUNT: 1
+  GIT_CONFIG_KEY_0: url.https://github.com/xiph/speexdsp.git.insteadOf
+  GIT_CONFIG_VALUE_0: https://gitlab.xiph.org/xiph/speexdsp.git
 
 jobs:
   linux:
@@ -433,7 +438,11 @@ jobs:
           key: ccache-${{ matrix.target }}-v${{ env.CACHE_VERSION }}
       - name: Build extra dependencies
         run: |
+          # the cross-compiled Python picks up the host's /usr/include/uuid/uuid.h
+          # (uuid-dev) and fails to build its _uuid module with mingw
+          if [ -d /usr/include/uuid ]; then mv /usr/include/uuid /usr/include/uuid.host; fi
           ./deps/PawPaw/bootstrap-cardinal.sh ${{ matrix.target }} && ./deps/PawPaw/.cleanup.sh ${{ matrix.target }}
+          if [ -d /usr/include/uuid.host ]; then mv /usr/include/uuid.host /usr/include/uuid; fi
       - name: Build cross-compiled (base)
         if: steps.cache.outputs.cache-hit == 'true'
         shell: bash
