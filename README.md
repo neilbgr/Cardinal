@@ -10,9 +10,13 @@ This is a personal fork of [DISTRHO Cardinal](https://github.com/DISTRHO/Cardina
 
 The DISTRHO team doesn't accept AI-assisted code, so these modules won't be included in the official Cardinal. Both packs, and the changes this fork makes to Cardinal, were written with an AI coding assistant (Claude Code), under the direction of a human developer who reviewed, tested and approved every change before it was committed. See the "AI disclosure" section of each pack's README for details.
 
-You don't need this fork to use them: AmbientModules and Aluminium are available for free in VCV Rack, from the [VCV Library](https://library.vcvrack.com/).
+Both packs are also available for free in VCV Rack, from the VCV Library ([AmbientModules](https://library.vcvrack.com/AmbientModules), [Aluminium](https://library.vcvrack.com/Aluminium)). For those who prefer Cardinal (standalone, or as a plugin in their DAW), this fork ships them built in.
 
-Builds of this fork use their own plugin names and IDs, so they install next to an official Cardinal without clashing. Releases: https://github.com/neilbgr/Cardinal/releases. Everything below is the upstream Cardinal README.
+This fork also widens the Cardinal Mini module selection, including a few open-source packs not in official Cardinal (marked "Cardinal Mini only" in [Included modules](#included-modules)).
+
+Builds of this fork use their own plugin names and IDs ("Cardinal (neilbgr edition)"), so they install next to an official Cardinal without clashing. Releases: https://github.com/neilbgr/Cardinal/releases.
+
+The rest of this README is the upstream Cardinal README, adapted where this fork differs.
 
 *Cardinal, the Rack!*
 
@@ -37,6 +41,7 @@ All VCV branding has been removed (to the best of our knowledge) in order to avo
 ## Current status
 
 Cardinal should be considered stable, if you spot any bugs please report them.  
+Bugs in AmbientModules, Aluminium or this fork's builds go to [this fork's issues](https://github.com/neilbgr/Cardinal/issues), not to upstream Cardinal.  
 Currently the following should be noted:
 
 - CLAP support is a work-in-progress [DPF#383](https://github.com/DISTRHO/DPF/issues/383)
@@ -45,22 +50,24 @@ Currently the following should be noted:
 
 ### Stable release
 
-Cardinal releases have official builds for Linux, macOS and Windows.  
-You can find these under https://github.com/DISTRHO/Cardinal/releases.
+This fork's releases have builds for Linux, macOS, Windows and the Web.  
+You can find these under https://github.com/neilbgr/Cardinal/releases.  
+Official (upstream) Cardinal releases are under https://github.com/DISTRHO/Cardinal/releases.
 
 #### Installing & Updating releases
-See our Wiki on installing official builds [Wiki/Install](https://github.com/DISTRHO/Cardinal/wiki/Install).
+Installation works the same as for official Cardinal, see upstream's Wiki [Wiki/Install](https://github.com/DISTRHO/Cardinal/wiki/Install).
 There are additional notes in [BUILDING.md#installing](docs/BUILDING.md#installing)
 
-There are Linux builds for various architectures (armhf, arm64, i686, riscv64 and x86_64), macOS "universal" (arm64 + intel) and Windows 32 and 64bit builds.
-Both macOS and Windows builds have an installer.  
+There are Linux builds for various architectures (armhf, arm64, i686 and x86_64), macOS "universal" (arm64 + intel), Windows 32 and 64bit builds and WebAssembly builds (with and without SIMD).
+The macOS build is a .pkg installer, Windows builds come both as an installer and as a plain zip.  
+Unlike upstream, this fork no longer produces riscv64 and MOD Audio builds (their toolchain sources are no longer available).
 
 Note: Neither the macOS or Windows builds are signed, so expect warnings saying they are from an "untrusted developer".
 
 ### Nightly builds
 
-You can find builds for pretty much any recent Cardinal commit [here](https://github.com/DISTRHO/Cardinal/actions/workflows/build.yml).  
-Just click on any successful build, and scroll to the bottom to find the builds.  
+You can find builds for recent commits of this fork [here](https://github.com/neilbgr/Cardinal/actions/workflows/build.yml).  
+Just click on any build, and scroll to the bottom to find the builds (a run marked as failed can still hold builds for the platforms that succeeded).  
 (note the canvas-like area in the middle prevents mouse wheel scrolling)
 
 A GitHub account is required in order to download these builds.
@@ -97,16 +104,17 @@ Plugin type is set as regular "effect".
 
 ### Mini
 
-This is a special variant with a very small, hand-picked module selection and limited IO (2 audio ports plus 5 CV).  
-It only exists as LV2 and Standalone plugin.
+This is a special variant with a hand-picked module selection and limited IO (2 audio ports plus 5 CV).  
+Upstream, it only exists as LV2 and Standalone plugin.
+This fork's releases ship it as LV2, plus two VST2 variants with the same module selection: Mini FX (2 audio inputs and outputs) and Mini Synth (2 audio outputs, instrument), without CV ports.
 
-For now the list of selected modules is quite small, intentionally. We will add a few more as the need appears.  
-All included modules support polyphony, reducing confusion for new users not yet used to mono vs poly approach in Rack/Cardinal.
+Upstream keeps the module selection very small, with polyphonic modules only.  
+This fork widens it: AmbientModules, Aluminium and a selection of modules from other included packs, not all of them polyphonic.
 
 The main reason for this variant to exist is being able to support DSP/UI separation, which is only possible with more simple modules.  
 The DSP/UI separation means we can run the DSP on a different machine than the UI.  
 This is particularly interesting for running Cardinal on embed systems, being controlled remotely via a web browser or a native desktop application.  
-Such setup is already in use in [Cardinal Mini for MOD Audio](https://forum.mod.audio/t/distrho-cardinal-mini/9262/).
+Such setup is already in use in [Cardinal Mini for MOD Audio](https://forum.mod.audio/t/distrho-cardinal-mini/9262/) (upstream only, this fork has no MOD Audio build).
 
 
 ## Screenshots
@@ -158,6 +166,7 @@ At the moment the following 3rd-party modules are provided:
 - [Bogaudio](https://github.com/bogaudio/BogaudioModules)
 - [Catro/Modulo](https://github.com/catronomix/catro-modulo)
 - [cf](https://github.com/cfoulc/cf)
+- [Cella](https://github.com/victorkashirin/CellaVCV) (this fork only, Cardinal Mini only)
 - [ChowDSP](https://github.com/jatinchowdhury18/ChowDSP-VCV)
 - [Computerscare](https://github.com/freddyz/computerscare-vcv-modules)
 - [CVfunk](https://github.com/codygeary/CVfunk-Modules)
@@ -181,6 +190,8 @@ At the moment the following 3rd-party modules are provided:
 - [Impromptu](https://github.com/MarcBoule/ImpromptuModular)
 - [JW-Modules](https://github.com/jeremywen/JW-Modules)
 - [kocmoc](https://github.com/janne808/kocmoc-rack-modules)
+- [Kathode](https://github.com/ketodin/kathode) (this fork only, Cardinal Mini only)
+- [Kilpatrick Toolbox](https://github.com/kilpatrickaudio/Kilpatrick-Toolbox) (this fork only, Cardinal Mini only)
 - [LifeFormModular](https://github.com/TimeControlledOrganism/LifeFormModular)
 - [Lilac Loop](https://grough.github.io/lilac-loop-vcv)
 - [Little Utils](https://github.com/mgunyho/Little-Utils)
@@ -202,15 +213,18 @@ At the moment the following 3rd-party modules are provided:
 - [PdArray](https://github.com/mgunyho/PdArray)
 - [PinkTrombone](https://github.com/VegaDeftwing/PinkTromboneVCV)
 - [Prism](https://github.com/SteveRussell33/Prism)
+- [ProducerPack](https://github.com/4ms/ProducerPack) (this fork only, Cardinal Mini only)
 - [rackwindows](https://github.com/n0jo/rackwindows)
 - [RCM](https://github.com/Rcomian/rcm-modules/)
 - [RebelTech](https://github.com/hemmer/rebel-tech-vcv)
 - [repelzen](https://github.com/wiqid/repelzen)
 - [Sapphire](https://github.com/cosinekitty/sapphire)
+- [Signal Function Set](https://github.com/stuart78/SignalFunctionSet-VCV-Rack) (this fork only, Cardinal Mini only)
 - [Sonus Modular](https://gitlab.com/sonusdept/sonusmodular)
 - [stocaudio](https://github.com/aptrn/stocaudio-modules)
 - [Starling Via](https://github.com/starlingcode/Via-for-Rack)
 - [Stoermelder Pack-One](https://github.com/stoermelder/vcvrack-packone)
+- [Submit](https://github.com/submitaudio/submit-vcv-modules) (this fork only, Cardinal Mini only)
 - [Surge XT](https://github.com/surge-synthesizer/surge-rack)
 - [unless_modules](https://gitlab.com/unlessgames/unless_modules)
 - [Valley](https://github.com/ValleyAudio/ValleyRackFree)
@@ -225,12 +239,14 @@ Additionally Cardinal provides its own modules for DAW/Host automation, time pos
 
 ### Adding modules
 
-Installing new modules on a Cardinal build is not possible, but we can integrate existing open-source modules to be part of Cardinal.
-Details on this are available [here](https://github.com/DISTRHO/Cardinal/discussions/28).  
+Installing new modules on a Cardinal build is not possible, but existing open-source modules can be integrated to be part of Cardinal.
+For official Cardinal, details on this are available [here](https://github.com/DISTRHO/Cardinal/discussions/28).  
 Also check [this wiki page](https://github.com/DISTRHO/Cardinal/wiki/Possible-modules-to-include)
 where we discuss possible modules to include.  
 
 ### Module restrictions
+
+The rules below are upstream Cardinal's.
 
 All included modules are open-source and have a GPLv3+ compatible license. (GPLv3-only modules are not allowed)  
 It is a requirement that the final Cardinal binary is GPLv3+ licensed.
@@ -247,6 +263,14 @@ Cardinal allows their use because of how prevalent they are across many Rack mod
 Even the Rack "Component Library" (which can be considered the base widget elements) is CC-NC licensed.
 
 Any artwork that uses a custom license has had explicit permission to be used in Cardinal.
+
+This fork is more tolerant than upstream:
+
+- GPLv3-only modules are accepted (Submit, in Cardinal Mini only), so the Cardinal Mini binaries of this fork are GPLv3, not GPLv3+.
+- Artwork with a custom license is accepted without explicit permission when that license allows free, non-commercial redistribution (Kilpatrick Toolbox, in Cardinal Mini only: commercial use requires the author's permission).
+- Artwork whose license forbids derivative works or redistribution is still excluded (this is why Count Modula is not included).
+
+See [LICENSES.md](docs/LICENSES.md) for the licenses of the packs added by this fork.
 
 
 ## Why
@@ -301,4 +325,5 @@ An overview of the included code and linked submodules can be seen [here](docs/L
 ## Community chat
 
 Currently we are all on #cardinal IRC room in irc.libera.chat server.  
-Come join us in your favorite IRC client.
+Come join us in your favorite IRC client.  
+(This is upstream Cardinal's chat. For this fork, use [its issues](https://github.com/neilbgr/Cardinal/issues).)
