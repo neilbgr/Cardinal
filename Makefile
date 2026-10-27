@@ -15,7 +15,7 @@ include $(ROOT)/Makefile.base.mk
 # src/CardinalPlugin.cpp `getVersion`
 # utils/macOS/Info_{JACK,Native}.plist
 # .github/ISSUE_TEMPLATE/bug.yaml src/CardinalCommon.cpp src/CardinalPlugin.cpp utils/macOS/Info_{JACK,Native}.plist
-VERSION = 26.02-nb3
+VERSION = 26.02-nb4
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Build targets
