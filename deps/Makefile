@@ -164,7 +164,9 @@ DEP_MAKE += VERBOSE=1
 
 ifeq ($(shell uname -s),Darwin)
 ifeq ($(CIBUILD),true)
-DEP_MAKE += SHA256SUM="shasum5.30 -a 256"
+# Plain shasum: the versioned shasum5.30 binary no longer exists on the
+# macos-15 runner image.
+DEP_MAKE += SHA256SUM="shasum -a 256"
 else
 DEP_MAKE += SHA256SUM="shasum5.34 -a 256"
 endif
