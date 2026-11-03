@@ -105,7 +105,7 @@ void destroyStaticPlugins();
 }
 }
 
-const std::string CARDINAL_VERSION = "26.02-nb5";
+const std::string CARDINAL_VERSION = "26.02-nb6";
 
 // -----------------------------------------------------------------------------------------------------------
 
