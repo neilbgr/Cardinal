@@ -2106,6 +2106,7 @@ MINIRESOURCE_FILES += Aluminium/res/Screw_Dark.svg
 MINIRESOURCE_FILES += Aluminium/res/Screw_Light.svg
 MINIRESOURCE_FILES += Aluminium/res/Zones_Silk_Dark.svg
 MINIRESOURCE_FILES += Aluminium/res/Zones_Silk_Light.svg
+MINIRESOURCE_FILES += AmbientModules/presets
 MINIRESOURCE_FILES += AmbientModules/res/Blank_Black.svg
 MINIRESOURCE_FILES += AmbientModules/res/Blank_Blue.svg
 MINIRESOURCE_FILES += AmbientModules/res/Blank_Cream.svg
