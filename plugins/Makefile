@@ -1236,6 +1236,8 @@ endif
 
 ifeq ($(MACOS),true)
 SURGEXT_FLAGS += -Wno-undefined-bool-conversion -Wno-unused-variable -Wno-reorder -Wno-char-subscripts -Wno-sign-compare -Wno-ignored-qualifiers -Wno-c++17-extensions -Wno-unused-private-field
+# Xcode 16 clang: "p.template emplace_back(...)" in surgext src/VCO.cpp (still upstream as of 750f26c)
+SURGEXT_FLAGS += -Wno-missing-template-arg-list-after-template-kw
 SURGEXT_FLAGS += -DMAC
 else ifeq ($(WINDOWS),true)
 SURGEXT_FLAGS += -Wno-suggest-override -Wno-sign-compare -Wno-ignored-qualifiers -Wno-unused-variable -Wno-char-subscripts -Wno-reorder -Wno-int-in-bool-context
